@@ -1476,6 +1476,264 @@ les pages de la DDR) et avoir toute la DDR adressage.</p>
 données à la volé pour reduire la quantité de donnée stockée tout en lui donnant
 le maximum de valeur.</p>
 
+<h1 id="thales">20/01/2017 : Thales</h1>
+<p>Ingénieurie Logicielle en Developpement Embarqué certifié critique</p>
+
+<p>Laurent IMPERATRICE
+Charles DONNAT</p>
+
+<h2 id="thales-1">Thales</h2>
+
+<p>62 000 employés, 56 pays, R&amp;D 707 millions
+50% civil et 50% militaire
+Aéronautique, Espace, Transpor, défense, …</p>
+
+<h2 id="flight-avionics">Flight avionics</h2>
+
+<p>Proposer les différents équipement électrinique des avions.</p>
+
+<p>Centrales inertielles, GPS, Capteurs, instrument de secours</p>
+
+<p>C, C++, ADA 2012</p>
+
+<h2 id="un-cadre-normatif-do178b">Un cadre normatif DO178B</h2>
+
+<p>Définir la crétissité des pannes, par niveau et essayer de définir des mesures à
+prendre lors de la création du code pour que ca soit acceptable.</p>
+
+<p>La DO donne des objectifs à tenir mais ne demande rien quand aux moyens d’y
+parvenir</p>
+
+<p>Un artefacts ogiciels = tous les produits du développement logiciel</p>
+
+<h3 id="processus-de-tracabilit">Processus de tracabilité</h3>
+
+<p>Il faut que chaque ligne de code soit justifiée.</p>
+
+<p>Tout élément du binaire doit correspondre directement au code sources et doit
+correcpondre à un besoin du produit, ni plus ni moins.</p>
+
+<h3 id="processus-de-vrification">Processus de vérification</h3>
+
+<p>On ne regarde pas le code, mais les exigeances.</p>
+
+<p>Le code doit être couvert à 100% par les tests.</p>
+
+<p>Cette norme est imposé, acceptée par tous les industriels, et audités par des
+organismes externes.</p>
+
+<p>Le cycle en V c’est bien mais :</p>
+
+<ul>
+  <li>Trop chère à faire des changements à la fin</li>
+  <li>Pas assez flaxible</li>
+  <li>Si le client n’est pas content à la fin, aie aie aie</li>
+  <li>Gros problèmes entre le SW et le HW</li>
+  <li>Démotivation du personelle</li>
+</ul>
+
+<h2 id="les-mthodes-propres--thales-pour-parvenir--respecter-ces-normes">Les méthodes propres à Thales pour parvenir à respecter ces normes</h2>
+
+<h3 id="dveloppement-itratif-incrmental">Développement itératif incrémental</h3>
+
+<p>Le client veux quelques choses, l’équipe va le faire de façon pas à pas, morceau
+par morceau, mais il faudra les rassembler après : c’est l’itératif.</p>
+
+<p>Le client veux quelques choses, l’équipe va commencer par une ébauche et va
+l’améliorer de plus en plus: c’est l’incrémental</p>
+
+<p>Les deux ensemlbe fait de l’itératif incrémental</p>
+
+<h3 id="scrum">SCRUM</h3>
+
+<p>Une équipe, c’est :</p>
+
+<ul>
+  <li>1 product owner : personne qui connait très bien les spécs du client</li>
+  <li>7 +- 2 personnes, pluri-disciplinaires, co-localisées</li>
+  <li>1 ScumMaster</li>
+</ul>
+
+<p>Il peut y avoire des multi-Scrum:</p>
+
+<ul>
+  <li>Plusieurs équipes</li>
+  <li>1 super ScumMaster pour la synchronisation des équipes</li>
+  <li>1 super Product Owner garant du produit</li>
+</ul>
+
+<p>Itération:</p>
+
+<ul>
+  <li>Pas trop long ni trop court</li>
+</ul>
+
+<p>Product backlog :</p>
+
+<ul>
+  <li>Liste des fonctionnalités du produit</li>
+  <li>Fait par le Product Owner</li>
+  <li>Prioritées et estimées</li>
+  <li>Mise à jour à chaque itération</li>
+</ul>
+
+<p>Stand up Meeting:</p>
+
+<ul>
+  <li>Moment ou l’équipe se réunie pour parler des problèmes rencontrés</li>
+  <li>Faire un point sur : ce qui est fait, ce qui va, ce qui block, ce qui va être
+fait</li>
+</ul>
+
+<h3 id="extreme-programming---dveloppement">eXtreme Programming - Développement</h3>
+
+<p><strong>Problèmatique</strong></p>
+
+<ul>
+  <li>Développer le logiciel avec indépendance</li>
+  <li>Transférer les compétences en continue</li>
+</ul>
+
+<p><strong>Approche</strong></p>
+
+<ul>
+  <li>Pair programming
+    <ul>
+      <li>Sujet complexe</li>
+      <li>Formation</li>
+      <li>Partage de bonnes pratique</li>
+    </ul>
+  </li>
+  <li>Polyvalence des développeurs</li>
+  <li>Non Systématique</li>
+</ul>
+
+<h3 id="extreme-programming---test">eXtreme Programming - Test</h3>
+
+<p><strong>Problèmatique</strong></p>
+
+<ul>
+  <li>Plusieurs niveau HLR/LLR</li>
+  <li>Tester les exigences</li>
+  <li>Assurer que les tests soient complets</li>
+</ul>
+
+<p><strong>Approche</strong></p>
+
+<ul>
+  <li>Ecrire en même temps les tests et les exigenaces</li>
+  <li>Ecrire les tests avants le code</li>
+  <li>…</li>
+</ul>
+
+<h3 id="extreme-programming---intgration-continue">eXtreme Programming - Intégration continue</h3>
+
+<p><strong>Problèmatique</strong></p>
+
+<ul>
+  <li>Livrer un logiciel à tout moment</li>
+</ul>
+
+<p><strong>Approche</strong></p>
+
+<ul>
+  <li>Integret de façon continue le code des autres</li>
+  <li>Equipe mise à jour de façon continue
+    <ul>
+      <li>Feedback plus rapide</li>
+      <li>Correction rapide</li>
+      <li>Stop the line</li>
+    </ul>
+  </li>
+  <li>Production de warnings en continue</li>
+</ul>
+
+<p><strong>Dificultés</strong></p>
+
+<ul>
+  <li>Durée des tests automatiques</li>
+  <li>Stabilité de l’intégration continue, certain patch peux casser des choses qui
+passaient</li>
+</ul>
+
+<p><strong>Solutions</strong></p>
+
+<ul>
+  <li>Optimisation des tests automatique
+    <ul>
+      <li>Parallélisation</li>
+      <li>Certain server font tourner des tests toutes la journée</li>
+      <li>Certain server font tourner des tests toutes la nuit</li>
+    </ul>
+  </li>
+  <li>Rejouer TOUS les tests avant la livraison</li>
+</ul>
+
+<h3 id="lean---value-stream-mapping">Lean - Value Stream Mapping</h3>
+
+<p><strong>Problèmatique</strong></p>
+
+<p>Comment se mettre d’accord sur une liste d’acitivité à faire</p>
+
+<p><strong>Approche</strong></p>
+
+<ul>
+  <li>Réalisation d’un VSM</li>
+</ul>
+
+<h3 id="lean---kankan-task-board">Lean - Kankan (TAsk board)</h3>
+
+<p>Un tableau qui représente chaque tache à l’endroit où en est son avancement</p>
+
+<h3 id="lean---management-visuel">Lean - Management visuel</h3>
+
+<p><strong>Problèmatique</strong></p>
+
+<p>Comment rendre les problèmes visibles ?</p>
+
+<p><strong>Approche</strong></p>
+
+<ul>
+  <li>Création d’un espace dédié par projet</li>
+</ul>
+
+<h3 id="lean---pdca">Lean - PDCA</h3>
+
+<p><strong>Problématique</strong></p>
+
+<p>Comment résoudre les problèmes montrés par toutes ces techniques</p>
+
+<p><strong>Approche</strong></p>
+
+<ul>
+  <li>Plan  : Décrire, Chiffrer la situation, Classer les causes racines</li>
+  <li>Do    : Liste des problèmes</li>
+  <li>Check : Comment on peut vérifier si le problème se résoud ou s’empire</li>
+  <li>Act   : Comment réagir</li>
+</ul>
+
+<h2 id="conception-et-dveloppement---techno-objet">Conception et développement - Techno objet</h2>
+
+<p>Il faut absolument assurer que le code produit soit de qualité, testable,
+portable, evolutif, ré-utilisable.</p>
+
+<p>Pour cela, Analyse, Conception, Implémentation</p>
+
+<p>Programmation par contrat :</p>
+
+<ul>
+  <li>Pré-condition</li>
+  <li>Post-condition</li>
+  <li>Invariant</li>
+</ul>
+
+<h2 id="des-outils-adapts">Des outils adaptés</h2>
+
+<ul>
+  <li>Pilotage : un projet est fini quand toutes les taches sont faites, non pas
+quand on a passé toutes nos heures sur le projet. (EVM = Earned Value General)</li>
+</ul>
+
 <p>[]:</p>
 
 
@@ -1493,8 +1751,8 @@ le maximum de valeur.</p>
 <footer>
             <div class="row">
                 <div class="col-lg-12 footer">
-               &copy;2017 Lucas Mahieu. All rights reserved. <br />
- Site last generated: Jan 20, 2017 <br />
+               &copy;2001 Lucas Mahieu. All rights reserved. <br />
+ Site last generated: Jan 1, 2001 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

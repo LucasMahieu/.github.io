@@ -748,5 +748,220 @@ La quantité de données qui arrivent pour être stocker, il faut traiter les
 données à la volé pour reduire la quantité de donnée stockée tout en lui donnant
 le maximum de valeur.
 
+# 20/01/2017 : Thales
+Ingénieurie Logicielle en Developpement Embarqué certifié critique 
+
+Laurent IMPERATRICE
+Charles DONNAT
+
+## Thales
+
+62 000 employés, 56 pays, R&D 707 millions
+50% civil et 50% militaire
+Aéronautique, Espace, Transpor, défense, ...
+
+## Flight avionics
+
+Proposer les différents équipement électrinique des avions.
+
+Centrales inertielles, GPS, Capteurs, instrument de secours
+
+C, C++, ADA 2012
+
+## Un cadre normatif DO178B
+
+Définir la crétissité des pannes, par niveau et essayer de définir des mesures à
+prendre lors de la création du code pour que ca soit acceptable.
+
+La DO donne des objectifs à tenir mais ne demande rien quand aux moyens d'y
+parvenir
+
+Un artefacts ogiciels = tous les produits du développement logiciel
+
+### Processus de tracabilité
+
+Il faut que chaque ligne de code soit justifiée.
+
+Tout élément du binaire doit correspondre directement au code sources et doit
+correcpondre à un besoin du produit, ni plus ni moins.
+
+### Processus de vérification
+
+On ne regarde pas le code, mais les exigeances.
+
+Le code doit être couvert à 100% par les tests.
+
+Cette norme est imposé, acceptée par tous les industriels, et audités par des
+organismes externes.
+
+Le cycle en V c'est bien mais :
+
+- Trop chère à faire des changements à la fin
+- Pas assez flaxible
+- Si le client n'est pas content à la fin, aie aie aie
+- Gros problèmes entre le SW et le HW
+- Démotivation du personelle 
+
+## Les méthodes propres à Thales pour parvenir à respecter ces normes
+
+### Développement itératif incrémental 
+
+Le client veux quelques choses, l'équipe va le faire de façon pas à pas, morceau
+par morceau, mais il faudra les rassembler après : c'est l'itératif.
+
+Le client veux quelques choses, l'équipe va commencer par une ébauche et va
+l'améliorer de plus en plus: c'est l'incrémental 
+
+Les deux ensemlbe fait de l'itératif incrémental
+
+### SCRUM
+
+Une équipe, c'est : 
+
+- 1 product owner : personne qui connait très bien les spécs du client
+- 7 +- 2 personnes, pluri-disciplinaires, co-localisées
+- 1 ScumMaster
+
+Il peut y avoire des multi-Scrum:
+
+- Plusieurs équipes
+- 1 super ScumMaster pour la synchronisation des équipes
+- 1 super Product Owner garant du produit
+
+Itération:
+
+- Pas trop long ni trop court
+
+Product backlog :
+
+- Liste des fonctionnalités du produit
+- Fait par le Product Owner
+- Prioritées et estimées
+- Mise à jour à chaque itération
+
+Stand up Meeting:
+
+- Moment ou l'équipe se réunie pour parler des problèmes rencontrés
+- Faire un point sur : ce qui est fait, ce qui va, ce qui block, ce qui va être
+  fait
+
+### eXtreme Programming - Développement 
+
+__Problèmatique__ 
+
+- Développer le logiciel avec indépendance
+- Transférer les compétences en continue
+
+__Approche__
+
+- Pair programming
+	- Sujet complexe
+	- Formation
+	- Partage de bonnes pratique
+- Polyvalence des développeurs
+- Non Systématique
+
+### eXtreme Programming - Test
+
+__Problèmatique__ 
+
+- Plusieurs niveau HLR/LLR
+- Tester les exigences
+- Assurer que les tests soient complets
+
+__Approche__
+
+- Ecrire en même temps les tests et les exigenaces
+- Ecrire les tests avants le code
+- ...
+
+
+### eXtreme Programming - Intégration continue
+
+__Problèmatique__ 
+
+- Livrer un logiciel à tout moment
+
+__Approche__
+
+- Integret de façon continue le code des autres 
+- Equipe mise à jour de façon continue
+	- Feedback plus rapide 
+	- Correction rapide
+	- Stop the line
+- Production de warnings en continue 
+
+__Dificultés__
+
+- Durée des tests automatiques
+- Stabilité de l'intégration continue, certain patch peux casser des choses qui
+  passaient
+
+__Solutions__
+
+- Optimisation des tests automatique
+	- Parallélisation
+	- Certain server font tourner des tests toutes la journée
+	- Certain server font tourner des tests toutes la nuit
+- Rejouer TOUS les tests avant la livraison
+
+### Lean - Value Stream Mapping
+
+__Problèmatique__
+
+Comment se mettre d'accord sur une liste d'acitivité à faire
+
+__Approche__
+
+- Réalisation d'un VSM
+
+### Lean - Kankan (TAsk board)
+
+Un tableau qui représente chaque tache à l'endroit où en est son avancement 
+
+### Lean - Management visuel
+
+__Problèmatique__
+
+Comment rendre les problèmes visibles ?
+
+__Approche__
+
+- Création d'un espace dédié par projet 
+
+### Lean - PDCA 
+
+__Problématique__ 
+
+Comment résoudre les problèmes montrés par toutes ces techniques
+
+__Approche__
+
+- Plan  : Décrire, Chiffrer la situation, Classer les causes racines
+- Do    : Liste des problèmes
+- Check : Comment on peut vérifier si le problème se résoud ou s'empire
+- Act   : Comment réagir
+
+
+## Conception et développement - Techno objet
+
+Il faut absolument assurer que le code produit soit de qualité, testable,
+portable, evolutif, ré-utilisable.
+
+Pour cela, Analyse, Conception, Implémentation
+
+Programmation par contrat :
+
+- Pré-condition
+- Post-condition
+- Invariant
+
+## Des outils adaptés 
+
+- Pilotage : un projet est fini quand toutes les taches sont faites, non pas
+  quand on a passé toutes nos heures sur le projet. (EVM = Earned Value General)
+
+
+
 
 {% include links.html %}
