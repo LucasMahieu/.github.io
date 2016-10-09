@@ -1,1 +1,1 @@
-# bashinstoch.github.io
+# bashintoch.github.io
