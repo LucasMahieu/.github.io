@@ -44,14 +44,22 @@ entries:
       url: /mydoc_support.html
       output: web, pdf
 
-  - title: Release Notes
+  - title: Conception et exploration d'architectures, multi-coeurs, réseaux sur puces
     output: web, pdf
     folderitems:
 
-    - title: 6.0 Release notes
+    - title: Cours
       url: /mydoc_release_notes_60.html
       output: web, pdf
 
-    - title: 5.0 Release notes
+    - title: TD-TP
       url: /mydoc_release_notes_50.html
+      output: web, pdf
+      
+ - title: Conférences technologiques
+    output: web, pdf
+    folderitems:
+
+    - title: Notes
+      url: /mydoc_release_notes_60.html
       output: web, pdf
