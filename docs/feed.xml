@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
         <title></title>
-        <description>Intended as a documentation theme based on Jekyll for technical writers documenting software and other technical products, this theme has all the elements you would need to handle multiple products with both multi-level sidebar navigation, tags, and other documentation features.</description>
-        <link>http://idratherbewriting.com/</link>
-        <atom:link href="http://idratherbewriting.com/feed.xml" rel="self" type="application/rss+xml"/>
-        <pubDate>Sun, 09 Oct 2016 17:13:34 +0200</pubDate>
-        <lastBuildDate>Sun, 09 Oct 2016 17:13:34 +0200</lastBuildDate>
+        <description>Ce site est fait pour partager les notes pris en cours, TP, TD de SLE 3A. Il est possible à tous d'ajouter ses notes ou d'en compléter via un push request</description>
+        <link>http://lucasmahieu.github.io/SLE/</link>
+        <atom:link href="http://lucasmahieu.github.io/SLE/feed.xml" rel="self" type="application/rss+xml"/>
+        <pubDate>Sun, 09 Oct 2016 17:58:42 +0200</pubDate>
+        <lastBuildDate>Sun, 09 Oct 2016 17:58:42 +0200</lastBuildDate>
         <generator>Jekyll v3.2.1</generator>
         
         <item>
@@ -21,8 +21,8 @@
 
 </description>
             <pubDate>Fri, 26 Feb 2016 00:00:00 +0100</pubDate>
-            <link>http://idratherbewriting.com/samplepost.html</link>
-            <guid isPermaLink="true">http://idratherbewriting.com/samplepost.html</guid>
+            <link>http://lucasmahieu.github.io/SLE/samplepost.html</link>
+            <guid isPermaLink="true">http://lucasmahieu.github.io/SLE/samplepost.html</guid>
             
             <category>news</category>
             
@@ -47,8 +47,8 @@
 
 </description>
             <pubDate>Wed, 24 Feb 2016 00:00:00 +0100</pubDate>
-            <link>http://idratherbewriting.com/myupdate.html</link>
-            <guid isPermaLink="true">http://idratherbewriting.com/myupdate.html</guid>
+            <link>http://lucasmahieu.github.io/SLE/myupdate.html</link>
+            <guid isPermaLink="true">http://lucasmahieu.github.io/SLE/myupdate.html</guid>
             
             <category>news</category>
             
@@ -61,8 +61,8 @@
 
 </description>
             <pubDate>Sun, 12 Apr 2015 00:00:00 +0200</pubDate>
-            <link>http://idratherbewriting.com/test-post-from-last-year.html</link>
-            <guid isPermaLink="true">http://idratherbewriting.com/test-post-from-last-year.html</guid>
+            <link>http://lucasmahieu.github.io/SLE/test-post-from-last-year.html</link>
+            <guid isPermaLink="true">http://lucasmahieu.github.io/SLE/test-post-from-last-year.html</guid>
             
             <category>news</category>
             
