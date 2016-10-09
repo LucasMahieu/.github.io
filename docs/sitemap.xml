@@ -34,133 +34,31 @@
   
   
   <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_about.html</loc>
+    <loc>http://lucasmahieu.github.io/SLE/mydoc_cea.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_about_ruby_gems_etc.html</loc>
+    <loc>http://lucasmahieu.github.io/SLE/mydoc_cea_tp.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_adding_tooltips.html</loc>
+    <loc>http://lucasmahieu.github.io/SLE/mydoc_ct.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_alerts.html</loc>
+    <loc>http://lucasmahieu.github.io/SLE/mydoc_di.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_atom_text_editor.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_build_arguments.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_build_scripts.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_code_samples.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_collections.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_commenting_on_files.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_conditional_logic.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_content_reuse.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_exluding_files.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_faq_layout.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_generating_pdfs.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_glossary.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_help_api.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_hyperlinks.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_icons.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_images.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_install_jekyll_on_mac.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_install_jekyll_on_windows.html</loc>
+    <loc>http://lucasmahieu.github.io/SLE/mydoc_ecisle.html</loc>
   </url>
   
   
@@ -172,79 +70,13 @@
   
   
   <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_iterm_profiles.html</loc>
+    <loc>http://lucasmahieu.github.io/SLE/mydoc_mtsoc.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_kb_layout.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_labels.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_lists.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_navtabs.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_no_password_prompts_scp.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_pages.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_posts.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_publishing_github_pages.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_push_build_to_server.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_release_notes_50.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_release_notes_60.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_scroll.html</loc>
+    <loc>http://lucasmahieu.github.io/SLE/mydoc_mtsoc_tp.html</loc>
   </url>
   
   
@@ -256,121 +88,49 @@
   
   
   <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_search_configuration.html</loc>
+    <loc>http://lucasmahieu.github.io/SLE/mydoc_ce.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_series.html</loc>
+    <loc>http://lucasmahieu.github.io/SLE/mydoc_sd_tp.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_seriesdemo1.html</loc>
+    <loc>http://lucasmahieu.github.io/SLE/mydoc_sse.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_seriesdemo2.html</loc>
+    <loc>http://lucasmahieu.github.io/SLE/mydoc_sse_tp.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_seriesdemo3.html</loc>
+    <loc>http://lucasmahieu.github.io/SLE/mydoc_str.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_seriesdemo4.html</loc>
+    <loc>http://lucasmahieu.github.io/SLE/mydoc_str_tp.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_shuffle.html</loc>
+    <loc>http://lucasmahieu.github.io/SLE/mydoc_tf.html</loc>
   </url>
   
   
   
   <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_sidebar_navigation.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_special_layouts.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_support.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_supported_features.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_syntax_highlighting.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_tables.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_tag_archives_overview.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_tags.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_themes.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_troubleshooting.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_webstorm_text_editor.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_workflow_maps.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_yaml_tutorial.html</loc>
+    <loc>http://lucasmahieu.github.io/SLE/mydoc_vsle_tp.html</loc>
   </url>
   
   

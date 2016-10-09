@@ -28,38 +28,87 @@ entries:
       output: web, pdf
       type: homepage
 
-    - title: Introduction
-      url: /mydoc_introduction.html
-      output: web, pdf
-
-    - title: Supported features
-      url: /mydoc_supported_features.html
-      output: web, pdf
-
-    - title: About the theme author
-      url: /mydoc_about.html
-      output: web, pdf
-
-    - title: Support
-      url: /mydoc_support.html
-      output: web, pdf
-
   - title: Conception et exploration d'architectures, multi-coeurs, réseaux sur puces
     output: web, pdf
     folderitems:
 
     - title: Cours
-      url: /mydoc_release_notes_60.html
+      url: /mydoc_cea.html
       output: web, pdf
-
-    - title: TD-TP
-      url: /mydoc_release_notes_50.html
+    - title: TP
+      url: /mydoc_cea_tp.html
       output: web, pdf
       
- - title: Conférences technologiques
+  - title: Conférences technologiques
     output: web, pdf
     folderitems:
 
     - title: Notes
-      url: /mydoc_release_notes_60.html
+      url: /mydoc_ct.html
       output: web, pdf
+
+  - title: Droit et informatique
+    output: web, pdf
+    folderitems:
+
+    - title: Notes
+      url: /mydoc_di.html
+
+  - title: Etude de cas d'implantation d'un SLE
+    output: web, pdf
+    folderitems:
+
+    - title: Projet
+      url: /mydoc_ecisle.html
+
+  - title: Modélisation transactionnelle des systèmes sur puces 
+    output: web, pdf
+    folderitems:
+
+    - title: Cours
+      url: /mydoc_mtsoc.html 
+    - title: TP
+      url: /mydoc_mtsoc_tp.html
+
+  - title: Systèmes distribués
+    output: web, pdf
+    folderitems:
+
+    - title: Cours
+      url: /mydoc_sd.html
+    - title: TP
+      url: /mydoc_sd_tp.html
+
+  - title: Sécurité des systèmes embarqués  
+    output: web, pdf
+    folderitems:
+
+    - title: Cours
+      url: /mydoc_sse.html
+    - title: TP
+      url: /mydoc_sse_tp.html
+
+  - title: Systèmes temps-réel, modélisation réaliste et implantation multi-taches 
+    output: web, pdf
+    folderitems:
+
+    - title: Cours
+      url: /mydoc_str.html
+    - title: TP
+      url: /mydoc_str_tp.html
+
+  - title: Tolérance aux fautes
+    output: web, pdf
+    folderitems:
+
+    - title: Cours
+      url: /mydoc_tf.html
+ 
+  - title: Validation des systèmes embarqués 
+    output: web, pdf
+    folderitems:
+
+    - title: Cours
+      url: /mydoc_vsle.html
+    - title: TP
+      url: /mydoc_vsle_tp.html 
