@@ -5,26 +5,52 @@ permalink: mydoc_cea.html
 folder: mydoc
 ---
 
-## Overview
+# Cours 03/10/2016
 
-This site provides documentation, training, and other notes for the Jekyll Documentation theme. There's a lot of information about how to do a variety of things here, and it's not all unique to this theme. But by and large, understanding how to do things in Jekyll depends on how your theme is coded. As a result, these additional details are provided.
+SoC : 
+	- Processeur + Cache
+	- Bloc mem
+	- Contrôleur Mémoire externe (RAM)
+	- Bloc de calcul pour soulager/accélérer les calculs
+	- Bloc Analogique 
+	- Bus
 
-The instructions here are geared towards technical writers working on documentation. You may have a team of one or more technical writers working on documentation for multiple projects. You can use this same theme to author all of your documentation for each of your products. The theme is built to accommodate documentation for multiple products on the same site.
+Bus : Débit + Protocole
 
-## Survey of features
+RAM : < 10Mo de Cache + 4 à 128 Go de cache
 
-Some of the more prominent features of this theme include the following:
+CPU : 
 
-* Bootstrap framework
-* [Navgoco multi-level sidebar](http://www.komposta.net/article/navgoco) for table of contents
-* Ability to specify different sidebars for different products
-* Top navigation bar with drop-down menus
-* Notes, tips, and warning information notes
-* Tags for alternative navigation
-* Advanced landing page layouts from the [Modern Business theme](http://startbootstrap.com/template-overviews/modern-business/).
+DSP :  -> contrôle temps réel
+	+ Puissance de calcul 
+	- Programmation complexe 
 
-## Getting started
+ASIC/IP : 
+	+ Puissance de calcul, traitement réguliers, consommation 
+	- Rigidité, Temps de dév, Peu adapté à un contrôle complexe
 
-To get started, see [Getting Started][index].
+Analogique :
+	+ Faible conso, Grande intégration
+	- Bruit, Forte dépendance à la techno
+
+MEMS : MCNC
+
+SoC : Assemblement de plusieurs techno 
+
+Comment réduire la consommation d'énergie :  
+Conso => P = 1/2 * C * V^2 * f
+	- ASIC 
+	- RAM : SRAM / DRAM
+	- Techno : 
+		- Fils moins long
+		- Petit, densité
+		- Compromis en taille des transistors(performance) et consommation
+	- Archi du système :
+		- Bus -> longueur de fils -> charge du circuit diminu
+		- Paraléliser -> on peut diminuer la fréquence et diminuer la tension
+	- Tension : Lié à la techno
+	- Amélioration combinatoire -> éviter les glitchs
+	- Simplification du SW
+
 
 {% include links.html %}

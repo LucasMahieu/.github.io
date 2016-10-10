@@ -204,7 +204,7 @@
 
 
 <ul id="mysidebar" class="nav">
-    <li class="sidebarTitle">Jekyll Doc Theme 6.0</li>
+    <li class="sidebarTitle">Cours de SLE 1.0</li>
     
     
     
@@ -268,6 +268,11 @@
             
             
             
+            <li><a href="mydoc_di.html">Notes</a></li>
+            
+            
+            
+            
         </ul>
         
         
@@ -275,6 +280,11 @@
     <li>
         <a href="#">Etude de cas d'implantation d'un SLE</a>
         <ul>
+            
+            
+            
+            <li><a href="mydoc_ecisle.html">Projet</a></li>
+            
             
             
             
@@ -286,6 +296,16 @@
         <a href="#">Modélisation transactionnelle des systèmes sur puces</a>
         <ul>
             
+            
+            
+            <li><a href="mydoc_mtsoc.html">Cours</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="mydoc_mtsoc_tp.html">TP</a></li>
             
             
             
@@ -300,6 +320,16 @@
             
             
             
+            <li><a href="mydoc_sd.html">Cours</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="mydoc_sd_tp.html">TP</a></li>
+            
+            
             
             
         </ul>
@@ -310,6 +340,16 @@
         <a href="#">Sécurité des systèmes embarqués</a>
         <ul>
             
+            
+            
+            <li><a href="mydoc_sse.html">Cours</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="mydoc_sse_tp.html">TP</a></li>
             
             
             
@@ -324,6 +364,16 @@
             
             
             
+            <li><a href="mydoc_str.html">Cours</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="mydoc_str_tp.html">TP</a></li>
+            
+            
             
             
         </ul>
@@ -336,6 +386,11 @@
             
             
             
+            <li><a href="mydoc_tf.html">Cours</a></li>
+            
+            
+            
+            
         </ul>
         
         
@@ -344,6 +399,16 @@
         <a href="#">Validation des systèmes embarqués</a>
         <ul>
             
+            
+            
+            <li><a href="mydoc_vsle.html">Cours</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="mydoc_vsle_tp.html">TP</a></li>
             
             
             
@@ -407,29 +472,52 @@ $('#toc').on('click', 'a', function() {
 
     
 
-  <h2 id="overview">Overview</h2>
+  <h1 id="cours-03102016">Cours 03/10/2016</h1>
 
-<p>This site provides documentation, training, and other notes for the Jekyll Documentation theme. There’s a lot of information about how to do a variety of things here, and it’s not all unique to this theme. But by and large, understanding how to do things in Jekyll depends on how your theme is coded. As a result, these additional details are provided.</p>
+<p>SoC : 
+	- Processeur + Cache
+	- Bloc mem
+	- Contrôleur Mémoire externe (RAM)
+	- Bloc de calcul pour soulager/accélérer les calculs
+	- Bloc Analogique 
+	- Bus</p>
 
-<p>The instructions here are geared towards technical writers working on documentation. You may have a team of one or more technical writers working on documentation for multiple projects. You can use this same theme to author all of your documentation for each of your products. The theme is built to accommodate documentation for multiple products on the same site.</p>
+<p>Bus : Débit + Protocole</p>
 
-<h2 id="survey-of-features">Survey of features</h2>
+<p>RAM : &lt; 10Mo de Cache + 4 à 128 Go de cache</p>
 
-<p>Some of the more prominent features of this theme include the following:</p>
+<p>CPU :</p>
 
-<ul>
-  <li>Bootstrap framework</li>
-  <li><a href="http://www.komposta.net/article/navgoco">Navgoco multi-level sidebar</a> for table of contents</li>
-  <li>Ability to specify different sidebars for different products</li>
-  <li>Top navigation bar with drop-down menus</li>
-  <li>Notes, tips, and warning information notes</li>
-  <li>Tags for alternative navigation</li>
-  <li>Advanced landing page layouts from the <a href="http://startbootstrap.com/template-overviews/modern-business/">Modern Business theme</a>.</li>
-</ul>
+<p>DSP :  -&gt; contrôle temps réel
+	+ Puissance de calcul 
+	- Programmation complexe</p>
 
-<h2 id="getting-started">Getting started</h2>
+<p>ASIC/IP : 
+	+ Puissance de calcul, traitement réguliers, consommation 
+	- Rigidité, Temps de dév, Peu adapté à un contrôle complexe</p>
 
-<p>To get started, see <a href="index.html">Getting Started</a>.</p>
+<p>Analogique :
+	+ Faible conso, Grande intégration
+	- Bruit, Forte dépendance à la techno</p>
+
+<p>MEMS : MCNC</p>
+
+<p>SoC : Assemblement de plusieurs techno</p>
+
+<p>Comment réduire la consommation d’énergie :<br />
+Conso =&gt; P = 1/2 * C * V^2 * f
+	- ASIC 
+	- RAM : SRAM / DRAM
+	- Techno : 
+		- Fils moins long
+		- Petit, densité
+		- Compromis en taille des transistors(performance) et consommation
+	- Archi du système :
+		- Bus -&gt; longueur de fils -&gt; charge du circuit diminu
+		- Paraléliser -&gt; on peut diminuer la fréquence et diminuer la tension
+	- Tension : Lié à la techno
+	- Amélioration combinatoire -&gt; éviter les glitchs
+	- Simplification du SW</p>
 
 
 
@@ -447,7 +535,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 Lucas Mahieu. All rights reserved. <br />
- Site last generated: Oct 9, 2016 <br />
+ Site last generated: Oct 10, 2016 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

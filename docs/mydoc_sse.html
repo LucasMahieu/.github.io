@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content=" ">
-<title>Introduction | Cours collaboratif de SLE 3A</title>
+<title>Note de Cours | Cours collaboratif de SLE 3A</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -152,7 +152,7 @@
                 
                 
                 
-			<li><a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:lucas.mahieu@icloud.com?subject=Cours de SLE, Jekyll Github pages f eedback&body=I have some feedback about the Introduction page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a><li>
+			<li><a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:lucas.mahieu@icloud.com?subject=Cours de SLE, Jekyll Github pages f eedback&body=I have some feedback about the Note de Cours page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a><li>
 
 		
                 <!--comment out this block if you want to hide search-->
@@ -168,7 +168,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Introduction">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Note de Cours">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -204,7 +204,7 @@
 
 
 <ul id="mysidebar" class="nav">
-    <li class="sidebarTitle">Jekyll Doc Theme 6.0</li>
+    <li class="sidebarTitle">Cours de SLE 1.0</li>
     
     
     
@@ -268,6 +268,11 @@
             
             
             
+            <li><a href="mydoc_di.html">Notes</a></li>
+            
+            
+            
+            
         </ul>
         
         
@@ -275,6 +280,11 @@
     <li>
         <a href="#">Etude de cas d'implantation d'un SLE</a>
         <ul>
+            
+            
+            
+            <li><a href="mydoc_ecisle.html">Projet</a></li>
+            
             
             
             
@@ -286,6 +296,16 @@
         <a href="#">Modélisation transactionnelle des systèmes sur puces</a>
         <ul>
             
+            
+            
+            <li><a href="mydoc_mtsoc.html">Cours</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="mydoc_mtsoc_tp.html">TP</a></li>
             
             
             
@@ -300,6 +320,16 @@
             
             
             
+            <li><a href="mydoc_sd.html">Cours</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="mydoc_sd_tp.html">TP</a></li>
+            
+            
             
             
         </ul>
@@ -310,6 +340,16 @@
         <a href="#">Sécurité des systèmes embarqués</a>
         <ul>
             
+            
+            
+            <li class="active"><a href="mydoc_sse.html">Cours</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="mydoc_sse_tp.html">TP</a></li>
             
             
             
@@ -324,6 +364,16 @@
             
             
             
+            <li><a href="mydoc_str.html">Cours</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="mydoc_str_tp.html">TP</a></li>
+            
+            
             
             
         </ul>
@@ -336,6 +386,11 @@
             
             
             
+            <li><a href="mydoc_tf.html">Cours</a></li>
+            
+            
+            
+            
         </ul>
         
         
@@ -344,6 +399,16 @@
         <a href="#">Validation des systèmes embarqués</a>
         <ul>
             
+            
+            
+            <li><a href="mydoc_vsle.html">Cours</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="mydoc_vsle_tp.html">TP</a></li>
             
             
             
@@ -367,7 +432,7 @@
     <!-- Content Column -->
     <div class="col-md-9">
         <div class="post-header">
-   <h1 class="post-title-main">Introduction</h1>
+   <h1 class="post-title-main">Note de Cours</h1>
 </div>
 
 
@@ -407,29 +472,160 @@ $('#toc').on('click', 'a', function() {
 
     
 
-  <h2 id="overview">Overview</h2>
+  <h2 id="cours-du-101016">Cours du 10/10/16</h2>
 
-<p>This site provides documentation, training, and other notes for the Jekyll Documentation theme. There’s a lot of information about how to do a variety of things here, and it’s not all unique to this theme. But by and large, understanding how to do things in Jekyll depends on how your theme is coded. As a result, these additional details are provided.</p>
+<h3 id="ncessit-de-dpacker-la-puce">Nécessité de “dépacker” la puce</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>* Carte à puce
+	- Sous les 6 plots d'une carte à puce se trouve la puce
+	- Une fois que le circuit (puce) est sortie, il y a que 6 broches moins 2 (VCC, GND), ce qui fait 4.
+	- Peu compliqué 
+* Carte RFID
+	- Traitement chimique pour supprimer le plastique et récuperer la puce RFID
 
-<p>The instructions here are geared towards technical writers working on documentation. You may have a team of one or more technical writers working on documentation for multiple projects. You can use this same theme to author all of your documentation for each of your products. The theme is built to accommodate documentation for multiple products on the same site.</p>
+Une fois que le circuit est "nu" on peut l'exploiter pour les attaques.
+</code></pre>
+</div>
 
-<h2 id="survey-of-features">Survey of features</h2>
+<div class="alert alert-warning" role="alert"><i class="fa fa-warning"></i> <b>Important:</b> Le fait d’enlever le package, le circuit sera exposé à la lumière.<br />
+	Les concepteurs ont pu mettre des capteurs de lumière ou d’UV pour que le circit se bloque en cas d’exposition à la lumière</div>
 
-<p>Some of the more prominent features of this theme include the following:</p>
+<h3 id="observation-du-circuit">Observation du circuit</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>Avant, on pouvait observer directement le circuit et comprendre son fonctionement.
+Or mtn, le circuit est fait de bcp de couches qui sont homogénéisés pour ne plus pouvoir récuperer d'information par observation.
+Le métal ajouté s'appelle les : "Dummies"
+</code></pre>
+</div>
+
+<h3 id="enlvement-des-couches">Enlèvement des couches</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>Par des traitements chimiques, on peut enlever les courches de métal, d'isolant etc ...
+Il est ensuite possible d'obeserver avec des microscopes assez puissant les differents éléments qui composent le circuit
+Par cette méthode on peut :
+	- Repérer l'emplacement des composants
+	- Recuperer des données stockés en dure dans des ROM
+	
+Pour rendre la tâche plus difficile à l'attaquant, on peut stocker les octets en ROM dans des ordres non convencionel : Trumbling
+Mais si on faire la même observation sur le décodeur de ROM, on peut encore une fois retrouver les données de la ROM
+</code></pre>
+</div>
+
+<h3 id="autres-interventions-physiques">Autres interventions physiques</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>- Couper des interconnexions internes
+- Ajouter ou modifier des interconnexions internes
+Pas toujours facile sans abimer les autres zones du circuit
+Mais l'une des utilisations pourrait être de détruire ou reconstruire des fusibles de sécurité.
+</code></pre>
+</div>
+
+<h3 id="observation-dynamique-du-circuit">Observation dynamique du circuit</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>Avec des SEM, Microscopes électroniques, on peut observer les niveaus logique dans un circuit au runtime.
+Très utilisé pour aller lire des mémoires programmables qui pourraient contenir des clés secrétes.
+</code></pre>
+</div>
+
+<h3 id="attaque-par-canaux-cachauxiliaire">Attaque par canaux caché/auxiliaire</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>- Mesure du temps d'exécution
+- Mesure de consommation de courant (SPA, DPA, CPA)
+- Mesure des émissions EM
+- Mesure de son, chaleurs, photons
+- Ou d'autres encore ... ?
+</code></pre>
+</div>
+
+<h3 id="quelle-conditions-pour-faire-de-telles-attaques-">Quelle conditions pour faire de telles attaques ?</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>- Il dois y avoir un lien entre la clé secrète et une grandeur physique
+- Et pour savoir quelle grandeur doit être mesuré, il faut connaitre quel algo est utilisé
+</code></pre>
+</div>
+
+<h3 id="type-dattaque-par-cannaux-auxiliaire">Type d’attaque par cannaux auxiliaire</h3>
+<div class="highlighter-rouge"><pre class="highlight"><code>- Simple 
+	- Grandeur directement mesurable 
+- Différentiel
+	- Nécecite plusieurs mesures, qui peut être très important
+</code></pre>
+</div>
+
+<h3 id="les-attaques-par-cannaux-auxiliaire">Les attaques par cannaux auxiliaire</h3>
+
+<h4 id="attaque-par-analyse-de-temps">Attaque par analyse de temps</h4>
 
 <ul>
-  <li>Bootstrap framework</li>
-  <li><a href="http://www.komposta.net/article/navgoco">Navgoco multi-level sidebar</a> for table of contents</li>
-  <li>Ability to specify different sidebars for different products</li>
-  <li>Top navigation bar with drop-down menus</li>
-  <li>Notes, tips, and warning information notes</li>
-  <li>Tags for alternative navigation</li>
-  <li>Advanced landing page layouts from the <a href="http://startbootstrap.com/template-overviews/modern-business/">Modern Business theme</a>.</li>
+  <li>Dans des boucles If Then Else il peut y avoir des temps d’exécution différents en fonction des valeurs d’entrée</li>
+  <li>Il faut des fois accepter de perdre en performance pour plus de sécurité :
+    <ul>
+      <li>Implém 1: if(x=1) then a=a+b;</li>
+      <li>Implém 2: t[0]=a ; t[1]=a+b ; a=t[x] ;
+  Implémentation 2 est sécurisé vis à vis de la mesure de temps.
+  En contre partie, plus d’accés mémoire</li>
+    </ul>
+  </li>
+  <li>Autre exemple : code PIN de la carte bleu</li>
+  <li>Même si la mesure ne permet pas de dévoiler la clé, ces méthodes de mesure de temps peut permettre de construire des statistiques qui permettrons de réduire considérablement le nombre de possibilité à essayer par bute-force</li>
 </ul>
 
-<h2 id="getting-started">Getting started</h2>
+<h4 id="attaque-par-analyse-de-consommation">Attaque par analyse de consommation</h4>
 
-<p>To get started, see <a href="index.html">Getting Started</a>.</p>
+<ul>
+  <li>SPA : Simple Power Analysis
+  Un transistor consomme du courant lorsqu’il commute<br />
+  En mesurant le courant, on peut remonter aux “bits” du système<br />
+  On repère un motif qui revèle la clé, vu qu’on connais les algo utilisé</li>
+  <li>DPA : Differencial Power Analysis
+    <ul>
+      <li>Il faut des modèles pour lier la physique aux inforamtions qui se propagent dans le système</li>
+      <li>Il faut ensuite trouver l’opération qui nous permettra de trouver l’information voulu</li>
+      <li>Par exemple M’ = f( M XOR K )</li>
+      <li>On découpe ce genre d’opération en sous bloc, on fait des hypothèses de clés et voir l’influence sur la conso de courant</li>
+    </ul>
+  </li>
+</ul>
+
+<h4 id="attaque-par-analyse-dmission-lectronmagnetique">Attaque par analyse d’émission électronmagnetique</h4>
+
+<p>Méthode plus complexe car dépend beaucoup du matériel et de son utilisation<br />
+Mais les courbes obtenues sont bien plus précise car aucun “filtre”. <br />
+En effet, lors de la mesure de courant, les capacités du systèmes filtre le courant mesuré.<br />
+Ce n’est pas le cas des mesures EM.</p>
+
+<h4 id="attaque-par-analyse-dmission-lumineuse">Attaque par analyse d’émission lumineuse</h4>
+
+<p>Permet de visualiser l’état de certaines informations transitant dans le circuit.</p>
+
+<h3 id="attaque-par-perturbation-du-circuit">Attaque par perturbation du circuit</h3>
+
+<ul>
+  <li>Modification des conditions de fonctionnement
+    <ul>
+      <li>Température</li>
+      <li>Tension d’alimentation</li>
+      <li>Fréquence d’horloge</li>
+      <li>…<br />
+  Ces attaques peuvent être protégé par utilisation de capteurs</li>
+    </ul>
+  </li>
+  <li>Sans modification des conditions et en injectant des erreurs dans le systèmes
+    <ul>
+      <li>Glitches (power and clock)</li>
+      <li>Injection de particules : UV, etc 
+  Ici aussi il peut y avoir des capteurs pour protéger</li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>Pourquoi injecter des fautes ?</strong><br />
+Exemple de l’attaque de Bellecore sur RSA CRT<br />
+Avec un flash on perturbe un chiffrement et avec quelques propriétés mathématiques, on peut retrouver la clé très facilement.</p>
+
+<p><strong>Une attauque idéale serait</strong></p>
+
+<ul>
+  <li>Localisée (x,y)</li>
+  <li>Localisé en temps (début et durée)</li>
+  <li>Type de la faute : stuck at, injection d’erreurs</li>
+  <li>Bas cout</li>
+  <li>Rapide
+*</li>
+</ul>
 
 
 
@@ -447,7 +643,7 @@ $('#toc').on('click', 'a', function() {
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 Lucas Mahieu. All rights reserved. <br />
- Site last generated: Oct 9, 2016 <br />
+ Site last generated: Oct 10, 2016 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

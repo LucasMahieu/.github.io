@@ -2,8 +2,8 @@
 
 entries:
 - title: sidebar
-  product: Jekyll Doc Theme
-  version: 6.0
+  product: Cours de SLE
+  version: 1.0
   folders:
 
   - title:
@@ -53,6 +53,7 @@ entries:
 
     - title: Notes
       url: /mydoc_di.html
+      output: web, pdf
 
   - title: Etude de cas d'implantation d'un SLE
     output: web, pdf
@@ -60,6 +61,7 @@ entries:
 
     - title: Projet
       url: /mydoc_ecisle.html
+      output: web, pdf
 
   - title: Modélisation transactionnelle des systèmes sur puces 
     output: web, pdf
@@ -67,8 +69,10 @@ entries:
 
     - title: Cours
       url: /mydoc_mtsoc.html 
+      output: web, pdf
     - title: TP
       url: /mydoc_mtsoc_tp.html
+      output: web, pdf
 
   - title: Systèmes distribués
     output: web, pdf
@@ -76,8 +80,10 @@ entries:
 
     - title: Cours
       url: /mydoc_sd.html
+      output: web, pdf
     - title: TP
       url: /mydoc_sd_tp.html
+      output: web, pdf
 
   - title: Sécurité des systèmes embarqués  
     output: web, pdf
@@ -85,8 +91,10 @@ entries:
 
     - title: Cours
       url: /mydoc_sse.html
+      output: web, pdf
     - title: TP
       url: /mydoc_sse_tp.html
+      output: web, pdf
 
   - title: Systèmes temps-réel, modélisation réaliste et implantation multi-taches 
     output: web, pdf
@@ -94,8 +102,10 @@ entries:
 
     - title: Cours
       url: /mydoc_str.html
+      output: web, pdf
     - title: TP
       url: /mydoc_str_tp.html
+      output: web, pdf
 
   - title: Tolérance aux fautes
     output: web, pdf
@@ -103,6 +113,7 @@ entries:
 
     - title: Cours
       url: /mydoc_tf.html
+      output: web, pdf
  
   - title: Validation des systèmes embarqués 
     output: web, pdf
@@ -110,5 +121,7 @@ entries:
 
     - title: Cours
       url: /mydoc_vsle.html
+      output: web, pdf
     - title: TP
       url: /mydoc_vsle_tp.html 
+      output: web, pdf
