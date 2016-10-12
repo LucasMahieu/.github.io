@@ -1,10 +1,10 @@
 ---
-title: Getting started with the Documentation Theme for Jekyll
+title: Page de présentation
 keywords: sample homepage
-tags: [getting_started]
+tags: [home_page]
 sidebar: mydoc_sidebar
 permalink: index.html
-summary: These brief instructions will help you get started quickly with the theme. The other topics in this help provide additional information and detail about working with other aspects of this theme and Jekyll.
+summary: Ce site permet de rédiger des notes de cours en Markdown et de retrouver l'ensemble des notes sur un site plutôt bien organisé hébergé gratuitement sur Github.
 ---
 
 ## Build the Theme

@@ -106,11 +106,11 @@
 
 
 {
-"title": "Getting started with the Documentation Theme for Jekyll",
-"tags": "getting_started",
+"title": "Page de présentation",
+"tags": "home_page",
 "keywords": "sample homepage",
 "url": "index.html",
-"summary": "These brief instructions will help you get started quickly with the theme. The other topics in this help provide additional information and detail about working with other aspects of this theme and Jekyll."
+"summary": "Ce site permet de rédiger des notes de cours en Markdown et de retrouver l'ensemble des notes sur un site plutôt bien organisé hébergé gratuitement sur Github."
 },
 
 
