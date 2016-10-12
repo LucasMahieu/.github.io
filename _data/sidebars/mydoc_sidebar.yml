@@ -33,10 +33,10 @@ entries:
     folderitems:
 
     - title: Cours
-      url: /mydoc_cea.html
+      url: /cours_cea.html
       output: web, pdf
     - title: TP
-      url: /mydoc_cea_tp.html
+      url: /tp_cea.html
       output: web, pdf
       
   - title: Conférences technologiques
@@ -44,7 +44,7 @@ entries:
     folderitems:
 
     - title: Notes
-      url: /mydoc_ct.html
+      url: /cours_ct.html
       output: web, pdf
 
   - title: Droit et informatique
@@ -52,7 +52,7 @@ entries:
     folderitems:
 
     - title: Notes
-      url: /mydoc_di.html
+      url: /cours_di.html
       output: web, pdf
 
   - title: Etude de cas d'implantation d'un SLE
@@ -60,7 +60,7 @@ entries:
     folderitems:
 
     - title: Projet
-      url: /mydoc_ecisle.html
+      url: /cours_ecisle.html
       output: web, pdf
 
   - title: Modélisation transactionnelle des systèmes sur puces 
@@ -68,10 +68,10 @@ entries:
     folderitems:
 
     - title: Cours
-      url: /mydoc_mtsoc.html 
+      url: /cours_mtsoc.html 
       output: web, pdf
     - title: TP
-      url: /mydoc_mtsoc_tp.html
+      url: /tp_mtsoc.html
       output: web, pdf
 
   - title: Systèmes distribués
@@ -79,10 +79,10 @@ entries:
     folderitems:
 
     - title: Cours
-      url: /mydoc_sd.html
+      url: /cours_sd.html
       output: web, pdf
     - title: TP
-      url: /mydoc_sd_tp.html
+      url: /tp_sd.html
       output: web, pdf
 
   - title: Sécurité des systèmes embarqués  
@@ -90,10 +90,10 @@ entries:
     folderitems:
 
     - title: Cours
-      url: /mydoc_sse.html
+      url: /cours_sse.html
       output: web, pdf
     - title: TP
-      url: /mydoc_sse_tp.html
+      url: /tp_sse.html
       output: web, pdf
 
   - title: Systèmes temps-réel, modélisation réaliste et implantation multi-taches 
@@ -101,10 +101,10 @@ entries:
     folderitems:
 
     - title: Cours
-      url: /mydoc_str.html
+      url: /cours_str.html
       output: web, pdf
     - title: TP
-      url: /mydoc_str_tp.html
+      url: /tp_str.html
       output: web, pdf
 
   - title: Tolérance aux fautes
@@ -112,7 +112,7 @@ entries:
     folderitems:
 
     - title: Cours
-      url: /mydoc_tf.html
+      url: /cours_tf.html
       output: web, pdf
  
   - title: Validation des systèmes embarqués 
@@ -120,8 +120,8 @@ entries:
     folderitems:
 
     - title: Cours
-      url: /mydoc_vsle.html
+      url: /cours_vsle.html
       output: web, pdf
     - title: TP
-      url: /mydoc_vsle_tp.html 
+      url: /tp_vsle.html 
       output: web, pdf

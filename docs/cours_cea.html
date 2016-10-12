@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content=" ">
+<title>Notes de Cours | Cours collaboratif de SLE 3A</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<link rel="stylesheet" href="css/lavish-bootstrap.css">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/theme-blue.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/2.0.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="" href="http://lucasmahieu.github.io/SLEfeed.xml">
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> Cours de SLE 3A</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- entries without drop-downs appear here -->
+                
+                
+                
+                <li><a href="news">News</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Jekyll Resources<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li><a href="https://github.com/tomjohnson1492/documentation-theme-jekyll" target="_blank">Github Repo</a></li>
+                        
+                        
+                        
+                        <li><a href="https://talk.jekyllrb.com" target="_blank">Jekyll Talk</a></li>
+                        
+                        
+                        
+                        <li><a href="http://jekyllrb.com/docs/home/" target="_blank">Jekyll documentation</a></li>
+                        
+                        
+                        
+                        <li><a href="http://stackoverflow.com/questions/tagged/jekyll" target="_blank">Jekyll on Stack Overflow</a></li>
+                        
+                        
+                        
+                        <li><a href="http://idratherbewriting.com/category-jekyll/" target="_blank">Jekyll on my blog</a></li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        
+                        
+                        <li><a href="mydoc_introduction.html">Jekyll Documentation Theme</a></li>
+                        
+                        
+                        
+                        <li><a href="p1_landing_page.html">Product 1</a></li>
+                        
+                        
+                        
+                        <li><a href="p2_landing_page.html">Product 2</a></li>
+                        
+                        
+                    </ul>
+                </li>
+                
+                
+                
+			<li><a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:lucas.mahieu@icloud.com?subject=Cours de SLE, Jekyll Github pages f eedback&body=I have some feedback about the Notes de Cours page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a><li>
+
+		
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="Notes de Cours">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+    <div class="col-lg-12">&nbsp;</div>
+    <!-- Content Row -->
+    <div class="row">
+        <!-- Sidebar Column -->
+        <div class="col-md-3">
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<ul id="mysidebar" class="nav">
+    <li class="sidebarTitle">Cours de SLE 1.0</li>
+    
+    
+    
+        
+    
+    <li>
+        <a href="#">Overview</a>
+        <ul>
+            
+            
+            
+            <li><a href="index.html">Get started</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Conception et exploration d'architectures, multi-coeurs, réseaux sur puces</a>
+        <ul>
+            
+            
+            
+            <li class="active"><a href="cours_cea.html">Cours</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="tp_cea.html">TP</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Conférences technologiques</a>
+        <ul>
+            
+            
+            
+            <li><a href="cours_ct.html">Notes</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Droit et informatique</a>
+        <ul>
+            
+            
+            
+            <li><a href="cours_di.html">Notes</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Etude de cas d'implantation d'un SLE</a>
+        <ul>
+            
+            
+            
+            <li><a href="cours_ecisle.html">Projet</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Modélisation transactionnelle des systèmes sur puces</a>
+        <ul>
+            
+            
+            
+            <li><a href="cours_mtsoc.html">Cours</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="tp_mtsoc.html">TP</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Systèmes distribués</a>
+        <ul>
+            
+            
+            
+            <li><a href="cours_sd.html">Cours</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="tp_sd.html">TP</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Sécurité des systèmes embarqués</a>
+        <ul>
+            
+            
+            
+            <li><a href="cours_sse.html">Cours</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="tp_sse.html">TP</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Systèmes temps-réel, modélisation réaliste et implantation multi-taches</a>
+        <ul>
+            
+            
+            
+            <li><a href="cours_str.html">Cours</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="tp_str.html">TP</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Tolérance aux fautes</a>
+        <ul>
+            
+            
+            
+            <li><a href="cours_tf.html">Cours</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+    
+    <li>
+        <a href="#">Validation des systèmes embarqués</a>
+        <ul>
+            
+            
+            
+            <li><a href="cours_vsle.html">Cours</a></li>
+            
+            
+            
+            
+            
+            
+            <li><a href="tp_vsle.html">TP</a></li>
+            
+            
+            
+            
+        </ul>
+        
+        
+        
+        <!-- if you aren't using the accordion, uncomment this block:
+           <p class="external">
+               <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+           </p>
+           -->
+    </li>
+</ul>
+</div>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+    <!-- Content Column -->
+    <div class="col-md-9">
+        <div class="post-header">
+   <h1 class="post-title-main">Notes de Cours</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+    
+<!-- this handles the automatic toc. use ## for subheads to auto-generate the on-page minitoc. if you use html tags, you must supply an ID for the heading element in order for it to appear in the minitoc. -->
+<script>
+$( document ).ready(function() {
+  // Handler for .ready() called.
+
+$('#toc').toc({ minimumHeaders: 0, listType: 'ul', showSpeed: 0, headers: 'h1,h2' });
+
+/* this offset helps account for the space taken up by the floating toolbar. */
+$('#toc').on('click', 'a', function() {
+  var target = $(this.getAttribute('href'))
+    , scroll_target = target.offset().top
+
+  $(window).scrollTop(scroll_target - 10);
+  return false
+})
+  
+});
+</script>
+
+<div id="toc"></div>
+
+    
+
+    
+
+    
+
+    
+
+  <h1 id="cours-du-03102016">Cours du 03/10/2016</h1>
+
+<ul>
+  <li>SoC :
+    <ul>
+      <li>Processeur + Cache</li>
+      <li>Bloc mem</li>
+      <li>Contrôleur Mémoire externe (RAM)</li>
+      <li>Bloc de calcul pour soulager/accélérer les calculs</li>
+      <li>Bloc Analogique</li>
+      <li>Bus</li>
+    </ul>
+  </li>
+  <li>
+    <p>Bus : Débit + Protocole</p>
+  </li>
+  <li>
+    <p>RAM : &lt; 10Mo de Cache + 4 à 128 Go de cache</p>
+  </li>
+  <li>
+    <p>CPU : Unité de calcule</p>
+  </li>
+  <li>DSP :  -&gt; contrôle temps réel
+    <ul>
+      <li>Puissance de calcul</li>
+      <li>Programmation complexe</li>
+    </ul>
+  </li>
+  <li>ASIC/IP :
+    <ul>
+      <li>Puissance de calcul, traitement réguliers, consommation</li>
+      <li>Rigidité, Temps de dév, Peu adapté à un contrôle complexe</li>
+    </ul>
+  </li>
+  <li>Analogique :
+    <ul>
+      <li>Faible conso, Grande intégration</li>
+      <li>Bruit, Forte dépendance à la techno</li>
+    </ul>
+  </li>
+  <li>
+    <p>MEMS : MCNC</p>
+  </li>
+  <li>
+    <p>SoC : Assemblement de plusieurs techno</p>
+  </li>
+  <li>Comment réduire la consommation d’énergie :</li>
+  <li>Conso =&gt; P = 1/2 * C * V^2 * f
+    <ul>
+      <li>ASIC</li>
+      <li>RAM : SRAM / DRAM</li>
+      <li>Techno :
+        <ul>
+          <li>Fils moins long</li>
+          <li>Petit, densité</li>
+          <li>Compromis en taille des transistors(performance) et consommation</li>
+        </ul>
+      </li>
+      <li>Archi du système :
+        <ul>
+          <li>Bus -&gt; longueur de fils -&gt; charge du circuit diminu</li>
+          <li>Paraléliser -&gt; on peut diminuer la fréquence et diminuer la tension</li>
+        </ul>
+      </li>
+      <li>Tension : Lié à la techno</li>
+      <li>Amélioration combinatoire -&gt; éviter les glitchs</li>
+      <li>Simplification du SW</li>
+    </ul>
+  </li>
+</ul>
+
+<h1 id="cours-du-101016">Cours du 10/10/16</h1>
+
+<p><a href="http://chamilo2.grenet.fr/inp/courses/ENSIMAG5MMCEAMC/document/SLE_SoC_infrastructure.pdf?cidReq=ENSIMAG5MMCEAMC&amp;id_session=0&amp;gidReq=0&amp;origin=">lien du cours</a></p>
+
+<h2 id="bus">Bus</h2>
+
+<div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip:</b> Un bus système sert à assurer le transfère de données entre les organes d’un SoC</div>
+
+<div class="alert alert-info" role="alert"><i class="fa fa-info-circle"></i> <b>Note:</b> Si on veut utiliser 2 CPU et 1 mémoire avec un bus <br />
+Dans ce cas, l’instruction n’est plus fetch en 1 cycle (plus forcement)</div>
+
+<ul>
+  <li>Connectique:
+    <ul>
+      <li>Bus adresse</li>
+      <li>Bus donnée</li>
+      <li>Bus de contrôle</li>
+    </ul>
+  </li>
+  <li>Physique:
+    <ul>
+      <li>Protocole d’échange</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Comment gérer plusieurs maitre et plusieurs esclave ?<br />
+<strong>Bus Trois Etat</strong><br />
+* Point positif:
+	* Grande modularité
+	* Connectivité maitre-esclave simple
+	* Observabilité simple
+* Point négatif:
+	* Fréquence de fonctionnement faible à cause de la capacité des 3 états
+	* Test complexe 
+	* Grande longueur des connexions
+	* Layout délicat: Antenne</p>
+
+<h2 id="controleur-de-bus">Controleur de bus</h2>
+
+<div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip:</b> Le contrôleur de bus répond aux requêtes des maitres. Il donnes accès au bus à une demande selon<br />	Une politique de priorité <br />	Une gestion temporelle du bus</div>
+
+<p>Exemple d’arbitre pour un bus :</p>
+<figure><img class="docimage" src="images/exemple_arbitre.png" alt="Arbitre de bus" /><figcaption>Exemple d'arbitre</figcaption></figure>
+
+<p>Conclusion du petit exercice: on est limité en nombre de maitre et d’esclave.</p>
+
+<p>La solution consiste à <em>hiérarchiser les bus</em></p>
+
+<ul>
+  <li>Conversion de protocole par un Bridge
+    <ul>
+      <li>+: pas cher, pas de matériel</li>
+      <li>-: peut vraiment bloquer en terme de performance si plusieurs maitre veulent communiquer en même temps</li>
+    </ul>
+  </li>
+  <li>Stockage intermédiaire dans une SRAM
+    <ul>
+      <li>+: Le maitre écrit dans la RAM, et se préoccupe plus de rien, libère le bus</li>
+      <li>-: Cher</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="dma--direct-memory-adress">DMA : Direct Memory Adress</h2>
+
+<div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip:</b> DMA = C’est un automate de transfert automatique de données d’un périphérique vers la mémoire</div>
+
+<p>Burst: plutôt que de faire une requête et d’attendre la donnée après plusieurs cycles d’attente, on fait un demande de n données d’un coup.</p>
+
+<p>Caractéristique du bus:
+* Nombre de caneaux
+* Gestion du bus
+* Transferts 
+	* Groupé : Burst
+	* Auto-incrémenté
+	* Canaux chaînés
+* Mode de transfert 
+	* FIFO
+	* Taille de données
+* Interruption 
+	* Fin de transfert
+	* Erreur
+* Priorité des canaux</p>
+
+<h2 id="exemple-de-bus">Exemple de bus</h2>
+
+<h4 id="coreconnect">CoreConnect</h4>
+
+<p>Proposé par IBM</p>
+
+<h2 id="mmoire">Mémoire</h2>
+
+<p><a href="http://chamilo2.grenet.fr/inp/courses/ENSIMAG5MMCEAMC/document/SoC_memoire.pdf?cidReq=ENSIMAG5MMCEAMC&amp;id_session=0&amp;gidReq=0&amp;origin=">Lien des slides</a></p>
+
+<div class="alert alert-success" role="alert"><i class="fa fa-check-square-o"></i> <b>Tip:</b> Les mémoires sont des tableaux de points mémoire assemblés en ligne de mots</div>
+
+<p>C’est la technologie des points mémoires qui détermine les performances d’une mémoire.</p>
+
+<ul>
+  <li>Densité</li>
+  <li>Rapidité</li>
+</ul>
+
+<p>Décomposition de mémoire en bloc car c’est impossible d’avoir un gros seul bloc<br />
+Sinon elles serait trop lentes</p>
+
+
+
+    <div class="tags">
+        
+    </div>
+
+    
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2016 Lucas Mahieu. All rights reserved. <br />
+ Site last generated: Oct 12, 2016 <br />
+<p><img src="images/company_logo.png" alt="Company logo"/></p>
+                </div>
+            </div>
+</footer>
+
+
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+    </div>
+
+</body>
+
+</html>

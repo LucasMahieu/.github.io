@@ -25,40 +25,64 @@
   
   
   
+  <url>
+    <loc>http://lucasmahieu.github.io/SLE/cours_cea.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://lucasmahieu.github.io/SLE/cours_ct.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://lucasmahieu.github.io/SLE/cours_di.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://lucasmahieu.github.io/SLE/cours_ecisle.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://lucasmahieu.github.io/SLE/cours_mtsoc.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://lucasmahieu.github.io/SLE/cours_sd.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://lucasmahieu.github.io/SLE/cours_sse.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://lucasmahieu.github.io/SLE/cours_str.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://lucasmahieu.github.io/SLE/cours_tf.html</loc>
+  </url>
+  
+  
+  
   
   
   <url>
     <loc>http://lucasmahieu.github.io/SLE/index.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_cea.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_cea_tp.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_ct.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_di.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_ecisle.html</loc>
   </url>
   
   
@@ -70,67 +94,7 @@
   
   
   <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_mtsoc.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_mtsoc_tp.html</loc>
-  </url>
-  
-  
-  
-  <url>
     <loc>http://lucasmahieu.github.io/SLE/js/mydoc_scroll.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_ce.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_sd_tp.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_sse.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_sse_tp.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_str.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_str_tp.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_tf.html</loc>
-  </url>
-  
-  
-  
-  <url>
-    <loc>http://lucasmahieu.github.io/SLE/mydoc_vsle_tp.html</loc>
   </url>
   
   
@@ -318,6 +282,42 @@
   
   
   
+  
+  
+  
+  <url>
+    <loc>http://lucasmahieu.github.io/SLE/tp_cea.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://lucasmahieu.github.io/SLE/tp_mtsoc.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://lucasmahieu.github.io/SLE/tp_sd.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://lucasmahieu.github.io/SLE/tp_sse.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://lucasmahieu.github.io/SLE/tp_str.html</loc>
+  </url>
+  
+  
+  
+  <url>
+    <loc>http://lucasmahieu.github.io/SLE/tp_vsle.html</loc>
+  </url>
   
   
 </urlset>
