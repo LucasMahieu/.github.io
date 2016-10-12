@@ -10,6 +10,7 @@ folder: mydoc/sd
 Récap sur séance précèdent:  
 Quoi ?  
 Pourquoi ?  
+
 * Différence avec Système Embarqués/Centralisés et les Système distribués :   
 	* Communication entre processus
 	* Mémoire partagée 
@@ -56,6 +57,7 @@ TCP est un exemple de canal fiable donc interdit dans nos TP.
 On part d'UDP pour en faire un canal fiable.
 
 __Ce qui est attendu pour le TP__   
+
 1. Canal de communication fiable 
 	* Hypothèse
 	* Algo

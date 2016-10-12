@@ -476,15 +476,18 @@ $('#toc').on('click', 'a', function() {
 
 <p>Récap sur séance précèdent:<br />
 Quoi ?<br />
-Pourquoi ?<br />
-* Différence avec Système Embarqués/Centralisés et les Système distribués : <br />
-	* Communication entre processus
-	* Mémoire partagée 
-	* Absence d’horloge partagée
-	* Tolérance au faute
-Comment faire pour utiliser ces systèmes ?</p>
+Pourquoi ?</p>
 
 <ul>
+  <li>Différence avec Système Embarqués/Centralisés et les Système distribués :
+    <ul>
+      <li>Communication entre processus</li>
+      <li>Mémoire partagée</li>
+      <li>Absence d’horloge partagée</li>
+      <li>Tolérance au faute
+Comment faire pour utiliser ces systèmes ?</li>
+    </ul>
+  </li>
   <li>Spécification :
     <ul>
       <li>Communications ?</li>
@@ -551,19 +554,31 @@ Comment faire pour utiliser ces systèmes ?</p>
 <p>TCP est un exemple de canal fiable donc interdit dans nos TP.
 On part d’UDP pour en faire un canal fiable.</p>
 
-<p><strong>Ce qui est attendu pour le TP</strong> <br />
-1. Canal de communication fiable 
-	* Hypothèse
-	* Algo
-	* Implémentation : basé sur UDP
-	* Évaluation des performances de l’implémentation<br />
-		- Débit (Netperf, …)
-		- Ping = Latence
-2. Détecteur de faute
-	* Hypothèse
-	* Algo
-	* Implémentation
-	* Validation expérimental</p>
+<p><strong>Ce qui est attendu pour le TP</strong></p>
+
+<ol>
+  <li>Canal de communication fiable
+    <ul>
+      <li>Hypothèse</li>
+      <li>Algo</li>
+      <li>Implémentation : basé sur UDP</li>
+      <li>Évaluation des performances de l’implémentation
+        <ul>
+          <li>Débit (Netperf, …)</li>
+          <li>Ping = Latence</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Détecteur de faute
+    <ul>
+      <li>Hypothèse</li>
+      <li>Algo</li>
+      <li>Implémentation</li>
+      <li>Validation expérimental</li>
+    </ul>
+  </li>
+</ol>
 
 
 
