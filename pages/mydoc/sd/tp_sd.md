@@ -4,7 +4,8 @@ sidebar: mydoc_sidebar
 permalink: tp_sd.html
 folder: mydoc/sd
 ---
-__Ce qui est attendu pour le TP__
+__Ce qui est attendu pour le TP__  
+
 1. Canal de communication fiable 
 	* Hypothèse
 	* Algo
