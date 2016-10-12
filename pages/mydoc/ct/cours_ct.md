@@ -8,12 +8,11 @@ folder: mydoc/ct
 
 Depuis 2008 chez ELYSE Design
 
-Localisation:
+- Localisation:
 	- USA
 	- France
 	- Europe
-
-Clients:
+- Clients:
 	- Aerospatial 
 	- Defense 
 	- Energie 
