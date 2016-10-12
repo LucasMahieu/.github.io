@@ -472,58 +472,279 @@ $('#toc').on('click', 'a', function() {
 
     
 
-  <h1 id="cours-du-121016">Cours du 12/10/16</h1>
+  <h1 id="conception-de-systme-embarqus-contraint-sous-rtos--cloisonement">Conception de système embarqués contraint sous RTOS à cloisonement</h1>
 
-<p><a href="http://chamilo2.grenet.fr/inp/courses/ENSIMAG5MMVSE/document/TRANSPARENTS/12.10.16.pdf?cidReq=ENSIMAG5MMVSE&amp;id_session=0&amp;gidReq=0&amp;origin=">Lien du cours</a></p>
+<p>Depuis 2008 chez ELYSE Design</p>
 
-<p>Un bug ça coûte cher, mais peut etre moins cher que de la vérif. <br />
-Exemple : 
-	- Avion = Énormes vérif et controle et norme
-	- Voiture = Pas de normes … mais ca commence un peu
-	- IoT = Pas de vérif car temps de vie “trop court”</p>
+<p>Localisation:
+	- USA
+	- France
+	- Europe</p>
 
-<p>Difficulté de l’embarqué et de devoir tester avant et en dehors de son contexte normal d’execution.<br />
-Comment savoir si le système fonctionne comme on a prévu qu’il fonctionne.<br />
-Mais il est aussi difficile de savoir ce que l’on aimerai que le système fasse.<br />
-La vérification c’est une comparaison entre: 
-	- La déscription entre ce que je veux 
-	- Et l’implémentation du système<br />
-Si non égale, se poser des questions, si oui c’est pas forcement génial !</p>
+<p>Clients:
+	- Aerospatial 
+	- Defense 
+	- Energie 
+	- Medical
+	- Miltimedia 
+	- …</p>
 
-<p>Prenons un exemple : 
-	* Système de stabilisation d’un avion  -&gt; les mouvement de l’avion doit être pris en compte pour que l’objectif soit atteint de façon sûr. 
-	* ABS d’une voiture -&gt; la voiture dois réagir correctement en sécurité 
-	* Téléphone mobile faisant de la video : Correct = ? -&gt; faut juste que ce que l’on voit soit “beau”
-	* Carte électronique -&gt; il faut connaitre les attaques pour pouvoir se défendre.</p>
+<p>Entretien technique, Excellence technique.</p>
 
-<p><strong>Statique ou dynamique ?</strong></p>
+<h2 id="systme-temps-rel">Système Temps-Réel</h2>
 
-<p>Statique = Regarder le programme sans le faire tourner
-Dynamique = tout le reste : test à l’exécution, debug etc …</p>
+<p>Interface plus simple avec le matériel:
+	- Gestion de taches
+	- Gestion des irq
+	- Temps 
+	- Communication
+	- Ressources</p>
 
-<p>Est ce que l’on peut savoir si il y a une division par zéro ? 
-	* Peut pas être trouvé statiquement ! <br />
-Mon programme a t il besoin d’une mémoire finie ?<br />
-	* Peut pas trop être détecté en statique, sauf si pas d’allocation mémoire, ni de récursion
-Mon programme aura terminé en moins de 3 secondes ?<br />
-	* Indécidable statiquement</p>
+<p>Plusieurs taches qui paraissent s’exécuter en même temps sont en fait exécutés séquentiellement.
+-&gt; Il faut donc ordonnancer les tâches.</p>
 
-<p>Le type de réponse d’un test de validation serait du type : <br />
-	* Il existe un morceau de code qui plante
-	* Il pourrait y avoir un morceau de code qui fait planter
-	* Pour TOUTES les entrées possible, mon système est correcte.</p>
-
-<p>Pour savoir si un erreur est accessible par un programme il faut :</p>
+<p>Si c’est multi-coeur, plusieurs tâches peuvent s’exécuter en même temps.</p>
 
 <ul>
-  <li>Graph du programme</li>
-  <li>
-    <p>Graph d’une condition à respecter</p>
+  <li>Concurrence :
+    <ul>
+      <li>Priorités différentes, quelle politique ?
+        <ul>
+          <li>Run to completion</li>
+          <li>Utilisation de “pthread_yield”</li>
+          <li>Time Sharing</li>
+          <li>Tick système</li>
+        </ul>
+      </li>
+    </ul>
   </li>
-  <li>
-    <p>Faire le produit synchrone des deux</p>
+  <li>Préemption :
+    <ul>
+      <li>Scheduler peut suspendre une tâche</li>
+      <li>Problème de réentrance: interrompre une oppération qui modifie une variable en mémoire</li>
+      <li>Synchronisation</li>
+    </ul>
   </li>
-  <li>Regarder plus finement les liens menant à un état d’erreur pour savoir les transitions sont possibles, et donc si l’état d’erreur est accéssible</li>
+  <li>Inversion de priorité :
+    <ul>
+      <li>Permet de donner une plus grande priorité à un tâche qui à la ressource.</li>
+    </ul>
+  </li>
+  <li>Dead Locks :
+    <ul>
+      <li>Tjs prendre les ressources dans le même ordre</li>
+    </ul>
+  </li>
+</ul>
+
+<p>-&gt; Systèmes temps réels : <br />
+Capacité de traiter en un temps déterminer un ensemble d’évènements <br />
+	- Sans perdre d’évènements<br />
+	- Déterminisme de l’ordre de traitement de ces évènements<br />
+Temps-réel ne veut pas forcement dire performant (pas tjs)</p>
+
+<h2 id="problmatique-de-la-programmation-en-contexte-temps-rel">Problèmatique de la programmation en contexte temps-réel</h2>
+
+<ul>
+  <li>Zones critiques
+  Desactivation des intéruptions =&gt; Attention !!</li>
+  <li>Solution
+    <ul>
+      <li>Eviter au plus de désactiver les intéruptions</li>
+    </ul>
+  </li>
+  <li>Optimisation du compilateur
+    <ul>
+      <li>Plus efficace en activant l’optimisation du compilo</li>
+      <li>Mais on peut avoir de mauvaise surprise :
+        <ul>
+          <li>Debug pas à pas chelou</li>
+          <li>Volatile pour les accés registres</li>
+          <li>Volatile pour une variable partagé entre contexte de tâche et contexte d’intéruption</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="diffrent-temps-rel">Différent temps réel</h3>
+
+<p>Temps réel “mou” :
+	- Les contraintes de temps peuvent de temps en temps ne pas être respecter
+	- La performance moyenne est prise en compte
+Temps réel “dur” :
+	- doit TJS TJS respecter les contraintes de temps 
+	- Pire cas est pris en compte</p>
+
+<h3 id="rt-os">RT-OS</h3>
+<p>Temps de réponse garanti:</p>
+
+<ul>
+  <li>Points clés :
+    <ul>
+      <li>Algo d’ordonnancement</li>
+      <li>Temps de latence des irq</li>
+      <li>Temps de latence de changement de contexte</li>
+    </ul>
+  </li>
+  <li>Priorités des tâches et des interuptions
+    <ul>
+      <li>Traitant d’irq minimalisé en context d’irq</li>
+      <li>On peut reporter l’irq dans des tâches de haute prioritéo</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="quelle-rt-os">Quelle RT-OS</h3>
+
+<ul>
+  <li>Cout</li>
+  <li>Fonctionnalité</li>
+  <li>Performance temps-réel</li>
+  <li>Encombrement</li>
+  <li>Offre logiciel
+    <ul>
+      <li>Protocoles de com. (TCP/IP)</li>
+      <li>Applications (serveur web,…)</li>
+    </ul>
+  </li>
+  <li>Outils de développement et mise au point
+    <ul>
+      <li>IDE</li>
+      <li>Debugger</li>
+      <li>Analyseur de temps-réel</li>
+      <li>Simulateur</li>
+    </ul>
+  </li>
+</ul>
+
+<p>ASP = Architecture Support Package 
+BSP = Board Support Package</p>
+
+<h2 id="comment-mettre-en-oeuvre-un-tel-systme">Comment mettre en oeuvre un tel système</h2>
+
+<ul>
+  <li>Cycle en V mais bon … En théorie :
+    <ul>
+      <li>Invalidation des hypothèses de départ</li>
+      <li>Changement des exigences en cours de route</li>
+      <li>Identification d’un problème technique</li>
+    </ul>
+  </li>
+  <li>Solutions ? Dérisqer
+    <ul>
+      <li>Analyse de risques</li>
+      <li>Actions préventives</li>
+      <li>Développement itératif</li>
+      <li>Envisager le pire cas
+        <ul>
+          <li>Périodicité des signaux</li>
+          <li>Exactitude du pilotage</li>
+          <li>Freq des irq</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="notion-de-cloisonement">Notion de cloisonement</h2>
+
+<p>Exemple du point de vente:</p>
+
+<ul>
+  <li>IHM
+    <ul>
+      <li>OS non temps-réel</li>
+      <li>IHM peut planter, pas grave</li>
+    </ul>
+  </li>
+  <li>Un module de paiement
+    <ul>
+      <li>Sans OS, certifié</li>
+      <li>Module dédier et cértifié -&gt; NE DOIT JAMAIS PLANTER</li>
+    </ul>
+  </li>
+</ul>
+
+<p>=&gt; Enjeux : Rassembler les deux fonctions sur un seul materiel</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>- Passage de cloisonnement "matériel" à cloisonnement "logiciel"
+- Réduction des couts
+</code></pre>
+</div>
+
+<h2 id="type-de-cloisonement">Type de cloisonement</h2>
+
+<ul>
+  <li>Cloisonnement mémoire
+    <ul>
+      <li>Protection d’un espace cloisonné contre les débordements mémoire d’une autre cloison</li>
+      <li>Chaque proc est cloisonnée dans son cloisonnement</li>
+      <li>Utilisation de la MMU du uP pour exposer un espace d’adr virtuel</li>
+      <li>Tous accès interdits lèvera une exception, traité par l’OS</li>
+    </ul>
+  </li>
+  <li>Cloisonnement temporelle
+    <ul>
+      <li>Disponibilité d’une quantité garantie de CPU à une partition temporelle</li>
+      <li>Découper l’exec en ‘Time Slices” sur lesquels on sait parfaitement quel tâches peut utiliser les ressources</li>
+    </ul>
+  </li>
+  <li>OS Classique
+    <ul>
+      <li>Mémoire partagé</li>
+      <li>IPC, messagerie, signaux</li>
+      <li>Mutex …</li>
+    </ul>
+  </li>
+  <li>OS Cloisonnement
+    <ul>
+      <li>Aucun risque de corruption d’une autre cloison</li>
+      <li>Pas de mémoire partagé</li>
+      <li>Pas de communication possible entre les cloisons : COMMENT FAIRE ?</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Exemple : Dans INTEGRITY</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>- Partition "Virtual Address Space"
+- Memory région : mem partagée mappé dans les deux VAS
+- Com bidirectionnelle synchrone ou asynchrone
+- Semaphore : synchro entre les VAS
+</code></pre>
+</div>
+
+<p>Du coup en cas de crash ?</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>- Memory Region : Données corrompues, accès concurrents (RO, WO, semaphore)
+- Connection : Corruption des données; Absence de réponse à une requête
+- Semaphore : Blocage de la ressource INTEGRITY à mis en place un "Resource Manager"
+</code></pre>
+</div>
+
+<h2 id="scheduling-en-env-cloisonn">Scheduling en env cloisonné</h2>
+
+<p>Quelle prio pour chaque cloison ? 
+Les cloisons doivent respecter les exigences RT
+Que faire avec les taches de même priorité mais de cloisons différentes ?</p>
+
+<ul>
+  <li>CHEZ INTEGRITY:
+    <ul>
+      <li>Prioritized
+        <ul>
+          <li>Tache e plus haute priorité et qui est préte, obtient le CPU</li>
+        </ul>
+      </li>
+      <li>Preemptive</li>
+      <li>Enhanced Partition Scheduler
+        <ul>
+          <li>La tâche de plus haute priorité de la partition temporelle courante obtient le CPU.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
 </ul>
 
 

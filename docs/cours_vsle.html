@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content=" ">
-<title>Getting started pages | Cours collaboratif de SLE 3A</title>
+<title>Notes de cours | Cours collaboratif de SLE 3A</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -152,7 +152,7 @@
                 
                 
                 
-			<li><a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:lucas.mahieu@icloud.com?subject=Cours de SLE, Jekyll Github pages f eedback&body=I have some feedback about the Getting started pages page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a><li>
+			<li><a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:lucas.mahieu@icloud.com?subject=Cours de SLE, Jekyll Github pages f eedback&body=I have some feedback about the Notes de cours page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a><li>
 
 		
                 <!--comment out this block if you want to hide search-->
@@ -168,7 +168,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Getting started pages">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Notes de cours">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -401,7 +401,7 @@
             
             
             
-            <li><a href="cours_vsle.html">Cours</a></li>
+            <li class="active"><a href="cours_vsle.html">Cours</a></li>
             
             
             
@@ -432,7 +432,7 @@
     <!-- Content Column -->
     <div class="col-md-9">
         <div class="post-header">
-   <h1 class="post-title-main">Getting started pages</h1>
+   <h1 class="post-title-main">Notes de cours</h1>
 </div>
 
 
@@ -472,175 +472,59 @@ $('#toc').on('click', 'a', function() {
 
     
 
-  <p>The following pages and posts are tagged with <button type="button" style="cursor: default" class="btn btn-default navbar-btn">getting_started</button></p>
-<table><thead><tr><th>Title</th><th>Type</th><th>Excerpt</th></tr></thead>
-    <tbody>
-    
-  
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-        
+  <h1 id="cours-du-121016">Cours du 12/10/16</h1>
 
-        <tr><td><a href="index.html">Getting started with the Documentation Theme for Jekyll</a></td>
-            <td><span class="label label-default">Page</span></td>
-          <td> These brief instructions will help you get started quickly with the theme. The other topics in this help provide additional information and detail about work... </td>
-        </tr>
-        
-     
-   
-    
-   
-    
-        
-     
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
-    
-   
+<p><a href="http://chamilo2.grenet.fr/inp/courses/ENSIMAG5MMVSE/document/TRANSPARENTS/12.10.16.pdf?cidReq=ENSIMAG5MMVSE&amp;id_session=0&amp;gidReq=0&amp;origin=">Lien du cours</a></p>
 
-        
-        
-        
-        
-        
-        
+<p>Un bug ça coûte cher, mais peut etre moins cher que de la vérif. <br />
+Exemple : 
+	- Avion = Énormes vérif et controle et norme
+	- Voiture = Pas de normes … mais ca commence un peu
+	- IoT = Pas de vérif car temps de vie “trop court”</p>
 
-        <tr><td><a href="samplepost.html">Sample post</a></td>
-            <td><span class="label label-primary">Post</span></td>
-            <td> This is some summary frontmatter for my sample post. </td>
-        </tr>
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+<p>Difficulté de l’embarqué et de devoir tester avant et en dehors de son contexte normal d’execution.<br />
+Comment savoir si le système fonctionne comme on a prévu qu’il fonctionne.<br />
+Mais il est aussi difficile de savoir ce que l’on aimerai que le système fasse.<br />
+La vérification c’est une comparaison entre: 
+	- La déscription entre ce que je veux 
+	- Et l’implémentation du système<br />
+Si non égale, se poser des questions, si oui c’est pas forcement génial !</p>
 
-   </tbody>
-</table>
+<p>Prenons un exemple : 
+	* Système de stabilisation d’un avion  -&gt; les mouvement de l’avion doit être pris en compte pour que l’objectif soit atteint de façon sûr. 
+	* ABS d’une voiture -&gt; la voiture dois réagir correctement en sécurité 
+	* Téléphone mobile faisant de la video : Correct = ? -&gt; faut juste que ce que l’on voit soit “beau”
+	* Carte électronique -&gt; il faut connaitre les attaques pour pouvoir se défendre.</p>
+
+<p><strong>Statique ou dynamique ?</strong></p>
+
+<p>Statique = Regarder le programme sans le faire tourner
+Dynamique = tout le reste : test à l’exécution, debug etc …</p>
+
+<p>Est ce que l’on peut savoir si il y a une division par zéro ? 
+	* Peut pas être trouvé statiquement ! <br />
+Mon programme a t il besoin d’une mémoire finie ?<br />
+	* Peut pas trop être détecté en statique, sauf si pas d’allocation mémoire, ni de récursion
+Mon programme aura terminé en moins de 3 secondes ?<br />
+	* Indécidable statiquement</p>
+
+<p>Le type de réponse d’un test de validation serait du type : <br />
+	* Il existe un morceau de code qui plante
+	* Il pourrait y avoir un morceau de code qui fait planter
+	* Pour TOUTES les entrées possible, mon système est correcte.</p>
+
+<p>Pour savoir si un erreur est accessible par un programme il faut :</p>
+
+<ul>
+  <li>Graph du programme</li>
+  <li>
+    <p>Graph d’une condition à respecter</p>
+  </li>
+  <li>
+    <p>Faire le produit synchrone des deux</p>
+  </li>
+  <li>Regarder plus finement les liens menant à un état d’erreur pour savoir les transitions sont possibles, et donc si l’état d’erreur est accéssible</li>
+</ul>
 
 
 

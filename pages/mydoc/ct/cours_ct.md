@@ -4,57 +4,189 @@ sidebar: mydoc_sidebar
 permalink: cours_ct.html
 folder: mydoc/ct
 ---
+# Conception de système embarqués contraint sous RTOS à cloisonement
 
-# Cours du 12/10/16
+Depuis 2008 chez ELYSE Design
 
-[Lien du cours](http://chamilo2.grenet.fr/inp/courses/ENSIMAG5MMVSE/document/TRANSPARENTS/12.10.16.pdf?cidReq=ENSIMAG5MMVSE&id_session=0&gidReq=0&origin=)
+Localisation:
+	- USA
+	- France
+	- Europe
 
-Un bug ça coûte cher, mais peut etre moins cher que de la vérif.   
-Exemple : 
-	- Avion = Énormes vérif et controle et norme
-	- Voiture = Pas de normes ... mais ca commence un peu
-	- IoT = Pas de vérif car temps de vie "trop court"
+Clients:
+	- Aerospatial 
+	- Defense 
+	- Energie 
+	- Medical
+	- Miltimedia 
+	- ...
 
-Difficulté de l'embarqué et de devoir tester avant et en dehors de son contexte normal d'execution.  
-Comment savoir si le système fonctionne comme on a prévu qu'il fonctionne.  
-Mais il est aussi difficile de savoir ce que l'on aimerai que le système fasse.  
-La vérification c'est une comparaison entre: 
-	- La déscription entre ce que je veux 
-	- Et l'implémentation du système  
-Si non égale, se poser des questions, si oui c'est pas forcement génial !   
+Entretien technique, Excellence technique.
 
-Prenons un exemple : 
-	* Système de stabilisation d'un avion  -> les mouvement de l'avion doit être pris en compte pour que l'objectif soit atteint de façon sûr. 
-	* ABS d'une voiture -> la voiture dois réagir correctement en sécurité 
-	* Téléphone mobile faisant de la video : Correct = ? -> faut juste que ce que l'on voit soit "beau"
-	* Carte électronique -> il faut connaitre les attaques pour pouvoir se défendre.
+## Système Temps-Réel 
 
-__Statique ou dynamique ?__
+Interface plus simple avec le matériel:
+	- Gestion de taches
+	- Gestion des irq
+	- Temps 
+	- Communication
+	- Ressources 
 
-Statique = Regarder le programme sans le faire tourner
-Dynamique = tout le reste : test à l'exécution, debug etc ...
+Plusieurs taches qui paraissent s'exécuter en même temps sont en fait exécutés séquentiellement.
+-> Il faut donc ordonnancer les tâches.
 
-Est ce que l'on peut savoir si il y a une division par zéro ? 
-	* Peut pas être trouvé statiquement !   
-Mon programme a t il besoin d'une mémoire finie ?  
-	* Peut pas trop être détecté en statique, sauf si pas d'allocation mémoire, ni de récursion
-Mon programme aura terminé en moins de 3 secondes ?  
-	* Indécidable statiquement 
+Si c'est multi-coeur, plusieurs tâches peuvent s'exécuter en même temps.
 
-Le type de réponse d'un test de validation serait du type :   
-	* Il existe un morceau de code qui plante
-	* Il pourrait y avoir un morceau de code qui fait planter
-	* Pour TOUTES les entrées possible, mon système est correcte.
+- Concurrence :
+	-  Priorités différentes, quelle politique ?
+		- Run to completion
+		- Utilisation de "pthread_yield"
+		- Time Sharing 
+		- Tick système 
+- Préemption :
+	- Scheduler peut suspendre une tâche
+	- Problème de réentrance: interrompre une oppération qui modifie une variable en mémoire
+	- Synchronisation 
+- Inversion de priorité :
+	- Permet de donner une plus grande priorité à un tâche qui à la ressource.
+- Dead Locks :
+	- Tjs prendre les ressources dans le même ordre
 
+-> Systèmes temps réels :   
+Capacité de traiter en un temps déterminer un ensemble d'évènements   
+	- Sans perdre d'évènements  
+	- Déterminisme de l'ordre de traitement de ces évènements  
+Temps-réel ne veut pas forcement dire performant (pas tjs)  
 
-Pour savoir si un erreur est accessible par un programme il faut : 
+## Problèmatique de la programmation en contexte temps-réel 
 
-* Graph du programme  
-* Graph d'une condition à respecter  
+- Zones critiques
+	Desactivation des intéruptions => Attention !!
+- Solution 
+	- Eviter au plus de désactiver les intéruptions
+- Optimisation du compilateur 
+	- Plus efficace en activant l'optimisation du compilo
+	- Mais on peut avoir de mauvaise surprise : 
+		- Debug pas à pas chelou
+		- Volatile pour les accés registres 
+		- Volatile pour une variable partagé entre contexte de tâche et contexte d'intéruption
 
-* Faire le produit synchrone des deux  
+### Différent temps réel
 
-* Regarder plus finement les liens menant à un état d'erreur pour savoir les transitions sont possibles, et donc si l'état d'erreur est accéssible 
+Temps réel "mou" :
+	- Les contraintes de temps peuvent de temps en temps ne pas être respecter
+	- La performance moyenne est prise en compte
+Temps réel "dur" :
+	- doit TJS TJS respecter les contraintes de temps 
+	- Pire cas est pris en compte
+
+### RT-OS
+Temps de réponse garanti:
+
+- Points clés :
+	- Algo d'ordonnancement 
+	- Temps de latence des irq
+	- Temps de latence de changement de contexte
+- Priorités des tâches et des interuptions
+	- Traitant d'irq minimalisé en context d'irq
+	- On peut reporter l'irq dans des tâches de haute prioritéo
+
+### Quelle RT-OS
+
+- Cout
+- Fonctionnalité
+- Performance temps-réel
+- Encombrement
+- Offre logiciel
+	- Protocoles de com. (TCP/IP)
+	- Applications (serveur web,...)
+- Outils de développement et mise au point
+	- IDE
+	- Debugger
+	- Analyseur de temps-réel
+	- Simulateur
+
+ASP = Architecture Support Package 
+BSP = Board Support Package
+
+## Comment mettre en oeuvre un tel système
+
+- Cycle en V mais bon ... En théorie :  
+	- Invalidation des hypothèses de départ
+	- Changement des exigences en cours de route
+	- Identification d'un problème technique
+- Solutions ? Dérisqer   
+	- Analyse de risques
+	- Actions préventives
+	- Développement itératif  
+	- Envisager le pire cas
+		- Périodicité des signaux
+		- Exactitude du pilotage
+		- Freq des irq
+
+## Notion de cloisonement 
+
+Exemple du point de vente:
+
+- IHM 
+	- OS non temps-réel
+	- IHM peut planter, pas grave
+- Un module de paiement
+	- Sans OS, certifié
+	- Module dédier et cértifié -> NE DOIT JAMAIS PLANTER
+
+=> Enjeux : Rassembler les deux fonctions sur un seul materiel
+
+	- Passage de cloisonnement "matériel" à cloisonnement "logiciel"
+	- Réduction des couts
+
+## Type de cloisonement
+
+- Cloisonnement mémoire 
+	- Protection d'un espace cloisonné contre les débordements mémoire d'une autre cloison
+	- Chaque proc est cloisonnée dans son cloisonnement
+	- Utilisation de la MMU du uP pour exposer un espace d'adr virtuel
+	- Tous accès interdits lèvera une exception, traité par l'OS
+- Cloisonnement temporelle
+	- Disponibilité d'une quantité garantie de CPU à une partition temporelle
+	- Découper l'exec en 'Time Slices" sur lesquels on sait parfaitement quel tâches peut utiliser les ressources
+
+- OS Classique 
+	- Mémoire partagé 
+	- IPC, messagerie, signaux
+	- Mutex ...
+- OS Cloisonnement 
+	- Aucun risque de corruption d'une autre cloison
+	- Pas de mémoire partagé
+	- Pas de communication possible entre les cloisons : COMMENT FAIRE ? 
+
+Exemple : Dans INTEGRITY 
+
+	- Partition "Virtual Address Space"
+	- Memory région : mem partagée mappé dans les deux VAS
+	- Com bidirectionnelle synchrone ou asynchrone
+	- Semaphore : synchro entre les VAS
+
+Du coup en cas de crash ? 
+
+	- Memory Region : Données corrompues, accès concurrents (RO, WO, semaphore)
+	- Connection : Corruption des données; Absence de réponse à une requête
+	- Semaphore : Blocage de la ressource
+INTEGRITY à mis en place un "Resource Manager"
+
+## Scheduling en env cloisonné
+
+Quelle prio pour chaque cloison ? 
+Les cloisons doivent respecter les exigences RT
+Que faire avec les taches de même priorité mais de cloisons différentes ?
+
+- CHEZ INTEGRITY:
+	- Prioritized
+		- Tache e plus haute priorité et qui est préte, obtient le CPU
+	- Preemptive
+	- Enhanced Partition Scheduler
+		- La tâche de plus haute priorité de la partition temporelle courante obtient le CPU.
+
 
 
 
