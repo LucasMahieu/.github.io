@@ -1,1 +1,1 @@
-bundle exec jekyll serve -d docs
+bundle exec jekyll build -d docs
