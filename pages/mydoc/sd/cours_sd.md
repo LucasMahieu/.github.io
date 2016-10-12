@@ -10,16 +10,17 @@ folder: mydoc/sd
 Récap sur séance précèdent:  
 Quoi ?  
 Pourquoi ?  
-Différence avec Système Embarqués/Centralisés et les Système distribués :   
-	- Communication entre processus
-	- Mémoire partagée 
-	- Absence d'horloge partagée
-	- Tolérance au faute
+* Différence avec Système Embarqués/Centralisés et les Système distribués :   
+	* Communication entre processus
+	* Mémoire partagée 
+	* Absence d'horloge partagée
+	* Tolérance au faute
 Comment faire pour utiliser ces systèmes ?    
+
 * Spécification :  
-	- Communications ? 
-	- Synchronisation ?
-	- Consensus ?  
+	* Communications ? 
+	* Synchronisation ?
+	* Consensus ?  
 * Hypothèse
 	
 
