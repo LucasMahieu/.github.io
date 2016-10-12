@@ -576,12 +576,20 @@ Temps-réel ne veut pas forcement dire performant (pas tjs)</p>
 
 <h3 id="diffrent-temps-rel">Différent temps réel</h3>
 
-<p>Temps réel “mou” :
-	- Les contraintes de temps peuvent de temps en temps ne pas être respecter
-	- La performance moyenne est prise en compte
-Temps réel “dur” :
-	- doit TJS TJS respecter les contraintes de temps 
-	- Pire cas est pris en compte</p>
+<ul>
+  <li>Temps réel “mou” :
+    <ul>
+      <li>Les contraintes de temps peuvent de temps en temps ne pas être respecter</li>
+      <li>La performance moyenne est prise en compte</li>
+    </ul>
+  </li>
+  <li>Temps réel “dur” :
+    <ul>
+      <li>doit TJS TJS respecter les contraintes de temps</li>
+      <li>Pire cas est pris en compte</li>
+    </ul>
+  </li>
+</ul>
 
 <h3 id="rt-os">RT-OS</h3>
 <p>Temps de réponse garanti:</p>
@@ -625,7 +633,7 @@ Temps réel “dur” :
   </li>
 </ul>
 
-<p>ASP = Architecture Support Package 
+<p>ASP = Architecture Support Package  <br />
 BSP = Board Support Package</p>
 
 <h2 id="comment-mettre-en-oeuvre-un-tel-systme">Comment mettre en oeuvre un tel système</h2>
@@ -655,7 +663,6 @@ BSP = Board Support Package</p>
 </ul>
 
 <h2 id="notion-de-cloisonement">Notion de cloisonement</h2>
-
 <p>Exemple du point de vente:</p>
 
 <ul>
@@ -675,10 +682,10 @@ BSP = Board Support Package</p>
 
 <p>=&gt; Enjeux : Rassembler les deux fonctions sur un seul materiel</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>- Passage de cloisonnement "matériel" à cloisonnement "logiciel"
-- Réduction des couts
-</code></pre>
-</div>
+<ul>
+  <li>Passage de cloisonnement “matériel” à cloisonnement “logiciel”</li>
+  <li>Réduction des couts</li>
+</ul>
 
 <h2 id="type-de-cloisonement">Type de cloisonement</h2>
 
@@ -724,11 +731,12 @@ BSP = Board Support Package</p>
 
 <p>Du coup en cas de crash ?</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>- Memory Region : Données corrompues, accès concurrents (RO, WO, semaphore)
-- Connection : Corruption des données; Absence de réponse à une requête
-- Semaphore : Blocage de la ressource INTEGRITY à mis en place un "Resource Manager"
-</code></pre>
-</div>
+<ul>
+  <li>Memory Region : Données corrompues, accès concurrents (RO, WO, semaphore)</li>
+  <li>Connection : Corruption des données; Absence de réponse à une requête</li>
+  <li>Semaphore : Blocage de la ressource
+INTEGRITY à mis en place un “Resource Manager”</li>
+</ul>
 
 <h2 id="scheduling-en-env-cloisonn">Scheduling en env cloisonné</h2>
 

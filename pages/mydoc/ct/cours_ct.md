@@ -72,10 +72,10 @@ Temps-réel ne veut pas forcement dire performant (pas tjs)
 
 ### Différent temps réel
 
-Temps réel "mou" :
+- Temps réel "mou" :
 	- Les contraintes de temps peuvent de temps en temps ne pas être respecter
 	- La performance moyenne est prise en compte
-Temps réel "dur" :
+- Temps réel "dur" :
 	- doit TJS TJS respecter les contraintes de temps 
 	- Pire cas est pris en compte
 
@@ -105,7 +105,7 @@ Temps de réponse garanti:
 	- Analyseur de temps-réel
 	- Simulateur
 
-ASP = Architecture Support Package 
+ASP = Architecture Support Package    
 BSP = Board Support Package
 
 ## Comment mettre en oeuvre un tel système
@@ -124,7 +124,6 @@ BSP = Board Support Package
 		- Freq des irq
 
 ## Notion de cloisonement 
-
 Exemple du point de vente:
 
 - IHM 
@@ -136,8 +135,8 @@ Exemple du point de vente:
 
 => Enjeux : Rassembler les deux fonctions sur un seul materiel
 
-	- Passage de cloisonnement "matériel" à cloisonnement "logiciel"
-	- Réduction des couts
+- Passage de cloisonnement "matériel" à cloisonnement "logiciel"
+- Réduction des couts
 
 ## Type de cloisonement
 
@@ -168,9 +167,9 @@ Exemple : Dans INTEGRITY
 
 Du coup en cas de crash ? 
 
-	- Memory Region : Données corrompues, accès concurrents (RO, WO, semaphore)
-	- Connection : Corruption des données; Absence de réponse à une requête
-	- Semaphore : Blocage de la ressource
+- Memory Region : Données corrompues, accès concurrents (RO, WO, semaphore)
+- Connection : Corruption des données; Absence de réponse à une requête
+- Semaphore : Blocage de la ressource
 INTEGRITY à mis en place un "Resource Manager"
 
 ## Scheduling en env cloisonné
