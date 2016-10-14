@@ -1,3 +1,3 @@
-## Jekyll Documentation theme
+## Site perso de Note de Cours
 
-Build the site to see the instructions for using it. Or just go here: [http://idratherbewriting.com/documentation-theme-jekyll/](http://idratherbewriting.com/documentation-theme-jekyll/)
+Site here: [http://lucasmahieu.github.io/SLE)
