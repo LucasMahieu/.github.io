@@ -472,7 +472,7 @@ $('#toc').on('click', 'a', function() {
 
     
 
-  <h1 id="conception-de-systme-embarqus-contraint-sous-rtos--cloisonement">Conception de système embarqués contraint sous RTOS à cloisonement</h1>
+  <h1 id="conception-de-systme-embarqus-contraint-sous-rtos--cloisonement">07/10/16 : Conception de système embarqués contraint sous RTOS à cloisonement</h1>
 
 <p>Depuis 2008 chez ELSYS Design</p>
 
@@ -762,6 +762,172 @@ Que faire avec les taches de même priorité mais de cloisons différentes ?</p>
   </li>
 </ul>
 
+<h1 id="mathlab-polyspace">14/10/16 : Mathlab: Polyspace</h1>
+
+<h3 id="introduction">Introduction</h3>
+<p>Polyspace depuis 2010 dans la vérification de code</p>
+
+<p>3500 salarié
+900 SW eng
+90 products</p>
+
+<p>Polyspace Dev Team
+	- 30 eng
+	- Paris + Montbonot
+	- Aeronautique
+	- Automobile</p>
+
+<p>Interprétation abstraite créé par M et Mme Couzau au 3ème étage de l’ENSIMAG
+Outil d’analyse abstraite = Théorie qui prend en entrée un programme qui va de manière automatique va prouver qu’il n’y aura pas d’erreurs à l’exécution du programme</p>
+
+<p>Programme = Ensemble de C/C++ qui compile 
+Automatique = L’utilisateur ne dois pas intervenir 
+Prouver = se baser sur une base mathématique solide
+Réponse = Elle doit etre ‘OUI’, ‘NON’ et ‘Peut être’, le dernier choix est OBLIGATOIRE (c’est prouvé)
+A l’exécution = Quand le programme s’exécutera en condition réelle.</p>
+
+<h3 id="exemple">Exemple</h3>
+
+<ul>
+  <li>Ariane 5: Overflow</li>
+  <li>Missile patriote: Erreur de float de 10-4% -&gt; 137 métres</li>
+  <li>Panne électricité au USA: data race</li>
+  <li>Volvo crash: capteur accumule de l’imprécision</li>
+</ul>
+
+<h3 id="les-bases-de-linterprtation-abstraite">Les bases de l’interprétation abstraite</h3>
+<p>Pas la peine de tout connaitre dans un programme, il suffis de connaitre parfaitement les informations que l’on a besoin</p>
+
+<p>Grille d’interprétation de signe par exemple <br />
+						            Top <br />
+						         &lt;=      &gt;=0 <br />
+							&lt;0      =0       &gt;0 <br />
+						          Bottom <br />
+On joue alors le programme non plus en essayant de savoir TOUT mais utilisant un élement dans la grille
+Les propriété que l’on utilise peut être divers: 
+- Signe
+- Intervals
+- Octagons
+- Polyhedre
+- Disjonctions</p>
+
+<h3 id="enjeux-techniques">Enjeux techniques</h3>
+
+<ul>
+  <li>Programme avec pointeur</li>
+  <li>Programme avec structures</li>
+  <li>Tableau</li>
+  <li>Complexe control flow</li>
+  <li>C++</li>
+</ul>
+
+<p>Exemple avec des pointeurs:</p>
+
+<ul>
+  <li>Erreur de déréférencement de pointeurs
+  Pour chaque déréférencement, il faut vérifier si le pointeur est valide</li>
+</ul>
+
+<p>Calcul d’alias = Ensemble de variables qui ont des relations entre elles
+ex :  P -&gt;  X
+	  |—&gt; Y<br />
+Signifie que P peu pointer vers X ou Y et c’est tout</p>
+
+<p>Contexte insensitive : ne différencie pas les contextes d’appels de fonction : résultat assez large
+Contexte sensitive : prend en compte les contextes d’appels de fonctions, plus stricte</p>
+
+<p>Flow sensitive : Idem avec les if etc 
+Flow insensitive :</p>
+
+<p>Le sensitive est trop couteux … donc en pratique on fait du insensitive et on essaye de raffiner</p>
+
+<p>Algorithme de Anderson: <br />
+- écrire les points-to (lien de pointeurs) = calcul d’alias<br />
+- Il faut poser les équations.
+- Il faut résoudre une équation de point fixe.<br />
+- Complexité en ^3.</p>
+
+<p>Algorythme de Steensgaard:<br />
+- Quand on fait le graph des alias, on le fait plus qu’une fléche qui part d’un pointeur, vers une boite contenant toutes les possibilités.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>                                _    x----&gt;  y                  X ----&gt; |Y|    |----&gt;  z        devient           |Z|   
+                                -    - Cette modification permet de réduire la complexité de n^3 à n^1 - Mais cette méthode ne permet pas de manipuler des tableaux ou des stuctures
+</code></pre>
+</div>
+
+<p>Technique maison de chez MathWorks: <br />
+- Vue de graph imbriqué
+- Pour les tableaux, on peut mémoriser que le pointeurs est dans une case sans savoir la quelle</p>
+
+<p>Pour prendre en compte les tableaux et les structures l’aglo se complexifie : de n^1 à n^2</p>
+
+<h3 id="enjeux-technologiques">Enjeux technologiques</h3>
+
+<p>Il faut que le produit soit intéressant, simple, efficace à utiliser. <br />
+Pour réussir, on se pose les questions suivantes:</p>
+
+<ul>
+  <li>Que va se service du produit ?
+    <ul>
+      <li>1) SW dev</li>
+      <li>2) SW eng</li>
+      <li>3) Quality eng</li>
+    </ul>
+  </li>
+  <li>Chaque utilisateur ont des utilisations différentes
+    <ul>
+      <li>1) Facile à utiliser, quelques clics, pas contraignant.
+        <ul>
+          <li>Prendre en compte le fait que le code testé ne sera pas forcement entièrement présent, ou pas tout doit être testé</li>
+          <li>Différent code généré par des compilo exotique</li>
+          <li>Faire des intérprétation dans les modèls</li>
+          <li>Intégration dans un IDE, git etc</li>
+        </ul>
+      </li>
+      <li>2) Utilisable de facon efficace et conviviale
+        <ul>
+          <li>Interval pour variable, points-to pour les pointeurs, relations entre variable</li>
+          <li>Code non attégnable</li>
+          <li>Pour chaque RTE, OUI, NON, PEUT-ETRE</li>
+          <li>Prise en compte de bcp de faute “classique” : Overflown, NULL, Not Initialized, etc …</li>
+          <li>Coloration
+            <ul>
+              <li>Vert = C’est SUR que le code est safe.</li>
+              <li>Rouge = C’est SUR que le code génére une erreur à l’exec.</li>
+              <li>Gris = Code mort</li>
+              <li>Orange = Ce morceau de code PEU poser problème (PEUT-ÊTRE…)</li>
+              <li>Violet = Violation de règle de codage : MISRA-C/C++</li>
+            </ul>
+          </li>
+          <li>Information au passage de souris: intérvale d’une variable etc</li>
+        </ul>
+      </li>
+      <li>3) Traiter les résultats de façon pas trop fastidieuse
+        <ul>
+          <li>On peut guider l’annalyseur en lui forcant la main au vert sur certain point</li>
+          <li>Tools</li>
+          <li>Métrique de la qualité d’un code</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Comment faire pour que l’outil fonctionne pour de vrais cas, qui ont beaucoup de LoC
+    <ul>
+      <li>Exemple : 200,000 LoC  -&gt;  la plus longue chaine d’alias peut être de 16122 case mémoire; 5536 set d’alias</li>
+      <li>Pour réduire la complexité, on peut faire du SSA <a href="https://fr.wikipedia.org/wiki/Static_single_assignment_form">Static Single Assignement</a>
+### Conclusion</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Conférence POPL/PLDL = Meilleur conférence en info théorique <br />
+en 2016 -&gt; 35 papier sur les traitements de pointeurs<br />
+De plus en plus de floatant -&gt; NaN, infinity, subnormals -&gt; Problèmes complexes<br />
+On peut pas avoir tout vert, il faudra forcement passer par des oranges</p>
+
+<p>Anecdote : <br />
+Livre sur le C++</p>
+
 
 
     <div class="tags">
@@ -778,7 +944,7 @@ Que faire avec les taches de même priorité mais de cloisons différentes ?</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 Lucas Mahieu. All rights reserved. <br />
- Site last generated: Oct 12, 2016 <br />
+ Site last generated: Oct 14, 2016 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>
