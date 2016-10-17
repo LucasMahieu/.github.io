@@ -28,7 +28,7 @@ Le métal ajouté s'appelle les : "Dummies"
 ## Enlèvement des couches
 Par des traitements chimiques, on peut enlever les courches de métal, d'isolant etc ...
 Il est ensuite possible d'obeserver avec des microscopes assez puissant les differents éléments qui composent le circuit
-Par cette méthode on peut :
+Par cette méthode on peut :   
 	- Repérer l'emplacement des composants
 	- Recuperer des données stockés en dure dans des ROM
 	
@@ -36,6 +36,7 @@ Pour rendre la tâche plus difficile à l'attaquant, on peut stocker les octets 
 Mais si on faire la même observation sur le décodeur de ROM, on peut encore une fois retrouver les données de la ROM
 
 ## Autres interventions physiques
+
 - Couper des interconnexions internes
 - Ajouter ou modifier des interconnexions internes
 Pas toujours facile sans abimer les autres zones du circuit
@@ -46,6 +47,7 @@ Avec des SEM, Microscopes électroniques, on peut observer les niveaus logique d
 Très utilisé pour aller lire des mémoires programmables qui pourraient contenir des clés secrétes.
 
 ## Attaque par canaux caché/auxiliaire
+
 - Mesure du temps d'exécution
 - Mesure de consommation de courant (SPA, DPA, CPA)
 - Mesure des émissions EM
@@ -53,10 +55,12 @@ Très utilisé pour aller lire des mémoires programmables qui pourraient conten
 - Ou d'autres encore ... ?
 
 ## Quelle conditions pour faire de telles attaques ?
+
 - Il dois y avoir un lien entre la clé secrète et une grandeur physique
 - Et pour savoir quelle grandeur doit être mesuré, il faut connaitre quel algo est utilisé
 
-## Type d'attaque par cannaux auxiliaire
+## Type d'attaque par canaux auxiliaire
+
 - Simple 
 	- Grandeur directement mesurable 
 - Différentiel
@@ -70,7 +74,7 @@ Très utilisé pour aller lire des mémoires programmables qui pourraient conten
 * Il faut des fois accepter de perdre en performance pour plus de sécurité :
 	* Implém 1: if(x=1) then a=a+b;
 	* Implém 2: t[0]=a ; t[1]=a+b ; a=t[x] ;
-	Implémentation 2 est sécurisé vis à vis de la mesure de temps.
+	Implémentation 2 est sécurisé vis à vis de la mesure de temps.   
 	En contre partie, plus d'accés mémoire
 * Autre exemple : code PIN de la carte bleu 
 * Même si la mesure ne permet pas de dévoiler la clé, ces méthodes de mesure de temps peut permettre de construire des statistiques qui permettrons de réduire considérablement le nombre de possibilité à essayer par bute-force 
@@ -78,14 +82,14 @@ Très utilisé pour aller lire des mémoires programmables qui pourraient conten
 ### Attaque par analyse de consommation
 
 * SPA : Simple Power Analysis
-	Un transistor consomme du courant lorsqu'il commute  
-	En mesurant le courant, on peut remonter aux "bits" du système  
-	On repère un motif qui revèle la clé, vu qu'on connais les algo utilisé  
+	* Un transistor consomme du courant lorsqu'il commute  
+	* En mesurant le courant, on peut remonter aux "bits" du système  
+	* On repère un motif qui revèle la clé, vu qu'on connais les algo utilisé  
 * DPA : Differencial Power Analysis
-	- Il faut des modèles pour lier la physique aux inforamtions qui se propagent dans le système  
-	- Il faut ensuite trouver l'opération qui nous permettra de trouver l'information voulu  
-	- Par exemple M' = f( M XOR K )
-	- On découpe ce genre d'opération en sous bloc, on fait des hypothèses de clés et voir l'influence sur la conso de courant
+	* Il faut des modèles pour lier la physique aux inforamtions qui se propagent dans le système  
+	* Il faut ensuite trouver l'opération qui nous permettra de trouver l'information voulu  
+	* Par exemple M' = f( M XOR K )
+	* On découpe ce genre d'opération en sous bloc, on fait des hypothèses de clés et voir l'influence sur la conso de courant
 
 ### Attaque par analyse d'émission électronmagnetique
 
@@ -116,6 +120,7 @@ Exemple de l'attaque de Bellecore sur RSA CRT
 Avec un flash on perturbe un chiffrement et avec quelques propriétés mathématiques, on peut retrouver la clé très facilement.
 
 __Une attauque idéale serait__  
+
 * Localisée (x,y)
 * Localisé en temps (début et durée)
 * Type de la faute : stuck at, injection d'erreurs
@@ -131,9 +136,9 @@ SEU: Single-Event Upset
 MBU: 
 
 Attaque software:   
-- SW flaw exploitation, test protocols
-- Buffer overflow
-- Trojan horses (e.g., hidden in games,...)
-- Virus, code agressif, attaque par réseaux
+	- SW flaw exploitation, test protocols
+	- Buffer overflow
+	- Trojan horses (e.g., hidden in games,...)
+	- Virus, code agressif, attaque par réseaux
 
 {% include links.html %}

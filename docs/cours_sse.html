@@ -503,7 +503,7 @@ Le métal ajouté s’appelle les : “Dummies”</p>
 <h2 id="enlvement-des-couches">Enlèvement des couches</h2>
 <p>Par des traitements chimiques, on peut enlever les courches de métal, d’isolant etc …
 Il est ensuite possible d’obeserver avec des microscopes assez puissant les differents éléments qui composent le circuit
-Par cette méthode on peut :
+Par cette méthode on peut : <br />
 	- Repérer l’emplacement des composants
 	- Recuperer des données stockés en dure dans des ROM</p>
 
@@ -511,6 +511,7 @@ Par cette méthode on peut :
 Mais si on faire la même observation sur le décodeur de ROM, on peut encore une fois retrouver les données de la ROM</p>
 
 <h2 id="autres-interventions-physiques">Autres interventions physiques</h2>
+
 <ul>
   <li>Couper des interconnexions internes</li>
   <li>Ajouter ou modifier des interconnexions internes
@@ -523,6 +524,7 @@ Mais l’une des utilisations pourrait être de détruire ou reconstruire des fu
 Très utilisé pour aller lire des mémoires programmables qui pourraient contenir des clés secrétes.</p>
 
 <h2 id="attaque-par-canaux-cachauxiliaire">Attaque par canaux caché/auxiliaire</h2>
+
 <ul>
   <li>Mesure du temps d’exécution</li>
   <li>Mesure de consommation de courant (SPA, DPA, CPA)</li>
@@ -532,12 +534,14 @@ Très utilisé pour aller lire des mémoires programmables qui pourraient conten
 </ul>
 
 <h2 id="quelle-conditions-pour-faire-de-telles-attaques-">Quelle conditions pour faire de telles attaques ?</h2>
+
 <ul>
   <li>Il dois y avoir un lien entre la clé secrète et une grandeur physique</li>
   <li>Et pour savoir quelle grandeur doit être mesuré, il faut connaitre quel algo est utilisé</li>
 </ul>
 
-<h2 id="type-dattaque-par-cannaux-auxiliaire">Type d’attaque par cannaux auxiliaire</h2>
+<h2 id="type-dattaque-par-canaux-auxiliaire">Type d’attaque par canaux auxiliaire</h2>
+
 <ul>
   <li>Simple
     <ul>
@@ -561,7 +565,7 @@ Très utilisé pour aller lire des mémoires programmables qui pourraient conten
     <ul>
       <li>Implém 1: if(x=1) then a=a+b;</li>
       <li>Implém 2: t[0]=a ; t[1]=a+b ; a=t[x] ;
-  Implémentation 2 est sécurisé vis à vis de la mesure de temps.
+  Implémentation 2 est sécurisé vis à vis de la mesure de temps. <br />
   En contre partie, plus d’accés mémoire</li>
     </ul>
   </li>
@@ -573,9 +577,12 @@ Très utilisé pour aller lire des mémoires programmables qui pourraient conten
 
 <ul>
   <li>SPA : Simple Power Analysis
-  Un transistor consomme du courant lorsqu’il commute<br />
-  En mesurant le courant, on peut remonter aux “bits” du système<br />
-  On repère un motif qui revèle la clé, vu qu’on connais les algo utilisé</li>
+    <ul>
+      <li>Un transistor consomme du courant lorsqu’il commute</li>
+      <li>En mesurant le courant, on peut remonter aux “bits” du système</li>
+      <li>On repère un motif qui revèle la clé, vu qu’on connais les algo utilisé</li>
+    </ul>
+  </li>
   <li>DPA : Differencial Power Analysis
     <ul>
       <li>Il faut des modèles pour lier la physique aux inforamtions qui se propagent dans le système</li>
@@ -622,12 +629,15 @@ Ce n’est pas le cas des mesures EM.</p>
 Exemple de l’attaque de Bellecore sur RSA CRT<br />
 Avec un flash on perturbe un chiffrement et avec quelques propriétés mathématiques, on peut retrouver la clé très facilement.</p>
 
-<p><strong>Une attauque idéale serait</strong><br />
-* Localisée (x,y)
-* Localisé en temps (début et durée)
-* Type de la faute : stuck at, injection d’erreurs
-* Bas cout
-* Rapide</p>
+<p><strong>Une attauque idéale serait</strong></p>
+
+<ul>
+  <li>Localisée (x,y)</li>
+  <li>Localisé en temps (début et durée)</li>
+  <li>Type de la faute : stuck at, injection d’erreurs</li>
+  <li>Bas cout</li>
+  <li>Rapide</li>
+</ul>
 
 <h1 id="cours-du-171016">Cours du 17/10/16</h1>
 
@@ -637,10 +647,10 @@ SEU: Single-Event Upset
 MBU:</p>
 
 <p>Attaque software: <br />
-- SW flaw exploitation, test protocols
-- Buffer overflow
-- Trojan horses (e.g., hidden in games,…)
-- Virus, code agressif, attaque par réseaux</p>
+	- SW flaw exploitation, test protocols
+	- Buffer overflow
+	- Trojan horses (e.g., hidden in games,…)
+	- Virus, code agressif, attaque par réseaux</p>
 
 
 
