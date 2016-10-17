@@ -125,6 +125,15 @@ __Une attauque idéale serait__
 
 # Cours du 17/10/16
 
+## Création d'erreur   
+SET: Single-Event Transients 
+SEU: Single-Event Upset
+MBU: 
 
+Attaque software:   
+- SW flaw exploitation, test protocols
+- Buffer overflow
+- Trojan horses (e.g., hidden in games,...)
+- Virus, code agressif, attaque par réseaux
 
 {% include links.html %}
