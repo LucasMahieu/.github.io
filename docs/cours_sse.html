@@ -504,7 +504,7 @@ Le métal ajouté s’appelle les : “Dummies”</p>
 <p>Par des traitements chimiques, on peut enlever les courches de métal, d’isolant etc …
 Il est ensuite possible d’obeserver avec des microscopes assez puissant les differents éléments qui composent le circuit
 Par cette méthode on peut : <br />
-	- Repérer l’emplacement des composants
+	- Repérer l’emplacement des composants <br />
 	- Recuperer des données stockés en dure dans des ROM</p>
 
 <p>Pour rendre la tâche plus difficile à l’attaquant, on peut stocker les octets en ROM dans des ordres non convencionel : Trumbling
@@ -629,7 +629,7 @@ Ce n’est pas le cas des mesures EM.</p>
 Exemple de l’attaque de Bellecore sur RSA CRT<br />
 Avec un flash on perturbe un chiffrement et avec quelques propriétés mathématiques, on peut retrouver la clé très facilement.</p>
 
-<p><strong>Une attauque idéale serait</strong></p>
+<p><strong>Une attaque idéale serait</strong></p>
 
 <ul>
   <li>Localisée (x,y)</li>
@@ -642,15 +642,41 @@ Avec un flash on perturbe un chiffrement et avec quelques propriétés mathémat
 <h1 id="cours-du-171016">Cours du 17/10/16</h1>
 
 <h2 id="cration-derreur">Création d’erreur</h2>
-<p>SET: Single-Event Transients 
-SEU: Single-Event Upset
+<p>SET: Single-Event Transients <br />
+SEU: Single-Event Upset<br />
 MBU:</p>
 
 <p>Attaque software: <br />
-	- SW flaw exploitation, test protocols
-	- Buffer overflow
-	- Trojan horses (e.g., hidden in games,…)
+	- SW flaw exploitation, test protocols<br />
+	- Buffer overflow<br />
+	- Trojan horses (e.g., hidden in games,…)<br />
 	- Virus, code agressif, attaque par réseaux</p>
+
+<h3 id="trojans-cheveau-de-troi">Trojans (cheveau de troi)</h3>
+
+<ul>
+  <li>HW spys / wireless reporting</li>
+  <li>Hidden “bombs” (passage à l’an 2000)</li>
+  <li>PUF = Physically Unclonable Functions:
+    <ul>
+      <li>Puces qui permet d’identifier un objet</li>
+      <li>Il faut faire un circuit, et le remplir aléatoirement, qu’on ne contrôle pas</li>
+      <li>Un hacker ne pourra que reproduire le circuit et pas l’aléatoire</li>
+      <li>Ce nombre doit être reproductible mais unique (différent des autres produit)</li>
+      <li>Ex: Initialisation d’un plan mémoire, …</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="problmatiques-des-tests">Problématiques des tests</h2>
+<p>Il y a un vrai problème avec le test de circuits critiques, les moyens de test pourrais etre une énorme opportunité pour un attaquant. <br />
+Par exemple, la chaine de scan peut faire sortir des clés de chiffrement <br />
+Il faut donc mettre ne place des mesures de test sans que ça influe la sécurité</p>
+
+<h2 id="pourquoi-tudier-les-modle-de-fautes">Pourquoi étudier les modèle de fautes</h2>
+<p>Radiations de particules qui peuvent faire des fautes par exemple <br />
+Le choix du modèle est important : Bit-flip, Bit-set, Bit-reset <br />
+Mais en pratique, c’est pas tjs facile de faire certaine attaque.</p>
 
 
 

@@ -29,8 +29,8 @@ Le métal ajouté s'appelle les : "Dummies"
 Par des traitements chimiques, on peut enlever les courches de métal, d'isolant etc ...
 Il est ensuite possible d'obeserver avec des microscopes assez puissant les differents éléments qui composent le circuit
 Par cette méthode on peut :   
-	- Repérer l'emplacement des composants
-	- Recuperer des données stockés en dure dans des ROM
+	- Repérer l'emplacement des composants   
+	- Recuperer des données stockés en dure dans des ROM   
 	
 Pour rendre la tâche plus difficile à l'attaquant, on peut stocker les octets en ROM dans des ordres non convencionel : Trumbling
 Mais si on faire la même observation sur le décodeur de ROM, on peut encore une fois retrouver les données de la ROM
@@ -119,7 +119,7 @@ __Pourquoi injecter des fautes ?__
 Exemple de l'attaque de Bellecore sur RSA CRT  
 Avec un flash on perturbe un chiffrement et avec quelques propriétés mathématiques, on peut retrouver la clé très facilement.
 
-__Une attauque idéale serait__  
+__Une attaque idéale serait__  
 
 * Localisée (x,y)
 * Localisé en temps (début et durée)
@@ -131,14 +131,36 @@ __Une attauque idéale serait__
 # Cours du 17/10/16
 
 ## Création d'erreur   
-SET: Single-Event Transients 
-SEU: Single-Event Upset
-MBU: 
+SET: Single-Event Transients   
+SEU: Single-Event Upset  
+MBU:   
 
 Attaque software:   
-	- SW flaw exploitation, test protocols
-	- Buffer overflow
-	- Trojan horses (e.g., hidden in games,...)
-	- Virus, code agressif, attaque par réseaux
+	- SW flaw exploitation, test protocols  
+	- Buffer overflow  
+	- Trojan horses (e.g., hidden in games,...)  
+	- Virus, code agressif, attaque par réseaux  
+
+### Trojans (cheveau de troi)
+
+* HW spys / wireless reporting
+* Hidden "bombs" (passage à l'an 2000)
+* PUF = Physically Unclonable Functions:
+	* Puces qui permet d'identifier un objet
+	* Il faut faire un circuit, et le remplir aléatoirement, qu'on ne contrôle pas
+	* Un hacker ne pourra que reproduire le circuit et pas l'aléatoire
+	* Ce nombre doit être reproductible mais unique (différent des autres produit)
+	* Ex: Initialisation d'un plan mémoire, ...
+
+## Problématiques des tests
+Il y a un vrai problème avec le test de circuits critiques, les moyens de test pourrais etre une énorme opportunité pour un attaquant.   
+Par exemple, la chaine de scan peut faire sortir des clés de chiffrement   
+Il faut donc mettre ne place des mesures de test sans que ça influe la sécurité   
+
+## Pourquoi étudier les modèle de fautes
+Radiations de particules qui peuvent faire des fautes par exemple   
+Le choix du modèle est important : Bit-flip, Bit-set, Bit-reset   
+Mais en pratique, c'est pas tjs facile de faire certaine attaque.   
+
 
 {% include links.html %}
