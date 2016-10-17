@@ -472,82 +472,88 @@ $('#toc').on('click', 'a', function() {
 
     
 
-  <h2 id="cours-du-101016">Cours du 10/10/16</h2>
+  <h1 id="cours-du-101016">Cours du 10/10/16</h1>
 
-<h3 id="ncessit-de-dpacker-la-puce">Nécessité de “dépacker” la puce</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>* Carte à puce
-	- Sous les 6 plots d'une carte à puce se trouve la puce
-	- Une fois que le circuit (puce) est sortie, il y a que 6 broches moins 2 (VCC, GND), ce qui fait 4.
-	- Peu compliqué 
-* Carte RFID
-	- Traitement chimique pour supprimer le plastique et récuperer la puce RFID
+<h2 id="ncessit-de-dpacker-la-puce">Nécessité de “dépacker” la puce</h2>
+<ul>
+  <li>Carte à puce
+    <ul>
+      <li>Sous les 6 plots d’une carte à puce se trouve la puce</li>
+      <li>Une fois que le circuit (puce) est sortie, il y a que 6 broches moins 2 (VCC, GND), ce qui fait 4.</li>
+      <li>Peu compliqué</li>
+    </ul>
+  </li>
+  <li>Carte RFID
+    <ul>
+      <li>Traitement chimique pour supprimer le plastique et récuperer la puce RFID</li>
+    </ul>
+  </li>
+</ul>
 
-Une fois que le circuit est "nu" on peut l'exploiter pour les attaques.
-</code></pre>
-</div>
+<p>Une fois que le circuit est “nu” on peut l’exploiter pour les attaques.</p>
 
 <div class="alert alert-warning" role="alert"><i class="fa fa-warning"></i> <b>Important:</b> Le fait d’enlever le package, le circuit sera exposé à la lumière.<br />
-	Les concepteurs ont pu mettre des capteurs de lumière ou d’UV pour que le circit se bloque en cas d’exposition à la lumière</div>
+Les concepteurs ont pu mettre des capteurs de lumière ou d’UV pour que le circit se bloque en cas d’exposition à la lumière</div>
 
-<h3 id="observation-du-circuit">Observation du circuit</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>Avant, on pouvait observer directement le circuit et comprendre son fonctionement.
-Or mtn, le circuit est fait de bcp de couches qui sont homogénéisés pour ne plus pouvoir récuperer d'information par observation.
-Le métal ajouté s'appelle les : "Dummies"
-</code></pre>
-</div>
+<h2 id="observation-du-circuit">Observation du circuit</h2>
+<p>Avant, on pouvait observer directement le circuit et comprendre son fonctionement.
+Or mtn, le circuit est fait de bcp de couches qui sont homogénéisés pour ne plus pouvoir récuperer d’information par observation.
+Le métal ajouté s’appelle les : “Dummies”</p>
 
-<h3 id="enlvement-des-couches">Enlèvement des couches</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>Par des traitements chimiques, on peut enlever les courches de métal, d'isolant etc ...
-Il est ensuite possible d'obeserver avec des microscopes assez puissant les differents éléments qui composent le circuit
+<h2 id="enlvement-des-couches">Enlèvement des couches</h2>
+<p>Par des traitements chimiques, on peut enlever les courches de métal, d’isolant etc …
+Il est ensuite possible d’obeserver avec des microscopes assez puissant les differents éléments qui composent le circuit
 Par cette méthode on peut :
-	- Repérer l'emplacement des composants
-	- Recuperer des données stockés en dure dans des ROM
-	
-Pour rendre la tâche plus difficile à l'attaquant, on peut stocker les octets en ROM dans des ordres non convencionel : Trumbling
-Mais si on faire la même observation sur le décodeur de ROM, on peut encore une fois retrouver les données de la ROM
-</code></pre>
-</div>
+	- Repérer l’emplacement des composants
+	- Recuperer des données stockés en dure dans des ROM</p>
 
-<h3 id="autres-interventions-physiques">Autres interventions physiques</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>- Couper des interconnexions internes
-- Ajouter ou modifier des interconnexions internes
+<p>Pour rendre la tâche plus difficile à l’attaquant, on peut stocker les octets en ROM dans des ordres non convencionel : Trumbling
+Mais si on faire la même observation sur le décodeur de ROM, on peut encore une fois retrouver les données de la ROM</p>
+
+<h2 id="autres-interventions-physiques">Autres interventions physiques</h2>
+<ul>
+  <li>Couper des interconnexions internes</li>
+  <li>Ajouter ou modifier des interconnexions internes
 Pas toujours facile sans abimer les autres zones du circuit
-Mais l'une des utilisations pourrait être de détruire ou reconstruire des fusibles de sécurité.
-</code></pre>
-</div>
+Mais l’une des utilisations pourrait être de détruire ou reconstruire des fusibles de sécurité.</li>
+</ul>
 
-<h3 id="observation-dynamique-du-circuit">Observation dynamique du circuit</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>Avec des SEM, Microscopes électroniques, on peut observer les niveaus logique dans un circuit au runtime.
-Très utilisé pour aller lire des mémoires programmables qui pourraient contenir des clés secrétes.
-</code></pre>
-</div>
+<h2 id="observation-dynamique-du-circuit">Observation dynamique du circuit</h2>
+<p>Avec des SEM, Microscopes électroniques, on peut observer les niveaus logique dans un circuit au runtime.
+Très utilisé pour aller lire des mémoires programmables qui pourraient contenir des clés secrétes.</p>
 
-<h3 id="attaque-par-canaux-cachauxiliaire">Attaque par canaux caché/auxiliaire</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>- Mesure du temps d'exécution
-- Mesure de consommation de courant (SPA, DPA, CPA)
-- Mesure des émissions EM
-- Mesure de son, chaleurs, photons
-- Ou d'autres encore ... ?
-</code></pre>
-</div>
+<h2 id="attaque-par-canaux-cachauxiliaire">Attaque par canaux caché/auxiliaire</h2>
+<ul>
+  <li>Mesure du temps d’exécution</li>
+  <li>Mesure de consommation de courant (SPA, DPA, CPA)</li>
+  <li>Mesure des émissions EM</li>
+  <li>Mesure de son, chaleurs, photons</li>
+  <li>Ou d’autres encore … ?</li>
+</ul>
 
-<h3 id="quelle-conditions-pour-faire-de-telles-attaques-">Quelle conditions pour faire de telles attaques ?</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>- Il dois y avoir un lien entre la clé secrète et une grandeur physique
-- Et pour savoir quelle grandeur doit être mesuré, il faut connaitre quel algo est utilisé
-</code></pre>
-</div>
+<h2 id="quelle-conditions-pour-faire-de-telles-attaques-">Quelle conditions pour faire de telles attaques ?</h2>
+<ul>
+  <li>Il dois y avoir un lien entre la clé secrète et une grandeur physique</li>
+  <li>Et pour savoir quelle grandeur doit être mesuré, il faut connaitre quel algo est utilisé</li>
+</ul>
 
-<h3 id="type-dattaque-par-cannaux-auxiliaire">Type d’attaque par cannaux auxiliaire</h3>
-<div class="highlighter-rouge"><pre class="highlight"><code>- Simple 
-	- Grandeur directement mesurable 
-- Différentiel
-	- Nécecite plusieurs mesures, qui peut être très important
-</code></pre>
-</div>
+<h2 id="type-dattaque-par-cannaux-auxiliaire">Type d’attaque par cannaux auxiliaire</h2>
+<ul>
+  <li>Simple
+    <ul>
+      <li>Grandeur directement mesurable</li>
+    </ul>
+  </li>
+  <li>Différentiel
+    <ul>
+      <li>Nécecite plusieurs mesures, qui peut être très important</li>
+    </ul>
+  </li>
+</ul>
 
-<h3 id="les-attaques-par-cannaux-auxiliaire">Les attaques par cannaux auxiliaire</h3>
+<h2 id="les-attaques-par-cannaux-auxiliaire">Les attaques par cannaux auxiliaire</h2>
 
-<h4 id="attaque-par-analyse-de-temps">Attaque par analyse de temps</h4>
+<h3 id="attaque-par-analyse-de-temps">Attaque par analyse de temps</h3>
 
 <ul>
   <li>Dans des boucles If Then Else il peut y avoir des temps d’exécution différents en fonction des valeurs d’entrée</li>
@@ -563,7 +569,7 @@ Très utilisé pour aller lire des mémoires programmables qui pourraient conten
   <li>Même si la mesure ne permet pas de dévoiler la clé, ces méthodes de mesure de temps peut permettre de construire des statistiques qui permettrons de réduire considérablement le nombre de possibilité à essayer par bute-force</li>
 </ul>
 
-<h4 id="attaque-par-analyse-de-consommation">Attaque par analyse de consommation</h4>
+<h3 id="attaque-par-analyse-de-consommation">Attaque par analyse de consommation</h3>
 
 <ul>
   <li>SPA : Simple Power Analysis
@@ -580,18 +586,18 @@ Très utilisé pour aller lire des mémoires programmables qui pourraient conten
   </li>
 </ul>
 
-<h4 id="attaque-par-analyse-dmission-lectronmagnetique">Attaque par analyse d’émission électronmagnetique</h4>
+<h3 id="attaque-par-analyse-dmission-lectronmagnetique">Attaque par analyse d’émission électronmagnetique</h3>
 
 <p>Méthode plus complexe car dépend beaucoup du matériel et de son utilisation<br />
 Mais les courbes obtenues sont bien plus précise car aucun “filtre”. <br />
 En effet, lors de la mesure de courant, les capacités du systèmes filtre le courant mesuré.<br />
 Ce n’est pas le cas des mesures EM.</p>
 
-<h4 id="attaque-par-analyse-dmission-lumineuse">Attaque par analyse d’émission lumineuse</h4>
+<h3 id="attaque-par-analyse-dmission-lumineuse">Attaque par analyse d’émission lumineuse</h3>
 
 <p>Permet de visualiser l’état de certaines informations transitant dans le circuit.</p>
 
-<h3 id="attaque-par-perturbation-du-circuit">Attaque par perturbation du circuit</h3>
+<h2 id="attaque-par-perturbation-du-circuit">Attaque par perturbation du circuit</h2>
 
 <ul>
   <li>Modification des conditions de fonctionnement
@@ -616,16 +622,14 @@ Ce n’est pas le cas des mesures EM.</p>
 Exemple de l’attaque de Bellecore sur RSA CRT<br />
 Avec un flash on perturbe un chiffrement et avec quelques propriétés mathématiques, on peut retrouver la clé très facilement.</p>
 
-<p><strong>Une attauque idéale serait</strong></p>
+<p><strong>Une attauque idéale serait</strong><br />
+* Localisée (x,y)
+* Localisé en temps (début et durée)
+* Type de la faute : stuck at, injection d’erreurs
+* Bas cout
+* Rapide</p>
 
-<ul>
-  <li>Localisée (x,y)</li>
-  <li>Localisé en temps (début et durée)</li>
-  <li>Type de la faute : stuck at, injection d’erreurs</li>
-  <li>Bas cout</li>
-  <li>Rapide
-*</li>
-</ul>
+<h1 id="cours-du-171016">Cours du 17/10/16</h1>
 
 
 
@@ -643,7 +647,7 @@ Avec un flash on perturbe un chiffrement et avec quelques propriétés mathémat
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 Lucas Mahieu. All rights reserved. <br />
- Site last generated: Oct 14, 2016 <br />
+ Site last generated: Oct 17, 2016 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>
