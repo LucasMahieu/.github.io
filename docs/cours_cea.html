@@ -650,6 +650,51 @@ Dans ce cas, l’instruction n’est plus fetch en 1 cycle (plus forcement)</div
 <p>Décomposition de mémoire en bloc car c’est impossible d’avoir un gros seul bloc<br />
 Sinon elles serait trop lentes</p>
 
+<h1 id="cours-du-171016">Cours du 17/10/16</h1>
+<p>La capacité induite des lignes d’information fait que l’on ne peux pas utiliser le même modèle de mémoire si elles sont trop grandes.</p>
+<figure><img class="docimage" src="images/mem.png" alt="plan mémoire" /><figcaption>schéma d'un plan mémoire</figcaption></figure>
+
+<h3 id="sdram--synchronus-dynamic-ram">SDRAM : Synchronus Dynamic RAM</h3>
+<p>C’est un transistor et une capacité:<br />
+Points positifs:</p>
+
+<ul>
+  <li>Grande densité car petite</li>
+  <li>Pas chère</li>
+</ul>
+
+<p>Points négatifs:</p>
+
+<ul>
+  <li>Pert la valeur à chaque lecture car le condensateur se décharge.</li>
+  <li>A cause des fuites de courant, le condensateur se décharge, le niveau passe sous le niveau 1.</li>
+</ul>
+
+<p>Il faut donc faire constamment des lectures et re-écriture pour mémoriser les données.</p>
+
+<p>Les SDRAM doivent être composer de plusieurs petites mémoireso</p>
+
+<p><strong>Résumé</strong></p>
+
+<ul>
+  <li>Densité élevée</li>
+  <li>Débit élevé</li>
+  <li>
+    <p>Coût faible</p>
+  </li>
+  <li>Grande latence</li>
+  <li>Technologie spécifique</li>
+  <li>Consommation: pas terrible car il fait bcp lire et re-écrire</li>
+  <li>Non synthétisable</li>
+</ul>
+
+<h3 id="rom">ROM</h3>
+<p>### Flash
+### Registre
+16 transistors par point mémoire, très chère</p>
+
+<h3 id="les-caches">Les caches</h3>
+
 
 
     <div class="tags">

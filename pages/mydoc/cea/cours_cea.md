@@ -141,5 +141,44 @@ C'est la technologie des points mémoires qui détermine les performances d'une 
 Décomposition de mémoire en bloc car c'est impossible d'avoir un gros seul bloc  
 Sinon elles serait trop lentes  
 
+# Cours du 17/10/16
+La capacité induite des lignes d'information fait que l'on ne peux pas utiliser le même modèle de mémoire si elles sont trop grandes.   
+{% include image.html file="mem.png" alt="plan mémoire" caption="schéma d'un plan mémoire" %}
+
+### SDRAM : Synchronus Dynamic RAM
+C'est un transistor et une capacité:  
+Points positifs:   
+
+* Grande densité car petite
+* Pas chère
+
+Points négatifs:  
+
+* Pert la valeur à chaque lecture car le condensateur se décharge.
+* A cause des fuites de courant, le condensateur se décharge, le niveau passe sous le niveau 1.
+
+Il faut donc faire constamment des lectures et re-écriture pour mémoriser les données.
+
+Les SDRAM doivent être composer de plusieurs petites mémoireso
+
+__Résumé__  
+
++ Densité élevée
++ Débit élevé
++ Coût faible
+
+- Grande latence
+- Technologie spécifique
+- Consommation: pas terrible car il fait bcp lire et re-écrire
+- Non synthétisable
+
+### ROM
+### Flash
+### Registre
+16 transistors par point mémoire, très chère 
+
+### Les caches
+
 
 {% include links.html %}
+
