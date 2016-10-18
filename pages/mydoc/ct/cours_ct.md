@@ -23,7 +23,7 @@ Depuis 2008 chez ELSYS Design
 
 Entretien technique, Excellence technique.
 
-## Système Temps-Réel 
+### Système Temps-Réel 
 
 Interface plus simple avec le matériel:
 	- Gestion de taches
@@ -58,7 +58,7 @@ Capacité de traiter en un temps déterminer un ensemble d'évènements
 	- Déterminisme de l'ordre de traitement de ces évènements  
 Temps-réel ne veut pas forcement dire performant (pas tjs)  
 
-## Problèmatique de la programmation en contexte temps-réel 
+### Problèmatique de la programmation en contexte temps-réel 
 
 - Zones critiques
 	Desactivation des intéruptions => Attention !!
@@ -71,7 +71,7 @@ Temps-réel ne veut pas forcement dire performant (pas tjs)
 		- Volatile pour les accés registres 
 		- Volatile pour une variable partagé entre contexte de tâche et contexte d'intéruption
 
-### Différent temps réel
+#### Différent temps réel
 
 - Temps réel "mou" :
 	- Les contraintes de temps peuvent de temps en temps ne pas être respecter
@@ -80,7 +80,7 @@ Temps-réel ne veut pas forcement dire performant (pas tjs)
 	- doit TJS TJS respecter les contraintes de temps 
 	- Pire cas est pris en compte
 
-### RT-OS
+#### RT-OS
 Temps de réponse garanti:
 
 - Points clés :
@@ -91,7 +91,7 @@ Temps de réponse garanti:
 	- Traitant d'irq minimalisé en context d'irq
 	- On peut reporter l'irq dans des tâches de haute prioritéo
 
-### Quelle RT-OS
+#### Quelle RT-OS
 
 - Cout
 - Fonctionnalité
@@ -109,7 +109,7 @@ Temps de réponse garanti:
 ASP = Architecture Support Package    
 BSP = Board Support Package
 
-## Comment mettre en oeuvre un tel système
+### Comment mettre en oeuvre un tel système
 
 - Cycle en V mais bon ... En théorie :  
 	- Invalidation des hypothèses de départ
@@ -124,7 +124,7 @@ BSP = Board Support Package
 		- Exactitude du pilotage
 		- Freq des irq
 
-## Notion de cloisonement 
+### Notion de cloisonement 
 Exemple du point de vente:
 
 - IHM 
@@ -139,7 +139,7 @@ Exemple du point de vente:
 - Passage de cloisonnement "matériel" à cloisonnement "logiciel"
 - Réduction des couts
 
-## Type de cloisonement
+### Type de cloisonement
 
 - Cloisonnement mémoire 
 	- Protection d'un espace cloisonné contre les débordements mémoire d'une autre cloison
@@ -173,7 +173,7 @@ Du coup en cas de crash ?
 - Semaphore : Blocage de la ressource
 INTEGRITY à mis en place un "Resource Manager"
 
-## Scheduling en env cloisonné
+### Scheduling en env cloisonné
 
 Quelle prio pour chaque cloison ? 
 Les cloisons doivent respecter les exigences RT
@@ -284,7 +284,6 @@ Technique maison de chez MathWorks:
 Pour prendre en compte les tableaux et les structures l'aglo se complexifie : de n^1 à n^2 
 
 ### Enjeux technologiques
-
 Il faut que le produit soit intéressant, simple, efficace à utiliser.   
 Pour réussir, on se pose les questions suivantes:
 
@@ -317,6 +316,7 @@ Pour réussir, on se pose les questions suivantes:
 * Comment faire pour que l'outil fonctionne pour de vrais cas, qui ont beaucoup de LoC
 	* Exemple : 200,000 LoC  ->  la plus longue chaine d'alias peut être de 16122 case mémoire; 5536 set d'alias 
 	* Pour réduire la complexité, on peut faire du SSA [Static Single Assignement](https://fr.wikipedia.org/wiki/Static_single_assignment_form)
+
 ### Conclusion
 
 Conférence POPL/PLDL = Meilleur conférence en info théorique   

@@ -498,7 +498,7 @@ $('#toc').on('click', 'a', function() {
 
 <p>Entretien technique, Excellence technique.</p>
 
-<h2 id="systme-temps-rel">Système Temps-Réel</h2>
+<h3 id="systme-temps-rel">Système Temps-Réel</h3>
 
 <p>Interface plus simple avec le matériel:
 	- Gestion de taches
@@ -550,7 +550,7 @@ Capacité de traiter en un temps déterminer un ensemble d’évènements <br />
 	- Déterminisme de l’ordre de traitement de ces évènements<br />
 Temps-réel ne veut pas forcement dire performant (pas tjs)</p>
 
-<h2 id="problmatique-de-la-programmation-en-contexte-temps-rel">Problèmatique de la programmation en contexte temps-réel</h2>
+<h3 id="problmatique-de-la-programmation-en-contexte-temps-rel">Problèmatique de la programmation en contexte temps-réel</h3>
 
 <ul>
   <li>Zones critiques
@@ -574,7 +574,7 @@ Temps-réel ne veut pas forcement dire performant (pas tjs)</p>
   </li>
 </ul>
 
-<h3 id="diffrent-temps-rel">Différent temps réel</h3>
+<h4 id="diffrent-temps-rel">Différent temps réel</h4>
 
 <ul>
   <li>Temps réel “mou” :
@@ -591,7 +591,7 @@ Temps-réel ne veut pas forcement dire performant (pas tjs)</p>
   </li>
 </ul>
 
-<h3 id="rt-os">RT-OS</h3>
+<h4 id="rt-os">RT-OS</h4>
 <p>Temps de réponse garanti:</p>
 
 <ul>
@@ -610,7 +610,7 @@ Temps-réel ne veut pas forcement dire performant (pas tjs)</p>
   </li>
 </ul>
 
-<h3 id="quelle-rt-os">Quelle RT-OS</h3>
+<h4 id="quelle-rt-os">Quelle RT-OS</h4>
 
 <ul>
   <li>Cout</li>
@@ -636,7 +636,7 @@ Temps-réel ne veut pas forcement dire performant (pas tjs)</p>
 <p>ASP = Architecture Support Package  <br />
 BSP = Board Support Package</p>
 
-<h2 id="comment-mettre-en-oeuvre-un-tel-systme">Comment mettre en oeuvre un tel système</h2>
+<h3 id="comment-mettre-en-oeuvre-un-tel-systme">Comment mettre en oeuvre un tel système</h3>
 
 <ul>
   <li>Cycle en V mais bon … En théorie :
@@ -662,7 +662,7 @@ BSP = Board Support Package</p>
   </li>
 </ul>
 
-<h2 id="notion-de-cloisonement">Notion de cloisonement</h2>
+<h3 id="notion-de-cloisonement">Notion de cloisonement</h3>
 <p>Exemple du point de vente:</p>
 
 <ul>
@@ -687,7 +687,7 @@ BSP = Board Support Package</p>
   <li>Réduction des couts</li>
 </ul>
 
-<h2 id="type-de-cloisonement">Type de cloisonement</h2>
+<h3 id="type-de-cloisonement">Type de cloisonement</h3>
 
 <ul>
   <li>Cloisonnement mémoire
@@ -738,7 +738,7 @@ BSP = Board Support Package</p>
 INTEGRITY à mis en place un “Resource Manager”</li>
 </ul>
 
-<h2 id="scheduling-en-env-cloisonn">Scheduling en env cloisonné</h2>
+<h3 id="scheduling-en-env-cloisonn">Scheduling en env cloisonné</h3>
 
 <p>Quelle prio pour chaque cloison ? 
 Les cloisons doivent respecter les exigences RT
@@ -862,7 +862,6 @@ Flow insensitive :</p>
 <p>Pour prendre en compte les tableaux et les structures l’aglo se complexifie : de n^1 à n^2</p>
 
 <h3 id="enjeux-technologiques">Enjeux technologiques</h3>
-
 <p>Il faut que le produit soit intéressant, simple, efficace à utiliser. <br />
 Pour réussir, on se pose les questions suivantes:</p>
 
@@ -914,11 +913,12 @@ Pour réussir, on se pose les questions suivantes:</p>
   <li>Comment faire pour que l’outil fonctionne pour de vrais cas, qui ont beaucoup de LoC
     <ul>
       <li>Exemple : 200,000 LoC  -&gt;  la plus longue chaine d’alias peut être de 16122 case mémoire; 5536 set d’alias</li>
-      <li>Pour réduire la complexité, on peut faire du SSA <a href="https://fr.wikipedia.org/wiki/Static_single_assignment_form">Static Single Assignement</a>
-### Conclusion</li>
+      <li>Pour réduire la complexité, on peut faire du SSA <a href="https://fr.wikipedia.org/wiki/Static_single_assignment_form">Static Single Assignement</a></li>
     </ul>
   </li>
 </ul>
+
+<h3 id="conclusion">Conclusion</h3>
 
 <p>Conférence POPL/PLDL = Meilleur conférence en info théorique <br />
 en 2016 -&gt; 35 papier sur les traitements de pointeurs<br />
@@ -944,7 +944,7 @@ Livre sur le C++</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 Lucas Mahieu. All rights reserved. <br />
- Site last generated: Oct 17, 2016 <br />
+ Site last generated: Oct 18, 2016 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>
