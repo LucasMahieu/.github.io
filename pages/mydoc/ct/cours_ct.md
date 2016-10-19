@@ -202,14 +202,14 @@ Polyspace Dev Team
 - Aeronautique  
 - Automobile  
 
-Interprétation abstraite créé par M et Mme Couzau au 3ème étage de l'ENSIMAG
+Interprétation abstraite créé par M et Mme Couzau au 3ème étage de l'ENSIMAG   
 Outil d'analyse abstraite = Théorie qui prend en entrée un programme qui va de manière automatique va prouver qu'il n'y aura pas d'erreurs à l'exécution du programme
 
-Programme = Ensemble de C/C++ qui compile 
-Automatique = L'utilisateur ne dois pas intervenir 
-Prouver = se baser sur une base mathématique solide
-Réponse = Elle doit etre 'OUI', 'NON' et 'Peut être', le dernier choix est OBLIGATOIRE (c'est prouvé)
-A l'exécution = Quand le programme s'exécutera en condition réelle.
+Programme = Ensemble de C/C++ qui compile    
+Automatique = L'utilisateur ne dois pas intervenir    
+Prouver = se baser sur une base mathématique solide   
+Réponse = Elle doit etre 'OUI', 'NON' et 'Peut être', le dernier choix est OBLIGATOIRE (c'est prouvé)   
+A l'exécution = Quand le programme s'exécutera en condition réelle.   
 
 ### Exemple
 
