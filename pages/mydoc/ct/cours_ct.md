@@ -199,10 +199,10 @@ Polyspace depuis 2010 dans la vérification de code
 Polyspace Dev Team  
 - 30 eng  
 - Paris + Montbonot  
-- Aeronautique  
+- Aéronautique  
 - Automobile  
 
-Interprétation abstraite créé par M et Mme Couzau au 3ème étage de l'ENSIMAG   
+Interprétation abstraite créé par M et Mme Cousot au 3ème étage de l'ENSIMAG [wiki](https://fr.wikipedia.org/wiki/Interprétation_abstraite)    
 Outil d'analyse abstraite = Théorie qui prend en entrée un programme qui va de manière automatique va prouver qu'il n'y aura pas d'erreurs à l'exécution du programme
 
 Programme = Ensemble de C/C++ qui compile    

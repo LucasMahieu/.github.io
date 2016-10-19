@@ -56,6 +56,70 @@ Pour savoir si un erreur est accessible par un programme il faut :
 
 * Regarder plus finement les liens menant à un état d'erreur pour savoir les transitions sont possibles, et donc si l'état d'erreur est accéssible 
 
+# Cours du 19/10/2016
+[lien du cours](http://www-verimag.imag.fr/~raymond/edu/sleverif/slides-verif-sle-po.pdf)
+
+## Introduction
+3 notions de corrections d'erreurs:   
+- Propriété générique: débordements arithmétiques, famine, bocage, etc ...   
+- Propriété spécifique: Overflow, etc ...
+- Propriété runtime: manque de mémoire, etc ... 
+
+On peut essayer de raisonner par fonctionnalité : Modèle Fonctionnel   
+- S'affranchir du système concret, pour juste raisonner sur les fonctions du sytème    
+- L'exécution d'un système réactif est essentiellement une séquence de réaction entrées/sorites:   
+  - Si indéterministe : relation e/s
+  - Si déterministe : relation e -> s
+
+Plan du cours:   
+- Rappel sur Lustre   
+- Exprimer/Vérifier des propriétés dynamiques: les quelles ? limitations ?   
+- Abstraction finie   
+- Technique d'exploration des systèmes finis  
+- Des exemples, exercices, etc ... 
+
+## Language Lustre
+__Pourquoi Lustre ?__   
+Simple, proche des maths, vision par flow de données
+
+Types et opérateurs:   
+- Bool, int, real   
+- and, or, not, +, -, * , /, if-then-else  
+- pre  
+- '->'  
+
+Hystéresis:   
+Pour ne pas osciller on utilise un système d'hystéresis = seuils de tolérance décalés  
+Pour passer de l'état 1 à l'état 2 la condition ne sera pas la même que pour passer de 2 à 1.  
+
+## Définir les Propriété fonctionelle
+
+Propriété fonctionnelle = ensemble de comportements correct   
+Vérifier un propriété fonctionnelle = Vérifier que l'ensemble des comportements possibles est inclus dans l'ensemble des comportent corrects  
+
+Propriété d'invariance(sureté):  
+- Propriété d'état:  
+	- Une configuration (ou état) d’un systéme est une valuation particulière des entrées, sorties et mémoires internes du système.  
+	- Une propriété d’état est une relation (i.e. un ensemble) de configurations.  
+- Propriété de sureté:  
+	- Une propriété de sûreté exprime le fait qu’une propriété d’état est invariante au cours du temps.  
+	- Ou, de manière équivalente, qu’une configuration (redoutée) n’arrive jamais  
+	- n.b. le mot anglais est ≪ safety ≫ 
+
+## Modèle équationnel
+
+Système réactif est caractérisé par S = Ensembles des entrées, S = Ensembles de ces sorties, M = Ensemble des mémoires intérnes. Si ce système est déterministe alors il peut etre modélisé par (E,S,M,Mo,f,g).
+
+Mo = Mémoire initiale  
+St = f(Et, Mt) est la fonction de sortie  
+Mt+1 = g(Et, Mt) est la fonction de transition  
+
+Grâce à Lustre, c'est assez simple.
+
+
+
+
+
 
 
 {% include links.html %}

@@ -526,6 +526,66 @@ Mon programme aura terminé en moins de 3 secondes ?<br />
   <li>Regarder plus finement les liens menant à un état d’erreur pour savoir les transitions sont possibles, et donc si l’état d’erreur est accéssible</li>
 </ul>
 
+<h1 id="cours-du-19102016">Cours du 19/10/2016</h1>
+<p><a href="http://www-verimag.imag.fr/~raymond/edu/sleverif/slides-verif-sle-po.pdf">lien du cours</a></p>
+
+<h2 id="introduction">Introduction</h2>
+<p>3 notions de corrections d’erreurs: <br />
+- Propriété générique: débordements arithmétiques, famine, bocage, etc … <br />
+- Propriété spécifique: Overflow, etc …
+- Propriété runtime: manque de mémoire, etc …</p>
+
+<p>On peut essayer de raisonner par fonctionnalité : Modèle Fonctionnel <br />
+- S’affranchir du système concret, pour juste raisonner sur les fonctions du sytème  <br />
+- L’exécution d’un système réactif est essentiellement une séquence de réaction entrées/sorites: <br />
+  - Si indéterministe : relation e/s
+  - Si déterministe : relation e -&gt; s</p>
+
+<p>Plan du cours: <br />
+- Rappel sur Lustre <br />
+- Exprimer/Vérifier des propriétés dynamiques: les quelles ? limitations ? <br />
+- Abstraction finie <br />
+- Technique d’exploration des systèmes finis<br />
+- Des exemples, exercices, etc …</p>
+
+<h2 id="language-lustre">Language Lustre</h2>
+<p><strong>Pourquoi Lustre ?</strong> <br />
+Simple, proche des maths, vision par flow de données</p>
+
+<p>Types et opérateurs: <br />
+- Bool, int, real <br />
+- and, or, not, +, -, * , /, if-then-else<br />
+- pre<br />
+- ‘-&gt;’</p>
+
+<p>Hystéresis: <br />
+Pour ne pas osciller on utilise un système d’hystéresis = seuils de tolérance décalés<br />
+Pour passer de l’état 1 à l’état 2 la condition ne sera pas la même que pour passer de 2 à 1.</p>
+
+<h2 id="dfinir-les-proprit-fonctionelle">Définir les Propriété fonctionelle</h2>
+
+<p>Propriété fonctionnelle = ensemble de comportements correct <br />
+Vérifier un propriété fonctionnelle = Vérifier que l’ensemble des comportements possibles est inclus dans l’ensemble des comportent corrects</p>
+
+<p>Propriété d’invariance(sureté):<br />
+- Propriété d’état:<br />
+	- Une configuration (ou état) d’un systéme est une valuation particulière des entrées, sorties et mémoires internes du système.<br />
+	- Une propriété d’état est une relation (i.e. un ensemble) de configurations.<br />
+- Propriété de sureté:<br />
+	- Une propriété de sûreté exprime le fait qu’une propriété d’état est invariante au cours du temps.<br />
+	- Ou, de manière équivalente, qu’une configuration (redoutée) n’arrive jamais<br />
+	- n.b. le mot anglais est ≪ safety ≫</p>
+
+<h2 id="modle-quationnel">Modèle équationnel</h2>
+
+<p>Système réactif est caractérisé par S = Ensembles des entrées, S = Ensembles de ces sorties, M = Ensemble des mémoires intérnes. Si ce système est déterministe alors il peut etre modélisé par (E,S,M,Mo,f,g).</p>
+
+<p>Mo = Mémoire initiale<br />
+St = f(Et, Mt) est la fonction de sortie<br />
+Mt+1 = g(Et, Mt) est la fonction de transition</p>
+
+<p>Grâce à Lustre, c’est assez simple.</p>
+
 
 
     <div class="tags">
