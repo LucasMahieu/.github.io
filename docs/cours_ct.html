@@ -771,11 +771,11 @@ Que faire avec les taches de même priorité mais de cloisons différentes ?</p>
 900 SW eng
 90 products</p>
 
-<p>Polyspace Dev Team
-	- 30 eng
-	- Paris + Montbonot
-	- Aeronautique
-	- Automobile</p>
+<p>Polyspace Dev Team<br />
+- 30 eng<br />
+- Paris + Montbonot<br />
+- Aeronautique<br />
+- Automobile</p>
 
 <p>Interprétation abstraite créé par M et Mme Couzau au 3ème étage de l’ENSIMAG
 Outil d’analyse abstraite = Théorie qui prend en entrée un programme qui va de manière automatique va prouver qu’il n’y aura pas d’erreurs à l’exécution du programme</p>
@@ -799,16 +799,18 @@ A l’exécution = Quand le programme s’exécutera en condition réelle.</p>
 <p>Pas la peine de tout connaitre dans un programme, il suffis de connaitre parfaitement les informations que l’on a besoin</p>
 
 <p>Grille d’interprétation de signe par exemple <br />
-						            Top <br />
-						         &lt;=      &gt;=0 <br />
-							&lt;0      =0       &gt;0 <br />
-						          Bottom <br />
+<code class="highlighter-rouge">
+						            Top   
+						         &lt;=      &gt;=0   
+							&lt;0      =0       &gt;0   
+						          Bottom   
+</code>
 On joue alors le programme non plus en essayant de savoir TOUT mais utilisant un élement dans la grille
-Les propriété que l’on utilise peut être divers: 
-- Signe
-- Intervals
-- Octagons
-- Polyhedre
+Les propriété que l’on utilise peut être divers:  <br />
+- Signe <br />
+- Intervals <br />
+- Octagons <br />
+- Polyhedre <br />
 - Disjonctions</p>
 
 <h3 id="enjeux-techniques">Enjeux techniques</h3>
@@ -825,12 +827,18 @@ Les propriété que l’on utilise peut être divers:
 
 <ul>
   <li>Erreur de déréférencement de pointeurs
-  Pour chaque déréférencement, il faut vérifier si le pointeur est valide</li>
+    <ul>
+      <li>Pour chaque déréférencement, il faut vérifier si le pointeur est valide</li>
+    </ul>
+  </li>
 </ul>
 
 <p>Calcul d’alias = Ensemble de variables qui ont des relations entre elles
-ex :  P -&gt;  X
-	  |—&gt; Y<br />
+ex : 
+<code class="highlighter-rouge">
+	  P -&gt;  X
+	  |---&gt; Y  
+</code>
 Signifie que P peu pointer vers X ou Y et c’est tout</p>
 
 <p>Contexte insensitive : ne différencie pas les contextes d’appels de fonction : résultat assez large
@@ -848,15 +856,21 @@ Flow insensitive :</p>
 - Complexité en ^3.</p>
 
 <p>Algorythme de Steensgaard:<br />
-- Quand on fait le graph des alias, on le fait plus qu’une fléche qui part d’un pointeur, vers une boite contenant toutes les possibilités.</p>
+- Quand on fait le graph des alias, on le fait plus qu’une fléche qui part d’un pointeur, vers une boite contenant toutes les possibilités. <br />
+<code class="highlighter-rouge">
+                                    _
+x----&gt;  y                  X ----&gt; |Y|   
+|----&gt;  z        devient           |Z|   
+                                    -   
+</code></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>                                _    x----&gt;  y                  X ----&gt; |Y|    |----&gt;  z        devient           |Z|   
-                                -    - Cette modification permet de réduire la complexité de n^3 à n^1 - Mais cette méthode ne permet pas de manipuler des tableaux ou des stuctures
-</code></pre>
-</div>
+<ul>
+  <li>Cette modification permet de réduire la complexité de n^3 à n^1</li>
+  <li>Mais cette méthode ne permet pas de manipuler des tableaux ou des stuctures</li>
+</ul>
 
 <p>Technique maison de chez MathWorks: <br />
-- Vue de graph imbriqué
+- Vue de graph imbriqué <br />
 - Pour les tableaux, on peut mémoriser que le pointeurs est dans une case sans savoir la quelle</p>
 
 <p>Pour prendre en compte les tableaux et les structures l’aglo se complexifie : de n^1 à n^2</p>
@@ -921,7 +935,7 @@ Pour réussir, on se pose les questions suivantes:</p>
 <h3 id="conclusion">Conclusion</h3>
 
 <p>Conférence POPL/PLDL = Meilleur conférence en info théorique <br />
-en 2016 -&gt; 35 papier sur les traitements de pointeurs<br />
+en 2016 -&gt; 35 papier sur les traitements de pointeurs <br />
 De plus en plus de floatant -&gt; NaN, infinity, subnormals -&gt; Problèmes complexes<br />
 On peut pas avoir tout vert, il faudra forcement passer par des oranges</p>
 
@@ -944,7 +958,7 @@ Livre sur le C++</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 Lucas Mahieu. All rights reserved. <br />
- Site last generated: Oct 18, 2016 <br />
+ Site last generated: Oct 19, 2016 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

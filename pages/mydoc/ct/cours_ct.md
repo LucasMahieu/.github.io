@@ -196,11 +196,11 @@ Polyspace depuis 2010 dans la vérification de code
 900 SW eng
 90 products
 
-Polyspace Dev Team
-	- 30 eng
-	- Paris + Montbonot
-	- Aeronautique
-	- Automobile
+Polyspace Dev Team  
+- 30 eng  
+- Paris + Montbonot  
+- Aeronautique  
+- Automobile  
 
 Interprétation abstraite créé par M et Mme Couzau au 3ème étage de l'ENSIMAG
 Outil d'analyse abstraite = Théorie qui prend en entrée un programme qui va de manière automatique va prouver qu'il n'y aura pas d'erreurs à l'exécution du programme
@@ -222,17 +222,19 @@ A l'exécution = Quand le programme s'exécutera en condition réelle.
 Pas la peine de tout connaitre dans un programme, il suffis de connaitre parfaitement les informations que l'on a besoin
 
 Grille d'interprétation de signe par exemple   
+```
 						            Top   
 						         <=      >=0   
 							<0      =0       >0   
 						          Bottom   
+```
 On joue alors le programme non plus en essayant de savoir TOUT mais utilisant un élement dans la grille
-Les propriété que l'on utilise peut être divers: 
-- Signe
-- Intervals
-- Octagons
-- Polyhedre
-- Disjonctions
+Les propriété que l'on utilise peut être divers:    
+- Signe   
+- Intervals   
+- Octagons   
+- Polyhedre   
+- Disjonctions   
 
 ### Enjeux techniques
 
@@ -245,11 +247,14 @@ Les propriété que l'on utilise peut être divers:
 Exemple avec des pointeurs:
 
 - Erreur de déréférencement de pointeurs
-	Pour chaque déréférencement, il faut vérifier si le pointeur est valide
+	- Pour chaque déréférencement, il faut vérifier si le pointeur est valide
 	
 Calcul d'alias = Ensemble de variables qui ont des relations entre elles
-ex :  P ->  X
+ex : 
+``` 
+	  P ->  X
 	  |---> Y  
+```
 Signifie que P peu pointer vers X ou Y et c'est tout 
 
 
@@ -268,18 +273,20 @@ Algorithme de Anderson:
 - Complexité en ^3.  
 
 Algorythme de Steensgaard:  
-- Quand on fait le graph des alias, on le fait plus qu'une fléche qui part d'un pointeur, vers une boite contenant toutes les possibilités.  
-
-                                    _   
+- Quand on fait le graph des alias, on le fait plus qu'une fléche qui part d'un pointeur, vers une boite contenant toutes les possibilités.   
+```
+                                    _
 x---->  y                  X ----> |Y|   
 |---->  z        devient           |Z|   
                                     -   
+```
+
 - Cette modification permet de réduire la complexité de n^3 à n^1
 - Mais cette méthode ne permet pas de manipuler des tableaux ou des stuctures
 
 Technique maison de chez MathWorks:   
-- Vue de graph imbriqué
-- Pour les tableaux, on peut mémoriser que le pointeurs est dans une case sans savoir la quelle
+- Vue de graph imbriqué   
+- Pour les tableaux, on peut mémoriser que le pointeurs est dans une case sans savoir la quelle   
 
 Pour prendre en compte les tableaux et les structures l'aglo se complexifie : de n^1 à n^2 
 
@@ -320,11 +327,11 @@ Pour réussir, on se pose les questions suivantes:
 ### Conclusion
 
 Conférence POPL/PLDL = Meilleur conférence en info théorique   
-en 2016 -> 35 papier sur les traitements de pointeurs  
+en 2016 -> 35 papier sur les traitements de pointeurs   
 De plus en plus de floatant -> NaN, infinity, subnormals -> Problèmes complexes  
 On peut pas avoir tout vert, il faudra forcement passer par des oranges  
 
 Anecdote :   
-Livre sur le C++
+Livre sur le C++  
 
 {% include links.html %}
