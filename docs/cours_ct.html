@@ -800,10 +800,10 @@ A l’exécution = Quand le programme s’exécutera en condition réelle.</p>
 
 <p>Grille d’interprétation de signe par exemple</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>					            Top   
-					         &lt;=      &gt;=0   
+<div class="highlighter-rouge"><pre class="highlight"><code>								Top   
+							&lt;=      &gt;=0   
 						&lt;0      =0       &gt;0   
-					          Bottom   
+							  Bottom   
 </code></pre>
 </div>
 
@@ -836,12 +836,14 @@ Les propriété que l’on utilise peut être divers:  <br />
 </ul>
 
 <p>Calcul d’alias = Ensemble de variables qui ont des relations entre elles
-ex : 
-<code class="highlighter-rouge">
-	  P -&gt;  X
+ex :</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>	  P -&gt;  X
 	  |---&gt; Y  
-</code>
-Signifie que P peu pointer vers X ou Y et c’est tout</p>
+</code></pre>
+</div>
+
+<p>Signifie que P peu pointer vers X ou Y et c’est tout</p>
 
 <p>Contexte insensitive : ne différencie pas les contextes d’appels de fonction : résultat assez large
 Contexte sensitive : prend en compte les contextes d’appels de fonctions, plus stricte</p>
@@ -858,13 +860,14 @@ Flow insensitive :</p>
 - Complexité en ^3.</p>
 
 <p>Algorythme de Steensgaard:<br />
-- Quand on fait le graph des alias, on le fait plus qu’une fléche qui part d’un pointeur, vers une boite contenant toutes les possibilités. <br />
-<code class="highlighter-rouge">
-                                    _
+- Quand on fait le graph des alias, on le fait plus qu’une fléche qui part d’un pointeur, vers une boite contenant toutes les possibilités.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>                                _
 x----&gt;  y                  X ----&gt; |Y|   
 |----&gt;  z        devient           |Z|   
                                     -   
-</code></p>
+</code></pre>
+</div>
 
 <ul>
   <li>Cette modification permet de réduire la complexité de n^3 à n^1</li>

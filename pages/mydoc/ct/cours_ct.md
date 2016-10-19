@@ -223,10 +223,10 @@ Pas la peine de tout connaitre dans un programme, il suffis de connaitre parfait
 
 Grille d'interprétation de signe par exemple   
     
-						            Top   
-						         <=      >=0   
+									Top   
+								<=      >=0   
 							<0      =0       >0   
-						          Bottom   
+								  Bottom   
     
 On joue alors le programme non plus en essayant de savoir TOUT mais utilisant un élement dans la grille
 Les propriété que l'on utilise peut être divers:    
@@ -251,10 +251,10 @@ Exemple avec des pointeurs:
 	
 Calcul d'alias = Ensemble de variables qui ont des relations entre elles
 ex : 
-``` 
-	  P ->  X
-	  |---> Y  
-```
+   
+		  P ->  X
+		  |---> Y  
+    
 Signifie que P peu pointer vers X ou Y et c'est tout 
 
 
@@ -274,12 +274,12 @@ Algorithme de Anderson:
 
 Algorythme de Steensgaard:  
 - Quand on fait le graph des alias, on le fait plus qu'une fléche qui part d'un pointeur, vers une boite contenant toutes les possibilités.   
-```
+    
                                     _
-x---->  y                  X ----> |Y|   
-|---->  z        devient           |Z|   
-                                    -   
-```
+    x---->  y                  X ----> |Y|   
+    |---->  z        devient           |Z|   
+                                        -   
+    
 
 - Cette modification permet de réduire la complexité de n^3 à n^1
 - Mais cette méthode ne permet pas de manipuler des tableaux ou des stuctures
