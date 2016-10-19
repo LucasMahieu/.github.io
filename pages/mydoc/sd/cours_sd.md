@@ -70,4 +70,61 @@ __Ce qui est attendu pour le TP__
 	* Algo
 	* Implémentation
 	* Validation expérimental
+
+# Cours du 19/10/2016
+
+## Diffusion de messages
+
+### Best effort broadcast  (BEB)
+- Spécifications informelle: 
+	- N machines
+	- Si un message est émis par une machine correcte, il doit être délivré (reçu) par toutes les machines correctes.
+- Spécification formelle:
+	- Interfaces:
+		- _in_: broadcast(m): permet de diffuser le message m
+		- _out_: deliver(m,p): permet de délivrer un meassage m émis par le processus p
+	- Propriétés: 
+		- _Validité_: Si un message est émis par une machine correcte, il doit être délivré (reçu) par toutes les machines correctes.
+		- _Intégrité_: Idem que le canal fiable.
+	- Hypothèses:
+		- Panne franche (pas de bornes sur le nombre de fautes)
+		- Canaux fiable
+	- Algo:
+
+```c
+    bf_broadcast(m){
+        for(p=0; p<pmax; p++){
+            cf_send(m,p);
+        }
+    }
+    cf_deliver(m,p){
+        be_deliver(m,p);
+    }
+```
+
+Rmq:   
+
+1. Tous les processus correcte ne délivrerons pas forcement les mêmes message (ex: msg émis par machine fautive)   
+2. Un processus fautif peut délivrer des messages qui ne seront délivrés par aucun processus correct (ex: message émis par machine fautives)   
+
+### Reliable Broadcast (diffusion fiable)
+Comment régler le point 1 précédent ? = Comment faire pour que tous les proc. correctes délivre les même msg ?
+
+- Spéc = idem
+- Propriétés: 
+	- _Validité_: Si un processus correct émet un message m alors il le délivrera
+	- _Intégrité_: idem
+- Hypothèse :
+	- Panne franches (pas de bornes)
+	- Canaux fiable 
+- Algo : 
+	- Principe : Après avoir délivré le msg,le proc. be_broadcast le msg.
+	- ATTENTION :
+		1. Il faut s'arreter un jour
+		2. Intégrité -> Il ne faut délivrer chaque message qu'une fois au plus
+
+=> MEMOIRE INFINIE
+
+
+
 {% include links.html %}
