@@ -223,10 +223,10 @@ Pas la peine de tout connaitre dans un programme, il suffis de connaitre parfait
 
 Grille d'interprétation de signe par exemple   
     
-									Top   
-								<=      >=0   
-							<0      =0       >0   
-								  Bottom   
+    							        Top   
+    							    <=      >=0   
+    							<0      =0       >0   
+    							      Bottom   
     
 On joue alors le programme non plus en essayant de savoir TOUT mais utilisant un élement dans la grille
 Les propriété que l'on utilise peut être divers:    
