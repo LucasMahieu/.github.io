@@ -330,4 +330,227 @@ On peut pas avoir tout vert, il faudra forcement passer par des oranges
 Anecdote :   
 Livre sur le C++  
 
+# 21/10/2016 : Marine National: Information quantique, 40 ans après ...
+
+#### Il y a forcement eu des progres techniques qui ont permis le passage en pratique :  
+- Progrès technique 
+- Miniaturisation: Loi de Moore  
+- Progrès industriel: Production de masse  
+
+## Statut historique 
+
+## Évolution de la pensée: du corpuscule au quantique  
+
+#### Max Planck et la radiation des corps noir  
+	- Change de couleur  
+	- T = f(v)   
+
+#### Albert Einstein : l'effet photo-électrique  
+	- Généralisation à la lumière    
+	- Effet photovoltaïque et photo-électrique  
+	- Contradiction des lois classiques de la thermodynamique car il y a un seuil : fonction de travail  = theta = hv  
+
+#### Bohr : modèle atomique   
+- Quantification des niveaux atomiques  
+- Spectre d'émission pour passer d'un niveau à un autre, émission d'un photo   
+
+#### Trous d'Young   
+- Généralisation aux particules (y, e-)   
+- Interférences constructives et destructive   
+- Dualité onde corpuscule (e- dans les fentes d'Young)   
+
+#### Erwin Schrödinger   
+- L'atome est une onde, son état est une fonction d'onde qui est présente dans l'Equation de Schrödinger  
+- Probabilité (t, r)  
+
+## Mécanique quantique: Notions fondamentales  
+
+#### Interprétation de Copenhague  
+- Un système est décrit par une fonction d'onde  
+- Cette fonction d'onde est décrite par l'équation de Schrödinger  
+- Probabilité (en mécanique quantique, on parle tjs de proba), mesure (La mesure détruit des choses) et décohérence   
+- Principe d'incertitude Dx.Dp > h/2   et De.Dt > h/2, on ne peut pas connaitre la vitesse d'une particule ET sa position, idem avec temps et énergie   
+
+#### Intrication/Superposition quantique   
+- État de superposition  
+
+#### Chat de Schrödinger, paradoxe d'EPR   
+- L'état du chat est en superposition : (|DEAD> or |ALIVE> ) OR (1/sqrt(2)(|DEAD> + |ALIVE>))
+- Rôle de l'observateur, de la mesure   
+
+#### Décohérence et cohérence  
+- Temps de cohérence, temps maximum durant lequel l'objet est en superposition, durant le quel on peut profiter de l'effet quantique   
+
+#### Mesure faible  
+- Comment mesurer sans détruire ?   
+- On mesure faiblement, sans trop changer l'état du système, mais un grand nombre de fois pour établir des statistique   
+
+## Développement de l'information quantique   
+Combinaison de facteurs  
+
+#### Théorie CLASSIQUE de l'informatio: Shannon   
+- Source, réception, bruit   
+- Nyquist, 1928, Quantité d'information que l'on peut transporter   
+- Hartley, 1929, Qualité de l'information  
+- Shannon, 1948, Regroupement + approfondissement  
+Même si on perd des informations, si le taux est < au capacité d transmission, avec des codes correcteurs d'erreur, on peut retrouver ~100%   
+
+#### Les nanotechnologies: Feynman  
+- Physicien électrique: projet Manhatten et Challenger  
+- 1er transistor en 1947  
+- 1er circuit intégré 1958  
+- 1959: Possibilité de manipuler et de créer des objets nanométriques    
+	- Concepte de nano-robots, nano-manipulateur  
+
+#### Miniaturisation des transistores  
+- Loi de Moore, loi purement économique   
+- Dimension atomique: plus on se rapproche de la taille atomique plus il y a des problèmes : Ec devient > à KbT   
+- Intégration 3D : Connections ?, chauffage ? Efficacité ?  Beaucoup de nouveaux problèmes  
+- Problèmes calculatoires: Dans l'espace de Hilbert on arrive très très vite à des besoins de ressources gigantesque   
+
+#### L'implatation mono-atomique   
+- Réussir à implanter 1 seul atome  
+
+#### Concept de machine : Turing  
+- Automatisation des tâches  
+	- Contraingnant   
+	- Calculs plus complexes, nombreux  
+	- Rapidités et qualités des décisions  
+- Machine de Turing (virtuelle)  
+	- Code, état initial , courant, etc
+
+#### Concept du qubit   
+- Etat classique  
+	- 0 ou 1 - > le bit  
+- Etat quantique  
+	- 0 ou 1 ou 1+0 ou 0+1  -> le Qubit
+- Niveau atomique   
+
+#### Opération   
+- Les opérations sont des mouvements dans l'espace 
+
+#### Concept de clonage et téléportation   
+- Non clonage   
+	- Pas de copies identique d'un état quantique inconnue  
+	- Seul les états originaux sont possible  
+	- Pas de techniques classique de corrections d'erreurs   
+	- Copies imparfaites  
+	- En effet, copier c'est d'abords mesuré = détruire en quantique  
+- Pas de téléportation, pas de transmission (superluminale)   
+	- Pas de mesure précise possible (part d'incertitude)   
+	- Pas de reconstruction d'état quantiques via des états classiques  
+
+#### Nécessite d'un contrôle  
+- Circuit adapté de mesure pour la quantique  
+	- Electronique basses températures  
+	- Mesure classique  
+	- Archi complexe  
+- Les mesures elles même doivent être différentes   
+	- réflectométrie radio fréquence  
+	- Ampli trans impédance  
+
+## Status actuel  
+
+#### Industrie vs. Académique   
+- Deux point de vue différent   
+	- __Industrie:__ L'industrie veut que ca soit peu couteux, simple, extensif et compatible avec leur production industrielle   
+	- __Recherche:__ On cherche l'intérêt de la recherche
+- Avantage / inconvénients:   
+	- Pression des lobbys (D-Wave en 2011, "Quantum annealing", pas de superposition, pas de temps de cohérence)   
+	- Pas forcement le plus intéressant, facile ou le mieux scientifiquement   
+
+##### Différente approches et qbits  
+	- Ces technos mélange plusieurs suport d'information : photo, e- etc 
+
+#### Condition de (Bruce) Kane pour faire PRATIQUEMENT un Qubit   
+- Conditions de bases :  
+	- Définir le qubit  
+	- Initialiser le système  
+	- Déterminer un ensemble d'opérations universelles  
+	- Avoir un temps de cohérence long  
+	- Lire des information avec de grande probabilité  
+	- Réaliser un grand nombre de qubits  
+- Conditions délocalisées  
+	- Propagés 
+	- ??? 
+
+#### Modèle de Qubit de Kane  
+- Structure MOS en Si  
+- Spin nucléaire (mémoire), électronique (qubit)
+
+#### Qubit seiconducteurs  
+Boites quantiques  
+	- Qubit de charge (Temps de cohérence = 100uS): Deux places accecible à un e-, si il est là alors on a un 1 sinon on a un 0.  
+	- Qubit de spin (Temps = 1à5ms et jusque 100ms dans Si) : spin + -> 1 spin - -> 0  
+	- Implantation mono ou bi-atomique / STM: N = 1-2, T = 45s, T refroidi > 1h   
+
+#### Bubit supraconducteurs  
+- Molécule  T = 3ms  
+- Jonction josephson T = 2uS  
+- Diamant qui a des défaut avec les NV  
+- Piège à ions : confiner des atomes grâce à des lazer  
+
+#### Le graphène et autres mono couches  
+Découvert en 2004 à Manchester  
+
+#### Les matériaux topologique  
+- Les isolants topologiques sont isolants en leur cœurs et conducteurs en surface.  
+- Si on le coupe, on re crée des surfaces, il redevient conducteurs sur toutes ces surfaces  
+- Longueur de cohérence = 300 à 600 nm à 300mK
+- Peu être utiliser pour faire des Bus ou des Trains quantique  
+
+#### Qubit volants  
+- Avec des photons , pour les satellites ? 
+
+#### Interaction localisé - délocalisé  
+
+#### Projet et financement  
+Australie: subventionné par US Army  
+Europe : Pays-Bas, UK  
+USA  
+Canada  
+Chine  
+Russie  
+Japon  
+
+## Applications  
+
+### basé sur l'intrication des états 
+- Calculs parallèles, vitesse accrue/ puce classique  
+	- Pas de transmission de données car 2 éléments, même distant, connaissent les mêmes informations   
+	- Gestion de trafic  
+	- Médecine  
+	- Astronomie  
+	- Etude du génome humain  
+- Algorithme de Shor: factorisation des grands nombres  
+	- Classique réduction : calcul du PGCD  
+	- Quantique : accélération  
+	- (LogN)^3 au lieux de exp(log(N)^1/3)  
+
+### basé sur l'effondrement de la fonction d'onde par le phénomène de mesure  
+- Inviolabilité, cryptographie  
+	- Transmissions financière sécurisées (civil)   
+	- Réseaux ultra sécurisés (DARPA, militaire)  
+	- Transmission par satellite (Canada-Israél)
+
+### Codage et chiffrage classique 
+- Classique : pour que ca soit plus dur, on augmente le nombre de bits   
+- Quantique : va pouvoir aller bcp plus vite, il faut trouver d'autre moyen pour crypter de l'information   
+
+### Supériorité vs. Infériorité 
+- Rapport de forces entre les nations
+
+## Conclusions
+
+Cohérence : les temps de cohérence ne sont plsu vraiment un problème aujourd'hui, les T sont de plus en plus grand   
+Passage à l'échelle : Dépend des approches, mais en Si oui pq pas  
+Déplacement de l'information: Comment faire communiquer les ordinateurs quantique entre eux  ?  
+	- Fibre optique, mais sa qualité est des fois un problème    
+	- Comment faire des Répétiteurs : Clonage ???  
+	- Bus de Qubits ??  
+Inviolabilité: beaucoup de recherche sur le bruit quantique et les mesures faibles  
+Aspect stratégique pour la défense :   
+	- Modernisation, automatisation et intégration des nanotechnologies ou des réseaux rendent les systèmes très complexe  
+	- Comment maitriser cette modernisation et la protéger ces systèmes  
+
 {% include links.html %}
