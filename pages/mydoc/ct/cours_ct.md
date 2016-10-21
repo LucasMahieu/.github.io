@@ -337,18 +337,18 @@ Livre sur le C++
 - Miniaturisation: Loi de Moore  
 - Progrès industriel: Production de masse  
 
-## Statut historique 
+### Statut historique 
 
-## Évolution de la pensée: du corpuscule au quantique  
+### Évolution de la pensée: du corpuscule au quantique  
 
 #### Max Planck et la radiation des corps noir  
-	- Change de couleur  
-	- T = f(v)   
+- Change de couleur  
+- T = f(v)   
 
 #### Albert Einstein : l'effet photo-électrique  
-	- Généralisation à la lumière    
-	- Effet photovoltaïque et photo-électrique  
-	- Contradiction des lois classiques de la thermodynamique car il y a un seuil : fonction de travail  = theta = hv  
+- Généralisation à la lumière    
+- Effet photovoltaïque et photo-électrique  
+- Contradiction des lois classiques de la thermodynamique car il y a un seuil : fonction de travail  = theta = hv  
 
 #### Bohr : modèle atomique   
 - Quantification des niveaux atomiques  
@@ -363,7 +363,7 @@ Livre sur le C++
 - L'atome est une onde, son état est une fonction d'onde qui est présente dans l'Equation de Schrödinger  
 - Probabilité (t, r)  
 
-## Mécanique quantique: Notions fondamentales  
+### Mécanique quantique: Notions fondamentales  
 
 #### Interprétation de Copenhague  
 - Un système est décrit par une fonction d'onde  
@@ -449,7 +449,7 @@ Même si on perd des informations, si le taux est < au capacité d transmission,
 	- réflectométrie radio fréquence  
 	- Ampli trans impédance  
 
-## Status actuel  
+### Status actuel  
 
 #### Industrie vs. Académique   
 - Deux point de vue différent   
@@ -459,8 +459,8 @@ Même si on perd des informations, si le taux est < au capacité d transmission,
 	- Pression des lobbys (D-Wave en 2011, "Quantum annealing", pas de superposition, pas de temps de cohérence)   
 	- Pas forcement le plus intéressant, facile ou le mieux scientifiquement   
 
-##### Différente approches et qbits  
-	- Ces technos mélange plusieurs suport d'information : photo, e- etc 
+##### Différente approches et qbits
+- Ces technos mélange plusieurs suport d'information : photo, e- etc 
 
 #### Condition de (Bruce) Kane pour faire PRATIQUEMENT un Qubit   
 - Conditions de bases :  
@@ -513,7 +513,7 @@ Chine
 Russie  
 Japon  
 
-## Applications  
+### Applications  
 
 ### basé sur l'intrication des états 
 - Calculs parallèles, vitesse accrue/ puce classique  
@@ -540,7 +540,7 @@ Japon
 ### Supériorité vs. Infériorité 
 - Rapport de forces entre les nations
 
-## Conclusions
+### Conclusions
 
 Cohérence : les temps de cohérence ne sont plsu vraiment un problème aujourd'hui, les T sont de plus en plus grand   
 Passage à l'échelle : Dépend des approches, mais en Si oui pq pas  
