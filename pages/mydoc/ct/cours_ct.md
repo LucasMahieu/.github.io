@@ -385,7 +385,7 @@ Livre sur le C++
 - Comment mesurer sans détruire ?   
 - On mesure faiblement, sans trop changer l'état du système, mais un grand nombre de fois pour établir des statistique   
 
-## Développement de l'information quantique   
+### Développement de l'information quantique   
 Combinaison de facteurs  
 
 #### Théorie CLASSIQUE de l'informatio: Shannon   
@@ -515,7 +515,7 @@ Japon
 
 ### Applications  
 
-### basé sur l'intrication des états 
+#### basé sur l'intrication des états 
 - Calculs parallèles, vitesse accrue/ puce classique  
 	- Pas de transmission de données car 2 éléments, même distant, connaissent les mêmes informations   
 	- Gestion de trafic  
@@ -527,17 +527,17 @@ Japon
 	- Quantique : accélération  
 	- (LogN)^3 au lieux de exp(log(N)^1/3)  
 
-### basé sur l'effondrement de la fonction d'onde par le phénomène de mesure  
+#### basé sur l'effondrement de la fonction d'onde par le phénomène de mesure  
 - Inviolabilité, cryptographie  
 	- Transmissions financière sécurisées (civil)   
 	- Réseaux ultra sécurisés (DARPA, militaire)  
 	- Transmission par satellite (Canada-Israél)
 
-### Codage et chiffrage classique 
+#### Codage et chiffrage classique 
 - Classique : pour que ca soit plus dur, on augmente le nombre de bits   
 - Quantique : va pouvoir aller bcp plus vite, il faut trouver d'autre moyen pour crypter de l'information   
 
-### Supériorité vs. Infériorité 
+#### Supériorité vs. Infériorité 
 - Rapport de forces entre les nations
 
 ### Conclusions
