@@ -510,6 +510,25 @@ Il faut une mémoire et faire du polling si les proc sont initiateur seulement.<
 
 <p>Voir slide sur C++ du prof <a href="https://github.com/moy/cours-tlm/blob/master/02-c-plus-plus-handout.pdf">sur son Github</a></p>
 
+<h1 id="cours-du-21102016">Cours du 21/10/2016</h1>
+
+<h2 id="system-c">System C</h2>
+<p>Voir slide d’exemple de code <a href="https://github.com/moy/cours-tlm/blob/master/03-systemc-handout.pdf">sur son Github</a></p>
+
+<p><strong>Comment ça marche à l’intérieur ?</strong></p>
+
+<p>System C à un scheduleur intern qui gère les processus : il a une “event list” et la liste des processus.<br />
+3 états dans le scheduleur : <br />
+- Running
+- Sleeping
+- Éligible</p>
+
+<p>Pour sortir de running c’est forcement que le processus à “rendu la main” en faisant un sleep.<br />
+Un proc qui est running ne peut que devenir Sleeping.</p>
+
+<h2 id="revision-encore-de-c">Revision (encore) de C++</h2>
+<p>Voir les slides <a href="PAS ENCORE LA">sur le github</a> du prof.</p>
+
 
 
     <div class="tags">
@@ -526,7 +545,7 @@ Il faut une mémoire et faire du polling si les proc sont initiateur seulement.<
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 Lucas Mahieu. All rights reserved. <br />
- Site last generated: Oct 19, 2016 <br />
+ Site last generated: Oct 21, 2016 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

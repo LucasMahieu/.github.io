@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content=" ">
-<title>Introduction | Cours collaboratif de SLE 3A</title>
+<title>Notes pris lors de la conférence | Cours collaboratif de SLE 3A</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -152,7 +152,7 @@
                 
                 
                 
-			<li><a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:lucas.mahieu@icloud.com?subject=Cours de SLE, Jekyll Github pages f eedback&body=I have some feedback about the Introduction page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a><li>
+			<li><a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:lucas.mahieu@icloud.com?subject=Cours de SLE, Jekyll Github pages f eedback&body=I have some feedback about the Notes pris lors de la conférence page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a><li>
 
 		
                 <!--comment out this block if you want to hide search-->
@@ -168,7 +168,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Introduction">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Notes pris lors de la conférence">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -432,7 +432,7 @@
     <!-- Content Column -->
     <div class="col-md-9">
         <div class="post-header">
-   <h1 class="post-title-main">Introduction</h1>
+   <h1 class="post-title-main">Notes pris lors de la conférence</h1>
 </div>
 
 
@@ -838,36 +838,31 @@ Les propriété que l’on utilise peut être divers:  <br />
 <p>Calcul d’alias = Ensemble de variables qui ont des relations entre elles
 ex :</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>	  P -&gt;  X
-	  |---&gt; Y  
+<div class="highlighter-rouge"><pre class="highlight"><code>	  P --&gt;  X
+	   \__&gt; Y  
 </code></pre>
 </div>
 
 <p>Signifie que P peu pointer vers X ou Y et c’est tout</p>
 
-<p>Contexte insensitive : ne différencie pas les contextes d’appels de fonction : résultat assez large
+<p>Contexte insensitive : ne différencie pas les contextes d’appels de fonction : résultat assez large <br />
 Contexte sensitive : prend en compte les contextes d’appels de fonctions, plus stricte</p>
 
-<p>Flow sensitive : Idem avec les if etc 
+<p>Flow sensitive : Idem avec les if etc  <br />
 Flow insensitive :</p>
 
 <p>Le sensitive est trop couteux … donc en pratique on fait du insensitive et on essaye de raffiner</p>
 
 <p>Algorithme de Anderson: <br />
 - écrire les points-to (lien de pointeurs) = calcul d’alias<br />
-- Il faut poser les équations.
+- Il faut poser les équations. <br />
 - Il faut résoudre une équation de point fixe.<br />
 - Complexité en ^3.</p>
 
-<p>Algorythme de Steensgaard:<br />
+<p>Algorithme de Steensgaard:<br />
 - Quand on fait le graph des alias, on le fait plus qu’une fléche qui part d’un pointeur, vers une boite contenant toutes les possibilités.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>                                _
-x----&gt;  y                  X ----&gt; |Y|   
-|----&gt;  z        devient           |Z|   
-                                    -   
-</code></pre>
-</div>
+<figure><img class="docimage" src="images/Steensgaard.png" alt="Algo de Steensgaard" /><figcaption>Exemple d'algo de Steensgaard</figcaption></figure>
 
 <ul>
   <li>Cette modification permet de réduire la complexité de n^3 à n^1</li>
@@ -963,7 +958,7 @@ Livre sur le C++</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 Lucas Mahieu. All rights reserved. <br />
- Site last generated: Oct 19, 2016 <br />
+ Site last generated: Oct 21, 2016 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

@@ -1,5 +1,5 @@
 ---
-title: Introduction
+title: Notes pris lors de la conférence
 sidebar: mydoc_sidebar
 permalink: cours_ct.html
 folder: mydoc/ct
@@ -252,34 +252,30 @@ Exemple avec des pointeurs:
 Calcul d'alias = Ensemble de variables qui ont des relations entre elles
 ex : 
    
-		  P ->  X
-		  |---> Y  
+		  P -->  X
+		   \__> Y  
     
 Signifie que P peu pointer vers X ou Y et c'est tout 
 
 
-Contexte insensitive : ne différencie pas les contextes d'appels de fonction : résultat assez large
-Contexte sensitive : prend en compte les contextes d'appels de fonctions, plus stricte
+Contexte insensitive : ne différencie pas les contextes d'appels de fonction : résultat assez large   
+Contexte sensitive : prend en compte les contextes d'appels de fonctions, plus stricte   
 
-Flow sensitive : Idem avec les if etc 
+Flow sensitive : Idem avec les if etc    
 Flow insensitive : 
 
 Le sensitive est trop couteux ... donc en pratique on fait du insensitive et on essaye de raffiner 
 
 Algorithme de Anderson:   
 - écrire les points-to (lien de pointeurs) = calcul d'alias  
-- Il faut poser les équations.
+- Il faut poser les équations.   
 - Il faut résoudre une équation de point fixe.  
 - Complexité en ^3.  
 
-Algorythme de Steensgaard:  
+Algorithme de Steensgaard:  
 - Quand on fait le graph des alias, on le fait plus qu'une fléche qui part d'un pointeur, vers une boite contenant toutes les possibilités.   
-    
-                                    _
-    x---->  y                  X ----> |Y|   
-    |---->  z        devient           |Z|   
-                                        -   
-    
+       
+{% include image.html file="Steensgaard.png" alt="Algo de Steensgaard" caption="Exemple d'algo de Steensgaard" %}
 
 - Cette modification permet de réduire la complexité de n^3 à n^1
 - Mais cette méthode ne permet pas de manipuler des tableaux ou des stuctures
