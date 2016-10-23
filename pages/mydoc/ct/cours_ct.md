@@ -330,6 +330,7 @@ On peut pas avoir tout vert, il faudra forcement passer par des oranges
 Anecdote :   
 Livre sur le C++  
 
+
 # 21/10/2016 : Marine National: Information quantique, 40 ans après ...
 
 #### Il y a forcement eu des progres techniques qui ont permis le passage en pratique :  
@@ -375,7 +376,7 @@ Livre sur le C++
 - État de superposition  
 
 #### Chat de Schrödinger, paradoxe d'EPR   
-- L'état du chat est en superposition : (|DEAD> or |ALIVE> ) OR (1/sqrt(2)(|DEAD> + |ALIVE>))
+- L'état du chat est en superposition : ``` (|DEAD> or |ALIVE> ) OR (1/sqrt(2)(|DEAD> + |ALIVE>)) ```
 - Rôle de l'observateur, de la mesure   
 
 #### Décohérence et cohérence  
@@ -478,13 +479,13 @@ Même si on perd des informations, si le taux est < au capacité d transmission,
 - Structure MOS en Si  
 - Spin nucléaire (mémoire), électronique (qubit)
 
-#### Qubit seiconducteurs  
+#### Qubit semiconducteur 
 Boites quantiques  
 	- Qubit de charge (Temps de cohérence = 100uS): Deux places accecible à un e-, si il est là alors on a un 1 sinon on a un 0.  
 	- Qubit de spin (Temps = 1à5ms et jusque 100ms dans Si) : spin + -> 1 spin - -> 0  
 	- Implantation mono ou bi-atomique / STM: N = 1-2, T = 45s, T refroidi > 1h   
 
-#### Bubit supraconducteurs  
+#### Qubit supraconducteur  
 - Molécule  T = 3ms  
 - Jonction josephson T = 2uS  
 - Diamant qui a des défaut avec les NV  
