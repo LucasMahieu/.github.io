@@ -75,7 +75,7 @@ __Ce qui est attendu pour le TP__
 
 ## Diffusion de messages
 
-### Best effort broadcast  (BEB)
+### Best Exeffort Broadcast  (BEB)
 - Spécifications informelle: 
 	- N machines
 	- Si un message est émis par une machine correcte, il doit être délivré (reçu) par toutes les machines correctes.
@@ -88,7 +88,7 @@ __Ce qui est attendu pour le TP__
 		- _Intégrité_: Idem que le canal fiable.
 	- Hypothèses:
 		- Panne franche (pas de bornes sur le nombre de fautes)
-		- Canaux fiable
+		- Canaux fiables
 	- Algo:
 
 ```c
@@ -112,18 +112,67 @@ Comment régler le point 1 précédent ? = Comment faire pour que tous les proc.
 
 - Spéc = idem
 - Propriétés: 
-	- _Validité_: Si un processus correct émet un message m alors il le délivrera
+	- _Accord_: Si un processus correct émet un message m alors il le délivrera
+	- _Validité_: idem
 	- _Intégrité_: idem
 - Hypothèse :
 	- Panne franches (pas de bornes)
-	- Canaux fiable 
+	- Canaux fiables
 - Algo : 
-	- Principe : Après avoir délivré le msg,le proc. be_broadcast le msg.
+	- Principe : Après avoir délivré le msg,le processus be_broadcast le msg.
 	- ATTENTION :
 		1. Il faut s'arreter un jour
 		2. Intégrité -> Il ne faut délivrer chaque message qu'une fois au plus
 
 => MEMOIRE INFINIE
+
+# Cours du 24/10/2016
+
+## Diffusion de message : 1 vers n  
+
+Pour garantir la propriété d'accord de RB, on doit multiplier le nombre d'envoi de messages par N, 
+donc on divise par N la bande passante de notre canal.
+
+De plus, pour savoir que l'on a déjà retransmis il faut mémoriser cette information.   
+Plusieurs possibilité : 
+
+1. On enregistre tous les messages => problème de MÉMOIRE INFINIE   
+2. On numérote les messages par sources, et on les délivres par ordre croissant : coût mémoire = O(1)  => pas vraiment efficace
+3. On s'autorise une fenêtre de mémorisation => efficace 
+
+## BR plus efficace  
+
+Pour corriger le problème de bande passante de BR on doit trouver une solution  
+Une solution est de faire l'hypothèse que l'on a un détecteur de fautes parfait.  
+Ainsi, si l'on avait reçu un message de la part d'un processus qui est tombé en panne, on le re-broadcast  
+
+Attention, ici encore problème de MEMOIRE INFINIE, pour se souvenir des messages que l'on devra renvoyer en cas de panne.
+
+Du coup, ici aussi on doit trouver une astuce :
+-  Il faut vider la mémoire régulièrement 
+- Régulièrement, chaque processus informe les autres de façon "efficace" -> du type = j'ai reçu les 1000 msg de 3000 à 3999.
+- __ATTENTION__ que faire en cas d'absence de nouvelles d'un processus
+- Pour cela, c'est le détecteur de faute parfait qui nous garanti que l'on va recevoir un message de tous les vivants.  
+
+Il reste encore un comportement non désirable :
+
+- "Les processus fautifs peuvent délivrer des messages qui ne seront pas délivrés par les processus corrects
+- Problème d'effets de bords
+- Problème du redémarrage de machine 
+
+## URB = Uniform Reliable Broadcast
+
+- Spéc = idem
+- Propriétés: 
+	- _Validité_: idem RB
+	- _Intégrité_: idem RB
+	- _Accord Uniforme_: Si un processus (TOUS) élivre un message m, alors tous les processus CORRECT délivrerons m 
+
+- L'idée pour cela est que la machine qui émet un message (qui peux tomber en panne après l'avoir délivré) doit attendre de recevoir tous les ACK pour le message m avant de le délivrer.
+- Puis il notifie tout le monde que le message m est 'stable' = que tout le monde l'a ack  
+- Variante: les processus qui reçoivent m envoient un ack à tous les processus, et quant à leur tous ils reçoivent l'ack de m, ils le délivrent.
+
+
 
 
 

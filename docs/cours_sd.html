@@ -584,7 +584,7 @@ On part d’UDP pour en faire un canal fiable.</p>
 
 <h2 id="diffusion-de-messages">Diffusion de messages</h2>
 
-<h3 id="best-effort-broadcast--beb">Best effort broadcast  (BEB)</h3>
+<h3 id="best-exeffort-broadcast--beb">Best Exeffort Broadcast  (BEB)</h3>
 <ul>
   <li>Spécifications informelle:
     <ul>
@@ -609,7 +609,7 @@ On part d’UDP pour en faire un canal fiable.</p>
       <li>Hypothèses:
         <ul>
           <li>Panne franche (pas de bornes sur le nombre de fautes)</li>
-          <li>Canaux fiable</li>
+          <li>Canaux fiables</li>
         </ul>
       </li>
       <li>Algo:</li>
@@ -642,19 +642,20 @@ On part d’UDP pour en faire un canal fiable.</p>
   <li>Spéc = idem</li>
   <li>Propriétés:
     <ul>
-      <li><em>Validité</em>: Si un processus correct émet un message m alors il le délivrera</li>
+      <li><em>Accord</em>: Si un processus correct émet un message m alors il le délivrera</li>
+      <li><em>Validité</em>: idem</li>
       <li><em>Intégrité</em>: idem</li>
     </ul>
   </li>
   <li>Hypothèse :
     <ul>
       <li>Panne franches (pas de bornes)</li>
-      <li>Canaux fiable</li>
+      <li>Canaux fiables</li>
     </ul>
   </li>
   <li>Algo :
     <ul>
-      <li>Principe : Après avoir délivré le msg,le proc. be_broadcast le msg.</li>
+      <li>Principe : Après avoir délivré le msg,le processus be_broadcast le msg.</li>
       <li>ATTENTION :
         <ol>
           <li>Il faut s’arreter un jour</li>
@@ -666,6 +667,60 @@ On part d’UDP pour en faire un canal fiable.</p>
 </ul>
 
 <p>=&gt; MEMOIRE INFINIE</p>
+
+<h1 id="cours-du-24102016">Cours du 24/10/2016</h1>
+
+<h2 id="diffusion-de-message--1-vers-n">Diffusion de message : 1 vers n</h2>
+
+<p>Pour garantir la propriété d’accord de RB, on doit multiplier le nombre d’envoi de messages par N, 
+donc on divise par N la bande passante de notre canal.</p>
+
+<p>De plus, pour savoir que l’on a déjà retransmis il faut mémoriser cette information. <br />
+Plusieurs possibilité :</p>
+
+<ol>
+  <li>On enregistre tous les messages =&gt; problème de MÉMOIRE INFINIE</li>
+  <li>On numérote les messages par sources, et on les délivres par ordre croissant : coût mémoire = O(1)  =&gt; pas vraiment efficace</li>
+  <li>On s’autorise une fenêtre de mémorisation =&gt; efficace</li>
+</ol>
+
+<h2 id="br-plus-efficace">BR plus efficace</h2>
+
+<p>Pour corriger le problème de bande passante de BR on doit trouver une solution<br />
+Une solution est de faire l’hypothèse que l’on a un détecteur de fautes parfait.<br />
+Ainsi, si l’on avait reçu un message de la part d’un processus qui est tombé en panne, on le re-broadcast</p>
+
+<p>Attention, ici encore problème de MEMOIRE INFINIE, pour se souvenir des messages que l’on devra renvoyer en cas de panne.</p>
+
+<p>Du coup, ici aussi on doit trouver une astuce :
+-  Il faut vider la mémoire régulièrement 
+- Régulièrement, chaque processus informe les autres de façon “efficace” -&gt; du type = j’ai reçu les 1000 msg de 3000 à 3999.
+- <strong>ATTENTION</strong> que faire en cas d’absence de nouvelles d’un processus
+- Pour cela, c’est le détecteur de faute parfait qui nous garanti que l’on va recevoir un message de tous les vivants.</p>
+
+<p>Il reste encore un comportement non désirable :</p>
+
+<ul>
+  <li>“Les processus fautifs peuvent délivrer des messages qui ne seront pas délivrés par les processus corrects</li>
+  <li>Problème d’effets de bords</li>
+  <li>Problème du redémarrage de machine</li>
+</ul>
+
+<h2 id="urb--uniform-reliable-broadcast">URB = Uniform Reliable Broadcast</h2>
+
+<ul>
+  <li>Spéc = idem</li>
+  <li>Propriétés:
+    <ul>
+      <li><em>Validité</em>: idem RB</li>
+      <li><em>Intégrité</em>: idem RB</li>
+      <li><em>Accord Uniforme</em>: Si un processus (TOUS) élivre un message m, alors tous les processus CORRECT délivrerons m</li>
+    </ul>
+  </li>
+  <li>L’idée pour cela est que la machine qui émet un message (qui peux tomber en panne après l’avoir délivré) doit attendre de recevoir tous les ACK pour le message m avant de le délivrer.</li>
+  <li>Puis il notifie tout le monde que le message m est ‘stable’ = que tout le monde l’a ack</li>
+  <li>Variante: les processus qui reçoivent m envoient un ack à tous les processus, et quant à leur tous ils reçoivent l’ack de m, ils le délivrent.</li>
+</ul>
 
 
 
@@ -683,7 +738,7 @@ On part d’UDP pour en faire un canal fiable.</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 Lucas Mahieu. All rights reserved. <br />
- Site last generated: Oct 23, 2016 <br />
+ Site last generated: Oct 24, 2016 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>
