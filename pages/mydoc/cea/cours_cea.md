@@ -173,7 +173,9 @@ __Résumé__
 - Non synthétisable
 
 ### ROM
+
 ### Flash
+
 ### Registre
 16 transistors par point mémoire, très chère 
 
