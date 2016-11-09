@@ -238,6 +238,6 @@ Pour f=1, Av = Accepted value, Sn = Séquence number
 		sinon la valeur associé avec le plus grand Sn recu
 3. Si Sn du ACCEPT >= Sn stocké alors Av(Sn,v du accept) et OK (sinon KO)
 
-
+(lien de la video)[https://www.youtube.com/watch?v=cj9DCYac3dw]
 
 {% include links.html %}
