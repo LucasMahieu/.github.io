@@ -168,11 +168,75 @@ Il reste encore un comportement non désirable :
 	- _Intégrité_: idem RB
 	- _Accord Uniforme_: Si un processus (TOUS) élivre un message m, alors tous les processus CORRECT délivrerons m 
 
-- L'idée pour cela est que la machine qui émet un message (qui peux tomber en panne après l'avoir délivré) doit attendre de recevoir tous les ACK pour le message m avant de le délivrer.
+- L'idée pour cela est que la machine qui émet un message 
+(qui peux tomber en panne après l'avoir délivré) 
+doit attendre de recevoir tous les ACK pour le message m avant de le délivrer.
 - Puis il notifie tout le monde que le message m est 'stable' = que tout le monde l'a ack  
 - Variante: les processus qui reçoivent m envoient un ack à tous les processus, et quant à leur tous ils reçoivent l'ack de m, ils le délivrent.
 
+# Cours du 9/11/16
 
+Tous ces algos ne respectent pas l'ordre d'envoi   
+Plusieurs solutions:
+
+- FIFO : Tous les messages émis par un processus p sont délivrés dans l'ordre
+  d'émission.
+- CAUSAL : Pas dans ce cours, CAUSAL > FIFO
+- TOTAL : tous les messages sont délivrés dans le même ordre pour tous les
+  processus. Tous les BD exécutent les mêmes requêtes dans le même ordre. Mais
+pas forcement dans l'ordre FIFO.
+
+## TOB = Total Order Broadcast 
+
+- Spéc = idem BEB, RB, URB
+- Propriété : validité, intégrité, accord => idem RB ou URB
+- + ORDRE TOTAL = si un proc p délivre m1 avant m2, alors aucun processus ne
+    pourra délivrer m2 avant d'avoir délivré m1.
+- Algo : Panne franche + Canal fiable + Détecteur de fautes + séquenceur.
+	- Un séquenceur est un processus élu par P.
+
+Quand utiliser le détecteur de faute (P)?  
+On l'utilise quand il faut attendre l'ack des autres machines.
+Sinon on pourrait attendre un ack infiniment.  
+
+Mais supposer avoir un VRAI P, n'est pas tjs acceptable 
+
+## Paxos = algo de concensus
+
+Consensus      =      TOB  
+(Paxos dans P)       (avec P)
+
+
+- Spéc : Interface :
+	- Propose : permet de proposer une valeur
+	- Décide : indique la valeur décidée
+- Propriétés :
+	- Toutes les machines correctes décident la même valeur.
+	- La valeur décidé a été proposée par une machine
+
+Paxos = implante la spec du concenssus en faisant les hypothèses suivantes:
+
+- Canale fiable
+- Pannes : "crash recovery"
+
+Paxos à besoin de 2f+1 machine pour tolérer f fautes  
+=> Suppose f=1 : -> Paxos a besoin de 3 machines  
+
+- Si 0 panne : consensus faisable 
+- Si 1 pannes : consensus faisable 
+- Si >1 pannes : blocage MAIS PAS D'ERREUR ! BLOCAGE SEULEMENT
+
+
+Paxos se décompose en 4 régles :
+
+Pour f=1, Av = Accepted value, Sn = Séquence number
+
+1. Si Sn PREPARE > Sn stocké en local -> OK + Av sinon KO
+2. Si f+1 OK alors le proposeur peut émettre (ACCEPT, Sn, v)  
+	avec Sn = le num utilisé dans le proposeur value  
+	v = si f+1 (-1) alors v= ce que veut proposer le proposeur  
+		sinon la valeur associé avec le plus grand Sn recu
+3. Si Sn du ACCEPT >= Sn stocké alors Av(Sn,v du accept) et OK (sinon KO)
 
 
 

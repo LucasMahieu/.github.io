@@ -153,7 +153,7 @@ Attaque software:
 	* Ex: Initialisation d'un plan mémoire, ...
 
 ## Problématiques des tests
-Il y a un vrai problème avec le test de circuits critiques, les moyens de test pourrais etre une énorme opportunité pour un attaquant.   
+Il y a un vrai problème avec le test de circuits critiques, les moyens de test pourrais etre une énorme opportunité pour un attaquant.     
 Par exemple, la chaine de scan peut faire sortir des clés de chiffrement   
 Il faut donc mettre ne place des mesures de test sans que ça influe la sécurité   
 
@@ -161,6 +161,64 @@ Il faut donc mettre ne place des mesures de test sans que ça influe la sécurit
 Radiations de particules qui peuvent faire des fautes par exemple   
 Le choix du modèle est important : Bit-flip, Bit-set, Bit-reset   
 Mais en pratique, c'est pas tjs facile de faire certaine attaque.   
+
+# Cours du 07/11/16
+Contre-mesure  
+
+## Analyse pas canaux auxilières
+
+Attaque liées à certaines grandeur physique 
+
+- Time 
+- Power
+- EM
+- ...
+
+Le principe de ces attaques est de trouver un lien entre ces grandeurs physique
+et les données sensibles.  
+Les contres mesures consiste donc à rendre le lien bcp plus difficile à trouver.  
+
+SPA = Simple Power Analysis -> pas très utile pour les algo symétrique  
+DPA = Differential Power Analysis  
+
+Il faut donc rendre complexe la mesure de ces grandeurs physiques  
+Sécurisation de 'scan chain' qui donne accès au circuit  
+
+## Structure de tests 
+
+Scambling méthode :  
+Faire des scan chaine non linéaire, mais aléatoire par segment   
+
+Scan-Enable Tree:  
+Vérifier l'intégrité du signal
+
+Spy Flip-Flop:  
+tester si le contrôleur de test à un comportement "attendu", "correcte" 
+
+Built in Self Test (BIST):  
+Architecture en 3 'blocs' : 
+
+- TPG: Génère des vecteurs de tests
+- DUT: Devise Under Test 
+- ORACLE: Comparateur de sortie 
+
+## Attack par faute
+
+### AES c'est quoi ? 
+
+Algo symétrique = même clé pour chiffrer et déchiffrer  
+Text = 128b  
+Clé = 128/192/256b
+Tour pour un chiffrement = 10/12/14 rounds  
+1 round =   
+	- SubBytes: substitution non linéaire de byte  
+	- ShiftRows: rotation des lignes  
+	- MixColumns: multiplication linéaire par colonne  
+	- AddKey : ajout de la clé modifié  
+
+## Code correction/détection d'erreurs
+EDC
+
 
 
 {% include links.html %}
