@@ -717,10 +717,101 @@ Ainsi, si l’on avait reçu un message de la part d’un processus qui est tomb
       <li><em>Accord Uniforme</em>: Si un processus (TOUS) élivre un message m, alors tous les processus CORRECT délivrerons m</li>
     </ul>
   </li>
-  <li>L’idée pour cela est que la machine qui émet un message (qui peux tomber en panne après l’avoir délivré) doit attendre de recevoir tous les ACK pour le message m avant de le délivrer.</li>
+  <li>L’idée pour cela est que la machine qui émet un message 
+(qui peux tomber en panne après l’avoir délivré) 
+doit attendre de recevoir tous les ACK pour le message m avant de le délivrer.</li>
   <li>Puis il notifie tout le monde que le message m est ‘stable’ = que tout le monde l’a ack</li>
   <li>Variante: les processus qui reçoivent m envoient un ack à tous les processus, et quant à leur tous ils reçoivent l’ack de m, ils le délivrent.</li>
 </ul>
+
+<h1 id="cours-du-91116">Cours du 9/11/16</h1>
+
+<p>Tous ces algos ne respectent pas l’ordre d’envoi <br />
+Plusieurs solutions:</p>
+
+<ul>
+  <li>FIFO : Tous les messages émis par un processus p sont délivrés dans l’ordre
+d’émission.</li>
+  <li>CAUSAL : Pas dans ce cours, CAUSAL &gt; FIFO</li>
+  <li>TOTAL : tous les messages sont délivrés dans le même ordre pour tous les
+processus. Tous les BD exécutent les mêmes requêtes dans le même ordre. Mais
+pas forcement dans l’ordre FIFO.</li>
+</ul>
+
+<h2 id="tob--total-order-broadcast">TOB = Total Order Broadcast</h2>
+
+<ul>
+  <li>Spéc = idem BEB, RB, URB</li>
+  <li>Propriété : validité, intégrité, accord =&gt; idem RB ou URB</li>
+  <li>
+    <ul>
+      <li>ORDRE TOTAL = si un proc p délivre m1 avant m2, alors aucun processus ne
+pourra délivrer m2 avant d’avoir délivré m1.</li>
+    </ul>
+  </li>
+  <li>Algo : Panne franche + Canal fiable + Détecteur de fautes + séquenceur.
+    <ul>
+      <li>Un séquenceur est un processus élu par P.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Quand utiliser le détecteur de faute (P)?<br />
+On l’utilise quand il faut attendre l’ack des autres machines.
+Sinon on pourrait attendre un ack infiniment.</p>
+
+<p>Mais supposer avoir un VRAI P, n’est pas tjs acceptable</p>
+
+<h2 id="paxos--algo-de-concensus">Paxos = algo de concensus</h2>
+
+<p>Consensus      =      TOB<br />
+(Paxos dans P)       (avec P)</p>
+
+<ul>
+  <li>Spéc : Interface :
+    <ul>
+      <li>Propose : permet de proposer une valeur</li>
+      <li>Décide : indique la valeur décidée</li>
+    </ul>
+  </li>
+  <li>Propriétés :
+    <ul>
+      <li>Toutes les machines correctes décident la même valeur.</li>
+      <li>La valeur décidé a été proposée par une machine</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Paxos = implante la spec du concenssus en faisant les hypothèses suivantes:</p>
+
+<ul>
+  <li>Canale fiable</li>
+  <li>Pannes : “crash recovery”</li>
+</ul>
+
+<p>Paxos à besoin de 2f+1 machine pour tolérer f fautes<br />
+=&gt; Suppose f=1 : -&gt; Paxos a besoin de 3 machines</p>
+
+<ul>
+  <li>Si 0 panne : consensus faisable</li>
+  <li>Si 1 pannes : consensus faisable</li>
+  <li>Si &gt;1 pannes : blocage MAIS PAS D’ERREUR ! BLOCAGE SEULEMENT</li>
+</ul>
+
+<p>Paxos se décompose en 4 régles :</p>
+
+<p>Pour f=1, Av = Accepted value, Sn = Séquence number</p>
+
+<ol>
+  <li>Si Sn PREPARE &gt; Sn stocké en local -&gt; OK + Av sinon KO</li>
+  <li>Si f+1 OK alors le proposeur peut émettre (ACCEPT, Sn, v)<br />
+ avec Sn = le num utilisé dans le proposeur value<br />
+ v = si f+1 (-1) alors v= ce que veut proposer le proposeur<br />
+     sinon la valeur associé avec le plus grand Sn recu</li>
+  <li>Si Sn du ACCEPT &gt;= Sn stocké alors Av(Sn,v du accept) et OK (sinon KO)</li>
+</ol>
+
+<p>(lien de la video)[https://www.youtube.com/watch?v=cj9DCYac3dw]</p>
 
 
 
@@ -738,7 +829,7 @@ Ainsi, si l’on avait reçu un message de la part d’un processus qui est tomb
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 Lucas Mahieu. All rights reserved. <br />
- Site last generated: Oct 24, 2016 <br />
+ Site last generated: Nov 14, 2016 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

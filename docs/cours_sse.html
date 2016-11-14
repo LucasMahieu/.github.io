@@ -669,7 +669,7 @@ MBU:</p>
 </ul>
 
 <h2 id="problmatiques-des-tests">Problématiques des tests</h2>
-<p>Il y a un vrai problème avec le test de circuits critiques, les moyens de test pourrais etre une énorme opportunité pour un attaquant. <br />
+<p>Il y a un vrai problème avec le test de circuits critiques, les moyens de test pourrais etre une énorme opportunité pour un attaquant.   <br />
 Par exemple, la chaine de scan peut faire sortir des clés de chiffrement <br />
 Il faut donc mettre ne place des mesures de test sans que ça influe la sécurité</p>
 
@@ -677,6 +677,67 @@ Il faut donc mettre ne place des mesures de test sans que ça influe la sécurit
 <p>Radiations de particules qui peuvent faire des fautes par exemple <br />
 Le choix du modèle est important : Bit-flip, Bit-set, Bit-reset <br />
 Mais en pratique, c’est pas tjs facile de faire certaine attaque.</p>
+
+<h1 id="cours-du-071116">Cours du 07/11/16</h1>
+<p>Contre-mesure</p>
+
+<h2 id="analyse-pas-canaux-auxilires">Analyse pas canaux auxilières</h2>
+
+<p>Attaque liées à certaines grandeur physique</p>
+
+<ul>
+  <li>Time</li>
+  <li>Power</li>
+  <li>EM</li>
+  <li>…</li>
+</ul>
+
+<p>Le principe de ces attaques est de trouver un lien entre ces grandeurs physique
+et les données sensibles.<br />
+Les contres mesures consiste donc à rendre le lien bcp plus difficile à trouver.</p>
+
+<p>SPA = Simple Power Analysis -&gt; pas très utile pour les algo symétrique<br />
+DPA = Differential Power Analysis</p>
+
+<p>Il faut donc rendre complexe la mesure de ces grandeurs physiques<br />
+Sécurisation de ‘scan chain’ qui donne accès au circuit</p>
+
+<h2 id="structure-de-tests">Structure de tests</h2>
+
+<p>Scambling méthode :<br />
+Faire des scan chaine non linéaire, mais aléatoire par segment</p>
+
+<p>Scan-Enable Tree:<br />
+Vérifier l’intégrité du signal</p>
+
+<p>Spy Flip-Flop:<br />
+tester si le contrôleur de test à un comportement “attendu”, “correcte”</p>
+
+<p>Built in Self Test (BIST):<br />
+Architecture en 3 ‘blocs’ :</p>
+
+<ul>
+  <li>TPG: Génère des vecteurs de tests</li>
+  <li>DUT: Devise Under Test</li>
+  <li>ORACLE: Comparateur de sortie</li>
+</ul>
+
+<h2 id="attack-par-faute">Attack par faute</h2>
+
+<h3 id="aes-cest-quoi-">AES c’est quoi ?</h3>
+
+<p>Algo symétrique = même clé pour chiffrer et déchiffrer<br />
+Text = 128b<br />
+Clé = 128/192/256b
+Tour pour un chiffrement = 10/12/14 rounds<br />
+1 round = <br />
+	- SubBytes: substitution non linéaire de byte<br />
+	- ShiftRows: rotation des lignes<br />
+	- MixColumns: multiplication linéaire par colonne<br />
+	- AddKey : ajout de la clé modifié</p>
+
+<h2 id="code-correctiondtection-derreurs">Code correction/détection d’erreurs</h2>
+<p>EDC</p>
 
 
 
@@ -694,7 +755,7 @@ Mais en pratique, c’est pas tjs facile de faire certaine attaque.</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 Lucas Mahieu. All rights reserved. <br />
- Site last generated: Oct 24, 2016 <br />
+ Site last generated: Nov 14, 2016 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>
