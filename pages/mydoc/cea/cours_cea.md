@@ -185,10 +185,7 @@ __Résumé__
 
 ### Etude de cas
 
-(lien des slides du cours)[http://chamilo2.grenet.fr/inp/courses/ENSIMAG5MMCEAMC/document/multimedia.pdf?cidReq=ENSIMAG5MMCEAMC&id_session=0&gidReq=0&origin=]
-
-
-
+[lien des slides du cours](http://chamilo2.grenet.fr/inp/courses/ENSIMAG5MMCEAMC/document/multimedia.pdf?cidReq=ENSIMAG5MMCEAMC&id_session=0&gidReq=0&origin=)
 
 
 {% include links.html %}
