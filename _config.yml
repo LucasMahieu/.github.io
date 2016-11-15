@@ -5,7 +5,7 @@ output: web
 topnav_title: Cours de SLE 3A
 # this appears on the top navigation bar next to the home button
 
-site_title: Cours collaboratif de SLE 3A
+site_title: Cours collaboratif de l'ENSIMAG SLE 3A
 # this appears in the html browser tab for the site title (seen mostly by search engines, not users)
 
 company_name: Lucas Mahieu
@@ -93,11 +93,10 @@ defaults:
 sidebars:
 - home_sidebar
 - mydoc_sidebar
-- product1_sidebar
-- product2_sidebar
 - other
 
-description: "Ce site est fait pour partager les notes pris en cours, TP, TD de SLE 3A. Il est possible à tous d'ajouter ses notes ou d'en compléter via un push request"
+description: "Ce site est fait pour partager les notes pris en cours, TP, TD de ma 3ème année à l'ENSIMAG en Filière SLE.
+Il est possible à tous d'ajouter ses notes ou d'en compléter via un push request"
 # the description is used in the feed.xml file
 
 # needed for sitemap.xml file only

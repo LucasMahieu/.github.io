@@ -219,6 +219,12 @@ Tour pour un chiffrement = 10/12/14 rounds
 ## Code correction/détection d'erreurs
 EDC
 
+# Cours 15/11/2016
+
+[lien des
+slides](http://chamilo2.grenet.fr/inp/courses/ENSIMAG5MMSSE/document/Transparents_SSE_16-17.pdf?cidReq=ENSIMAG5MMSSE&id_session=0&gidReq=0&origin=)
+
+
 
 
 {% include links.html %}
