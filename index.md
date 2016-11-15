@@ -1,7 +1,7 @@
 ---
 title: Page de présentation
-keywords: simple homepage Markdown Systèmes Logiciels Embarqués
-tags: [home_page] [SLE] [Système_Embarqués] [Logiciel_Embarqués]
+keywords: simple homepage Markdown Systèmes Logiciels Embarqués ENSIMAG
+tags: [home_page]
 sidebar: mydoc_sidebar
 permalink: index.html
 summary: Ce site permet de rédiger des notes de cours en Markdown et de retrouver l'ensemble des notes sur un site plutôt bien organisé hébergé gratuitement sur Github.

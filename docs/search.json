@@ -106,11 +106,11 @@
 
 
 {
-"title": "",
-"tags": "",
-"keywords": "",
-"url": "",
-"summary": ""
+"title": "Page de présentation",
+"tags": "home_page",
+"keywords": "simple homepage Markdown Systèmes Logiciels Embarqués ENSIMAG",
+"url": "index.html",
+"summary": "Ce site permet de rédiger des notes de cours en Markdown et de retrouver l'ensemble des notes sur un site plutôt bien organisé hébergé gratuitement sur Github."
 },
 
 
