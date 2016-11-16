@@ -538,6 +538,40 @@ Mt+1 = g(Et, Mt) est la fonction de transition</p>
 
 <p>Grâce à Lustre, c’est assez simple.</p>
 
+<h1 id="cours-du-16112016">Cours du 16/11/2016</h1>
+
+<h2 id="interprtation-abstraite">Interprétation abstraite</h2>
+
+<p>LIRE LE PAPIER
+<a href="http://chamilo2.grenet.fr/inp/courses/ENSIMAG5MMVSE/document/TRANSPARENTS/Cache-absint.pdf?cidReq=ENSIMAG5MMVSE&amp;id_session=0&amp;gidReq=0&amp;origin=">ICI</a></p>
+
+<p><a href="http://chamilo2.grenet.fr/inp/courses/ENSIMAG5MMVSE/document/TRANSPARENTS/12.10.16.pdf?cidReq=ENSIMAG5MMVSE&amp;id_session=0&amp;gidReq=0&amp;origin=">lien vers les slides de tout le cours</a></p>
+
+<p><a href="http://chamilo2.grenet.fr/inp/courses/ENSIMAG5MMVSE/document/TRANSPARENTS/nicolas-polyedres-a.pdf?cidReq=ENSIMAG5MMVSE&amp;id_session=0&amp;gidReq=0&amp;origin=">lien vers les polyèdres</a></p>
+
+<p>Pour un état donné, on ne peut pas calculer l’ensemble des valeurs possibles<br />
+Donc, on calcule un sur-ensemble :</p>
+
+<ul>
+  <li>signes             : Numérique</li>
+  <li>intervalles        : Numérique</li>
+  <li>polyèdres convexes : Numérique</li>
+  <li>truc inventés      : WCET par exemple</li>
+</ul>
+
+<p>Si jamais ce sur-ensemble est nul, alors l’ensemble, qui est inclue dans le sur 
+ensemble, est vide lui aussi, donc cet état n’est pas atteignable.</p>
+
+<p>Pour ranger les ensembles, on utilise un treillis complet.</p>
+
+<p>Théorème 1:
+Si on a un treillis complet,<br />
+si on a une fonction monotone, alors il existe un point fixe max et min.</p>
+
+<p>Théorème 2: 
+Pour trouver le point fixe min et max, on calcul la limite de f(bottom) et
+f(top)</p>
+
 <p>[]:</p>
 
 
@@ -556,7 +590,7 @@ Mt+1 = g(Et, Mt) est la fonction de transition</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 Lucas Mahieu. All rights reserved. <br />
- Site last generated: Nov 15, 2016 <br />
+ Site last generated: Nov 16, 2016 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

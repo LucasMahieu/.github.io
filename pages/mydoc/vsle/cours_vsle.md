@@ -116,6 +116,40 @@ Mt+1 = g(Et, Mt) est la fonction de transition
 
 Grâce à Lustre, c'est assez simple.
 
+# Cours du 16/11/2016
+
+## Interprétation abstraite 
+
+LIRE LE PAPIER
+[ICI](http://chamilo2.grenet.fr/inp/courses/ENSIMAG5MMVSE/document/TRANSPARENTS/Cache-absint.pdf?cidReq=ENSIMAG5MMVSE&id_session=0&gidReq=0&origin=)
+
+[lien vers les slides de tout le cours](http://chamilo2.grenet.fr/inp/courses/ENSIMAG5MMVSE/document/TRANSPARENTS/12.10.16.pdf?cidReq=ENSIMAG5MMVSE&id_session=0&gidReq=0&origin=)
+
+[lien vers les polyèdres](http://chamilo2.grenet.fr/inp/courses/ENSIMAG5MMVSE/document/TRANSPARENTS/nicolas-polyedres-a.pdf?cidReq=ENSIMAG5MMVSE&id_session=0&gidReq=0&origin=)
+
+Pour un état donné, on ne peut pas calculer l'ensemble des valeurs possibles  
+Donc, on calcule un sur-ensemble :
+
+- signes             : Numérique 
+- intervalles        : Numérique
+- polyèdres convexes : Numérique 
+- truc inventés      : WCET par exemple
+
+Si jamais ce sur-ensemble est nul, alors l'ensemble, qui est inclue dans le sur 
+ensemble, est vide lui aussi, donc cet état n'est pas atteignable. 
+
+Pour ranger les ensembles, on utilise un treillis complet.
+
+Théorème 1:
+Si on a un treillis complet,  
+si on a une fonction monotone, alors il existe un point fixe max et min.
+
+Théorème 2: 
+Pour trouver le point fixe min et max, on calcul la limite de f(bottom) et
+f(top)
+
+
+
 
 
 
