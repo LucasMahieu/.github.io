@@ -240,4 +240,49 @@ Pour f=1, Av = Accepted value, Sn = Séquence number
 
 (lien de la video)[https://www.youtube.com/watch?v=cj9DCYac3dw]
 
+# Cours du 16/11/16
+
+## Notion de performance 
+
+Exemple : Protocole de performance basique  
+
+Métrique : 
+
+	- Débit : nombre de message déivré par unité de temps => système doit être
+	  saturé 
+	- Latence : temps entre l'émission et la délivrance par le "dernier" proc.
+	  => le système ne doit pas être saturé 
+	- Temps de réponse :
+
+Système physique sur lequel s'exerce le protocole :  
+Cas d'étude : Datacenter  : simple et réaliste
+
+Modèle de rondes : chaque processus peut :
+
+- émettre 1 message AU PLUS au début de chaque ronde.
+- recevoir 1 message AU PLUS à la fin de chaque ronde.
+
+Pourquoi modéliser : 
+
+1. Avoir une approximation des performances sans implémenter le système   
+2. Résonner sur latence vs. débit : débit optimal, latence optimal ...   
+
+Pour optimiser la latence :  
+p1 envoie m à p2 au ronde 1  
+p1 envoie m à p3 et p2 envoie m à p4 au ronde 2  
+
+Latence = 2, Debit = 0.5 m / ronde
+
+Pour un débit optimal :   
+p1 envoie m à p2
+p2 envoie m à p3 et p1 envoie m2 à p2
+p3 envoie m à p4 et p2 envoie m2 à p2 et p1 envoie m3 à p2
+p3 envoie m2 à p4 et p2 envoie m3 à p3
+p3 envoie m3 à p4
+
+Latence = 3 rondes, Débit = 1 msg / ronde
+
+Le débit maximal entre N machine est = N/(N-1)
+
+
 {% include links.html %}

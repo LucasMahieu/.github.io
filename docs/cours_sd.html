@@ -765,6 +765,56 @@ Sinon on pourrait attendre un ack infiniment.</p>
 
 <p>(lien de la video)[https://www.youtube.com/watch?v=cj9DCYac3dw]</p>
 
+<h1 id="cours-du-161116">Cours du 16/11/16</h1>
+
+<h2 id="notion-de-performance">Notion de performance</h2>
+
+<p>Exemple : Protocole de performance basique</p>
+
+<p>Métrique :</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>- Débit : nombre de message déivré par unité de temps =&gt; système doit être
+  saturé 
+- Latence : temps entre l'émission et la délivrance par le "dernier" proc.
+  =&gt; le système ne doit pas être saturé 
+- Temps de réponse :
+</code></pre>
+</div>
+
+<p>Système physique sur lequel s’exerce le protocole :<br />
+Cas d’étude : Datacenter  : simple et réaliste</p>
+
+<p>Modèle de rondes : chaque processus peut :</p>
+
+<ul>
+  <li>émettre 1 message AU PLUS au début de chaque ronde.</li>
+  <li>recevoir 1 message AU PLUS à la fin de chaque ronde.</li>
+</ul>
+
+<p>Pourquoi modéliser :</p>
+
+<ol>
+  <li>Avoir une approximation des performances sans implémenter le système</li>
+  <li>Résonner sur latence vs. débit : débit optimal, latence optimal …</li>
+</ol>
+
+<p>Pour optimiser la latence :<br />
+p1 envoie m à p2 au ronde 1<br />
+p1 envoie m à p3 et p2 envoie m à p4 au ronde 2</p>
+
+<p>Latence = 2, Debit = 0.5 m / ronde</p>
+
+<p>Pour un débit optimal : <br />
+p1 envoie m à p2
+p2 envoie m à p3 et p1 envoie m2 à p2
+p3 envoie m à p4 et p2 envoie m2 à p2 et p1 envoie m3 à p2
+p3 envoie m2 à p4 et p2 envoie m3 à p3
+p3 envoie m3 à p4</p>
+
+<p>Latence = 3 rondes, Débit = 1 msg / ronde</p>
+
+<p>Le débit maximal entre N machine est = N/(N-1)</p>
+
 <p>[]:</p>
 
 
