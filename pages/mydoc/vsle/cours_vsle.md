@@ -149,11 +149,128 @@ Pour trouver le point fixe min et max, on calcul la limite de f(bottom) et
 f(top)
 
 
+# Cours du 23/11/2016
+
+## Pour faire une interprétation abstraite de signes
+On fait le graph  
+On met des étiquettes sur chaque noeud  
+On fait un "photo" à l'instant t c'est l'ensemble des états et des étiquettes d'état.  
+Puis la photo à l'itération suivante.  
+Si ça ne change plus => point fixe.  
+On peut alors remplir un tableau avec tous ces photos.  
+
+## How to compute WCET
+
+Souvent les programmes on la tete de :
+
+```c
+init();
+
+while(1){
+	input();
+	compute();
+	output();
+}
+```
+
+Le WCET peut être déterminer de façon "grossière", avec bcp de marge, par 
+l'interprétation abstraite    
+
+```c
+for (int i=0; i<100; i++) {
+	if (i%2==0){
+		s();
+		// Grand cout
+	} else {
+		p();
+		// Petit cout
+	}
+}
+```
+Un truc bourrin dirait : WCET = 100 * max(s,p) = 100 * p.  
+Un truc malin dirait : WCET = 50 * (p + s), et c'est bcp mieux !  
+
+## Analyse d'un programme par interprétation abstraite 
+
+[cf. ce lien](http://chamilo2.grenet.fr/inp/courses/ENSIMAG5MMVSE/document/TRANSPARENTS/Cache-absint.pdf?cidReq=ENSIMAG5MMVSE&id_session=0&gidReq=0&origin=)
+
+Voir le programme comme un graph où sur chaque transition il y a 1 seul acces mem  
+On ajout les étiquettes tel que : 1 étiquette regroupe l'ensemble des variables 
+qui sont SUPRÊMEMENT dans le cache.  
+
+Cache Fully associative, LRU. 
+Mémoire de taille m.  
+Cache de taille n. (n lignes)  
+Le plus vieux éléments du cache est en bas.  
+Donc en cas de hit, on le remonte tout en haut et descend tous les autres de 1  
+En cas de miss, on rentre le nouveau tout en haut, et le plus vieux dégage.
+
+Question: Combien d'état concret du cache (dans les conditions du papier):
+m+1 * m * m-1 * ... * m-n+1  
+C'est donc un ensemble fini, mais très gros.
+
+Question: Peut on faire une analyse avec les vrais états du cache.  
+
+Question: A quoi ressemble l'état du cache, d'après ce graphe.
+
+```
+  /--Y--\
+E1.      .E2
+  \__X__/
+```
+Soit on accède à X soit à Y.  
+E1 est un cache vide.  
+Quel tête à E2 ? Pour représenter cela, il faut avoir un "cache abstrait"  
+Il permet de dire : à la ligne 1 du cache, j'ai soit X, soit Y.
+
+Cache abstrait = cache à n lignes ou dans chaque ligne on peut mettre par exemple:  
+"x | y".
+
+Union abstraite = Join = J(E1 * ,E2 * ) = MUST analysis   
+On fait l'intersections de E1 * et de E2 * sur chaque ligne   
+et on le met sur la case la plus vielle possible (Pire cas).
 
 
+Exercice : 
+```c
+while(e) { 
+	b;
+	c;
+	a;
+	d;
+	c;
+}
+```
+avec 4 lignes de caches : [ | | | ]  
 
+Avant le while le cache est [ | |b,d |c,z]
 
+```
+                   . [||b,d|c,z] ; J([||b,d|c,z],[c|d|a|b]) = [||d|b] 
+                ^     \
+               /      \ e
+               |      . [e|||b,d,z] ; [e|||d] 
+               |      |
+               |      | b
+               |      . [b|e||d,z] ; [b|e||]
+               |      |
+               |      | c
+               |      . [c|b|e|] ; [c|b|e|]
+               |      |
+               |      | a
+               |      . [a|c|b|e] ; [a|c|b|e] IDEM boucle 1
+               |      |
+               |      | d
+               |      .  [d|a|c|b] ; ...
+               |      |
+               |      | c
+                -----– 
+```
+Des la deuxième itération, on a trouvé le point fixe.  
+Noter également que si l'on a 1 lettre par ligne, c'est que l'on a une représentation concrète
 
+MUST analysis = On garde tout ce que l'on est SUR d'avoir   
+MAY analysis = On garde tout ce que l'on pense pouvoir avoir  
 
 
 {% include links.html %}

@@ -572,6 +572,137 @@ si on a une fonction monotone, alors il existe un point fixe max et min.</p>
 Pour trouver le point fixe min et max, on calcul la limite de f(bottom) et
 f(top)</p>
 
+<h1 id="cours-du-23112016">Cours du 23/11/2016</h1>
+
+<h2 id="pour-faire-une-interprtation-abstraite-de-signes">Pour faire une interprétation abstraite de signes</h2>
+<p>On fait le graph<br />
+On met des étiquettes sur chaque noeud<br />
+On fait un “photo” à l’instant t c’est l’ensemble des états et des étiquettes d’état.<br />
+Puis la photo à l’itération suivante.<br />
+Si ça ne change plus =&gt; point fixe.<br />
+On peut alors remplir un tableau avec tous ces photos.</p>
+
+<h2 id="how-to-compute-wcet">How to compute WCET</h2>
+
+<p>Souvent les programmes on la tete de :</p>
+
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">init</span><span class="p">();</span>
+
+<span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
+	<span class="n">input</span><span class="p">();</span>
+	<span class="n">compute</span><span class="p">();</span>
+	<span class="n">output</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Le WCET peut être déterminer de façon “grossière”, avec bcp de marge, par 
+l’interprétation abstraite</p>
+
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span>
+		<span class="n">s</span><span class="p">();</span>
+		<span class="c1">// Grand cout
+</span>	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="n">p</span><span class="p">();</span>
+		<span class="c1">// Petit cout
+</span>	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+<p>Un truc bourrin dirait : WCET = 100 * max(s,p) = 100 * p.<br />
+Un truc malin dirait : WCET = 50 * (p + s), et c’est bcp mieux !</p>
+
+<h2 id="analyse-dun-programme-par-interprtation-abstraite">Analyse d’un programme par interprétation abstraite</h2>
+
+<p><a href="http://chamilo2.grenet.fr/inp/courses/ENSIMAG5MMVSE/document/TRANSPARENTS/Cache-absint.pdf?cidReq=ENSIMAG5MMVSE&amp;id_session=0&amp;gidReq=0&amp;origin=">cf. ce lien</a></p>
+
+<p>Voir le programme comme un graph où sur chaque transition il y a 1 seul acces mem<br />
+On ajout les étiquettes tel que : 1 étiquette regroupe l’ensemble des variables 
+qui sont SUPRÊMEMENT dans le cache.</p>
+
+<p>Cache Fully associative, LRU. 
+Mémoire de taille m.<br />
+Cache de taille n. (n lignes)<br />
+Le plus vieux éléments du cache est en bas.<br />
+Donc en cas de hit, on le remonte tout en haut et descend tous les autres de 1<br />
+En cas de miss, on rentre le nouveau tout en haut, et le plus vieux dégage.</p>
+
+<p>Question: Combien d’état concret du cache (dans les conditions du papier):
+m+1 * m * m-1 * … * m-n+1<br />
+C’est donc un ensemble fini, mais très gros.</p>
+
+<p>Question: Peut on faire une analyse avec les vrais états du cache.</p>
+
+<p>Question: A quoi ressemble l’état du cache, d’après ce graphe.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  /--Y--\
+E1.      .E2
+  \__X__/
+</code></pre>
+</div>
+<p>Soit on accède à X soit à Y.<br />
+E1 est un cache vide.<br />
+Quel tête à E2 ? Pour représenter cela, il faut avoir un “cache abstrait”<br />
+Il permet de dire : à la ligne 1 du cache, j’ai soit X, soit Y.</p>
+
+<p>Cache abstrait = cache à n lignes ou dans chaque ligne on peut mettre par exemple:<br />
+“x | y”.</p>
+
+<p>Union abstraite = Join = J(E1 * ,E2 * ) = MUST analysis <br />
+On fait l’intersections de E1 * et de E2 * sur chaque ligne <br />
+et on le met sur la case la plus vielle possible (Pire cas).</p>
+
+<p>Exercice : 
+<code class="highlighter-rouge">c
+while(e) { 
+	b;
+	c;
+	a;
+	d;
+	c;
+}
+</code>
+avec 4 lignes de caches : [ | | | ]</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Avant le while le cache est [</td>
+      <td> </td>
+      <td>b,d</td>
+      <td>c,z]</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>                   . [||b,d|c,z] ; J([||b,d|c,z],[c|d|a|b]) = [||d|b] 
+                ^     \
+               /      \ e
+               |      . [e|||b,d,z] ; [e|||d] 
+               |      |
+               |      | b
+               |      . [b|e||d,z] ; [b|e||]
+               |      |
+               |      | c
+               |      . [c|b|e|] ; [c|b|e|]
+               |      |
+               |      | a
+               |      . [a|c|b|e] ; [a|c|b|e] IDEM boucle 1
+               |      |
+               |      | d
+               |      .  [d|a|c|b] ; ...
+               |      |
+               |      | c
+                -----– 
+</code></pre>
+</div>
+<p>Des la deuxième itération, on a trouvé le point fixe.<br />
+Noter également que si l’on a 1 lettre par ligne, c’est que l’on a une représentation concrète</p>
+
+<p>MUST analysis = On garde tout ce que l’on est SUR d’avoir <br />
+MAY analysis = On garde tout ce que l’on pense pouvoir avoir</p>
+
 <p>[]:</p>
 
 
@@ -590,7 +721,7 @@ f(top)</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 Lucas Mahieu. All rights reserved. <br />
- Site last generated: Nov 16, 2016 <br />
+ Site last generated: Nov 23, 2016 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>
