@@ -34,9 +34,9 @@ Comment faire pour utiliser ces systèmes ?
 			- Complétudes forte: Toutes pannes de processus sera détéctée
 			- Précision forte: Une panne machine est détéctée comme panne processus
 	* Hypothèse:
-			- Panne franche sans aucune bornes
-			- Communication: fiables, borne sur le temps de propagation
-			- Temps de traitement: bornée et borne connue
+		* Panne franche sans aucune bornes
+		* Communication: fiables, borne sur le temps de propagation
+		* Temps de traitement: bornée et borne connue
 	* Algo 
 
 ## Communication point-à-point fiable
@@ -149,6 +149,7 @@ Ainsi, si l'on avait reçu un message de la part d'un processus qui est tombé e
 Attention, ici encore problème de MEMOIRE INFINIE, pour se souvenir des messages que l'on devra renvoyer en cas de panne.
 
 Du coup, ici aussi on doit trouver une astuce :
+
 -  Il faut vider la mémoire régulièrement 
 - Régulièrement, chaque processus informe les autres de façon "efficace" -> du type = j'ai reçu les 1000 msg de 3000 à 3999.
 - __ATTENTION__ que faire en cas d'absence de nouvelles d'un processus
@@ -273,12 +274,12 @@ p1 envoie m à p3 et p2 envoie m à p4 au ronde 2
 
 Latence = 2, Debit = 0.5 m / ronde
 
-Pour un débit optimal :   
-p1 envoie m à p2
-p2 envoie m à p3 et p1 envoie m2 à p2
-p3 envoie m à p4 et p2 envoie m2 à p2 et p1 envoie m3 à p2
-p3 envoie m2 à p4 et p2 envoie m3 à p3
-p3 envoie m3 à p4
+Pour un débit optimal :  
+p1 envoie m à p2  
+p2 envoie m à p3 et p1 envoie m2 à p2  
+p3 envoie m à p4 et p2 envoie m2 à p2 et p1 envoie m3 à p2  
+p3 envoie m2 à p4 et p2 envoie m3 à p3  
+p3 envoie m3 à p4  
 
 Latence = 3 rondes, Débit = 1 msg / ronde
 

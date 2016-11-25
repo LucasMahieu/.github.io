@@ -467,9 +467,12 @@ Comment faire pour utiliser ces systèmes ?</li>
         </ul>
       </li>
       <li>Hypothèse:
-      - Panne franche sans aucune bornes
-      - Communication: fiables, borne sur le temps de propagation
-      - Temps de traitement: bornée et borne connue</li>
+        <ul>
+          <li>Panne franche sans aucune bornes</li>
+          <li>Communication: fiables, borne sur le temps de propagation</li>
+          <li>Temps de traitement: bornée et borne connue</li>
+        </ul>
+      </li>
       <li>Algo</li>
     </ul>
   </li>
@@ -644,11 +647,14 @@ Ainsi, si l’on avait reçu un message de la part d’un processus qui est tomb
 
 <p>Attention, ici encore problème de MEMOIRE INFINIE, pour se souvenir des messages que l’on devra renvoyer en cas de panne.</p>
 
-<p>Du coup, ici aussi on doit trouver une astuce :
--  Il faut vider la mémoire régulièrement 
-- Régulièrement, chaque processus informe les autres de façon “efficace” -&gt; du type = j’ai reçu les 1000 msg de 3000 à 3999.
-- <strong>ATTENTION</strong> que faire en cas d’absence de nouvelles d’un processus
-- Pour cela, c’est le détecteur de faute parfait qui nous garanti que l’on va recevoir un message de tous les vivants.</p>
+<p>Du coup, ici aussi on doit trouver une astuce :</p>
+
+<ul>
+  <li>Il faut vider la mémoire régulièrement</li>
+  <li>Régulièrement, chaque processus informe les autres de façon “efficace” -&gt; du type = j’ai reçu les 1000 msg de 3000 à 3999.</li>
+  <li><strong>ATTENTION</strong> que faire en cas d’absence de nouvelles d’un processus</li>
+  <li>Pour cela, c’est le détecteur de faute parfait qui nous garanti que l’on va recevoir un message de tous les vivants.</li>
+</ul>
 
 <p>Il reste encore un comportement non désirable :</p>
 
@@ -804,11 +810,11 @@ p1 envoie m à p3 et p2 envoie m à p4 au ronde 2</p>
 
 <p>Latence = 2, Debit = 0.5 m / ronde</p>
 
-<p>Pour un débit optimal : <br />
-p1 envoie m à p2
-p2 envoie m à p3 et p1 envoie m2 à p2
-p3 envoie m à p4 et p2 envoie m2 à p2 et p1 envoie m3 à p2
-p3 envoie m2 à p4 et p2 envoie m3 à p3
+<p>Pour un débit optimal :<br />
+p1 envoie m à p2<br />
+p2 envoie m à p3 et p1 envoie m2 à p2<br />
+p3 envoie m à p4 et p2 envoie m2 à p2 et p1 envoie m3 à p2<br />
+p3 envoie m2 à p4 et p2 envoie m3 à p3<br />
 p3 envoie m3 à p4</p>
 
 <p>Latence = 3 rondes, Débit = 1 msg / ronde</p>
