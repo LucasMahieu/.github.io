@@ -5,6 +5,6 @@ permalink: cours_tf.html
 folder: mydoc/tf
 ---
 
-# EMPTY
+# Voir cours papier 
 
 {% include links.html %}
