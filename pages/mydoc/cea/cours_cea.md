@@ -187,6 +187,120 @@ __Résumé__
 
 [lien des slides du cours](http://chamilo2.grenet.fr/inp/courses/ENSIMAG5MMCEAMC/document/multimedia.pdf?cidReq=ENSIMAG5MMCEAMC&id_session=0&gidReq=0&origin=)
 
+# Cours du 28/11/17
+
+Cours de petrot, début du cours d'archi des machines modernes
+[Lien du site du cours](https://ensiwiki.ensimag.fr/index.php/Transparents_du_cours_d%27Archi_3A)
+
+## Super pipeline vs superscalar 
+
+Super pipeline = plein de petit étage 
+
+Superscalar = plusieurs instructions en parallèle 
+
+Exemple du MIMPS Superscalar:
+
+2 pipelines en parallèle (pas 2 identiques)
+
+Une partie fait les opérations de type : 
+
+- opération entre registres  
+- opération entre registres et constante (immédiat)
+
+Une autre partie fait :
+
+- Opération d'accès à la mémoire
+
+Or, 1 instruction sur 5 est un accès mémoire, donc pas forcement bien répartie 
+
+Pour qu'un superscalar puisse exécuter 4 instructions dans le même cycle,   
+il ne faut pas que les 4 instructions soient dépendantes.  
+
+- Dans un processeur VLIW, le compilateur devra délivrer des groupes de 4
+  instructions indépendantes
+- Dans un processeur 'in-order superscalar', c'est l'HW qui va exécuter au
+  maximum 4 instructions si elles sont indépendantes. Sinon, insert des stall
+- Dans un processeur 'out-of order superscalar', c'est l'HW qui choisi 4
+  instructions indépendante qu'il pourrait exécuter mtn.
+
+Exemple slide : 6 
+
+Avec processeur MIMPS classique : 7 cycles
+
+In order : 5 cycles
+
+| Cycle | Pipeline NOIRE | Pipeline JAUNE |
+|-------|--------|---------|
+|   1   |   ...  |  lw $6  |
+|   2   | add $5 |   ...   |
+|   3   | sub $9 |  lw $7  |
+|   4   | add $3 |  sw $5  |
+|   5   | add $11|   ...   |
+
+Out of order : 4 cycles
+
+| Cycle | Pipeline NOIRE | Pipeline JAUNE |
+|-------|--------|---------|
+|   1   | sub $9 |  lw $6  |
+|   2   | add $5 |   ...   |
+|   3   | sub $3 |  lw $7  |
+|   4   | add $11|  sw $5  |
+
+Execution time = Number of instructions * CPI * cycle time 
+
+## ILP : Instruction Level Parallism
+
+Pipeline CPI = Ideal pipeline CPI + Structural stalls (= stall after lw) + data
+hazard stall (= for data which result of prior instruction, tjs dans le pipeline)
++ control stalls (= par exemple, les instructions exectuter pour les
+  branchements)
+
+### Dépendances 
+
+#### Data dépendance 
+
+```
+I: add r1, r2, r3
+J: sub r4, r1, r5
+```
+
+l'instr J est __data dépendant__ de l'instr I
+
+#### Anti-dépendance 
+
+```
+I: sub r4, r1, r3
+J: add r1, r2, r3
+K: mul r6, r1, r7
+```
+
+J est anti-déprendant à I, ce n'est pas une vrai dépendance, dépendance de nom
+
+#### Output dépendance 
+
+```
+I: sub r1, r4, r3
+J: add r1, r2, r3
+K: omul r6, r1, r7
+```
+
+J est output dependant car après ces deux instructions la valeur de r1 doit tjs
+être la même
+
+Pour les dépendances de nom, on pourrait faire utiliser une IP de renomage des
+registres pour en avoir plus que 32 sans pour autant augmenter la taille des
+instructions. 
+
+
+
+
+
+
+
+
+
+
 
 {% include links.html %}
+
 

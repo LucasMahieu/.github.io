@@ -655,6 +655,170 @@ Points positifs:</p>
 
 <p><a href="http://chamilo2.grenet.fr/inp/courses/ENSIMAG5MMCEAMC/document/multimedia.pdf?cidReq=ENSIMAG5MMCEAMC&amp;id_session=0&amp;gidReq=0&amp;origin=">lien des slides du cours</a></p>
 
+<h1 id="cours-du-281117">Cours du 28/11/17</h1>
+
+<p>Cours de petrot, début du cours d’archi des machines modernes
+<a href="https://ensiwiki.ensimag.fr/index.php/Transparents_du_cours_d%27Archi_3A">Lien du site du cours</a></p>
+
+<h2 id="super-pipeline-vs-superscalar">Super pipeline vs superscalar</h2>
+
+<p>Super pipeline = plein de petit étage</p>
+
+<p>Superscalar = plusieurs instructions en parallèle</p>
+
+<p>Exemple du MIMPS Superscalar:</p>
+
+<p>2 pipelines en parallèle (pas 2 identiques)</p>
+
+<p>Une partie fait les opérations de type :</p>
+
+<ul>
+  <li>opération entre registres</li>
+  <li>opération entre registres et constante (immédiat)</li>
+</ul>
+
+<p>Une autre partie fait :</p>
+
+<ul>
+  <li>Opération d’accès à la mémoire</li>
+</ul>
+
+<p>Or, 1 instruction sur 5 est un accès mémoire, donc pas forcement bien répartie</p>
+
+<p>Pour qu’un superscalar puisse exécuter 4 instructions dans le même cycle, <br />
+il ne faut pas que les 4 instructions soient dépendantes.</p>
+
+<ul>
+  <li>Dans un processeur VLIW, le compilateur devra délivrer des groupes de 4
+instructions indépendantes</li>
+  <li>Dans un processeur ‘in-order superscalar’, c’est l’HW qui va exécuter au
+maximum 4 instructions si elles sont indépendantes. Sinon, insert des stall</li>
+  <li>Dans un processeur ‘out-of order superscalar’, c’est l’HW qui choisi 4
+instructions indépendante qu’il pourrait exécuter mtn.</li>
+</ul>
+
+<p>Exemple slide : 6</p>
+
+<p>Avec processeur MIMPS classique : 7 cycles</p>
+
+<p>In order : 5 cycles</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cycle</th>
+      <th>Pipeline NOIRE</th>
+      <th>Pipeline JAUNE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>…</td>
+      <td>lw $6</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>add $5</td>
+      <td>…</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>sub $9</td>
+      <td>lw $7</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>add $3</td>
+      <td>sw $5</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>add $11</td>
+      <td>…</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Out of order : 4 cycles</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Cycle</th>
+      <th>Pipeline NOIRE</th>
+      <th>Pipeline JAUNE</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>sub $9</td>
+      <td>lw $6</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>add $5</td>
+      <td>…</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>sub $3</td>
+      <td>lw $7</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>add $11</td>
+      <td>sw $5</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Execution time = Number of instructions * CPI * cycle time</p>
+
+<h2 id="ilp--instruction-level-parallism">ILP : Instruction Level Parallism</h2>
+
+<p>Pipeline CPI = Ideal pipeline CPI + Structural stalls (= stall after lw) + data
+hazard stall (= for data which result of prior instruction, tjs dans le pipeline)
++ control stalls (= par exemple, les instructions exectuter pour les
+  branchements)</p>
+
+<h3 id="dpendances">Dépendances</h3>
+
+<h4 id="data-dpendance">Data dépendance</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>I: add r1, r2, r3
+J: sub r4, r1, r5
+</code></pre>
+</div>
+
+<p>l’instr J est <strong>data dépendant</strong> de l’instr I</p>
+
+<h4 id="anti-dpendance">Anti-dépendance</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>I: sub r4, r1, r3
+J: add r1, r2, r3
+K: mul r6, r1, r7
+</code></pre>
+</div>
+
+<p>J est anti-déprendant à I, ce n’est pas une vrai dépendance, dépendance de nom</p>
+
+<h4 id="output-dpendance">Output dépendance</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>I: sub r1, r4, r3
+J: add r1, r2, r3
+K: omul r6, r1, r7
+</code></pre>
+</div>
+
+<p>J est output dependant car après ces deux instructions la valeur de r1 doit tjs
+être la même</p>
+
+<p>Pour les dépendances de nom, on pourrait faire utiliser une IP de renomage des
+registres pour en avoir plus que 32 sans pour autant augmenter la taille des
+instructions.</p>
+
 <p>[]:</p>
 
 
@@ -673,7 +837,7 @@ Points positifs:</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 Lucas Mahieu. All rights reserved. <br />
- Site last generated: Nov 25, 2016 <br />
+ Site last generated: Nov 28, 2016 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>
