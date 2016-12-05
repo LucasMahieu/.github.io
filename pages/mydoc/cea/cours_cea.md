@@ -292,6 +292,50 @@ registres pour en avoir plus que 32 sans pour autant augmenter la taille des
 instructions. 
 
 
+# Cours du 05/12/2016
+
+## OUT OF ORDER EXECUTION
+
+Pipeline classique INORDER : 
+
+IF | DEC | EXE | MEM | WB
+
+Dans le pipeline on ajout un étage : RENAMING entre DEC et EXE
+
+IF | DEC | REN | EXE | MEM | WB
+
+2 tables sont utilisées : le RENAME MAP et le FREE MAP
+
+RENAME MAP = table de correspondance entre registre logiciel et registre
+physique qui gère les dépendances
+
+FREE MAP = par exemple une fifo de registres libres permettant d'être utilisé
+pour le renomage
+
+
+Dans le pipeline on ajout un étage : DISPATCH entre DIS et EXE
+
+IF | DEC | REN | DIS | EXE | MEM | WB
+
+
+## Prédiction de branchement 
+
+Solution naive dans MIPS, POWER PC, PENTIUM ... 
+
+On a une Branch History Table (BHT) qui est indexé par les 14 bits de poids
+faible de PC. (taille de BHT = 2^14 bits)
+
+On mémorise uniquement dans cette table si le branchement a été pris ou non la
+dernière fois que ce PC a été exécuté.
+
+Cette méthode peut poser des problèmes de collision...
+
+Cette méthode est trop basique car avec une boucle for on a forcement 2 miss
+prediction ... à la 1ere itération et à la dernière 
+
+
+
+
 
 
 

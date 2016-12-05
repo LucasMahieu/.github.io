@@ -819,6 +819,78 @@ K: omul r6, r1, r7
 registres pour en avoir plus que 32 sans pour autant augmenter la taille des
 instructions.</p>
 
+<h1 id="cours-du-05122016">Cours du 05/12/2016</h1>
+
+<h2 id="out-of-order-execution">OUT OF ORDER EXECUTION</h2>
+
+<p>Pipeline classique INORDER :</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>IF</td>
+      <td>DEC</td>
+      <td> EXE</td>
+      <td> MEM</td>
+      <td>WB</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Dans le pipeline on ajout un étage : RENAMING entre DEC et EXE</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>IF</td>
+      <td>DEC</td>
+      <td>REN</td>
+      <td> EXE</td>
+      <td> MEM</td>
+      <td>WB</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>2 tables sont utilisées : le RENAME MAP et le FREE MAP</p>
+
+<p>RENAME MAP = table de correspondance entre registre logiciel et registre
+physique qui gère les dépendances</p>
+
+<p>FREE MAP = par exemple une fifo de registres libres permettant d’être utilisé
+pour le renomage</p>
+
+<p>Dans le pipeline on ajout un étage : DISPATCH entre DIS et EXE</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>IF</td>
+      <td>DEC</td>
+      <td>REN</td>
+      <td>DIS</td>
+      <td> EXE</td>
+      <td> MEM</td>
+      <td>WB</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="prdiction-de-branchement">Prédiction de branchement</h2>
+
+<p>Solution naive dans MIPS, POWER PC, PENTIUM …</p>
+
+<p>On a une Branch History Table (BHT) qui est indexé par les 14 bits de poids
+faible de PC. (taille de BHT = 2^14 bits)</p>
+
+<p>On mémorise uniquement dans cette table si le branchement a été pris ou non la
+dernière fois que ce PC a été exécuté.</p>
+
+<p>Cette méthode peut poser des problèmes de collision…</p>
+
+<p>Cette méthode est trop basique car avec une boucle for on a forcement 2 miss
+prediction … à la 1ere itération et à la dernière</p>
+
 <p>[]:</p>
 
 
@@ -837,7 +909,7 @@ instructions.</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 Lucas Mahieu. All rights reserved. <br />
- Site last generated: Nov 28, 2016 <br />
+ Site last generated: Dec 5, 2016 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>
