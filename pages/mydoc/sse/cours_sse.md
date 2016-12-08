@@ -224,6 +224,39 @@ EDC
 [lien des
 slides](http://chamilo2.grenet.fr/inp/courses/ENSIMAG5MMSSE/document/Transparents_SSE_16-17.pdf?cidReq=ENSIMAG5MMSSE&id_session=0&gidReq=0&origin=)
 
+# Cours 07/12/2016
+
+Cours/TD
+
+__Exemple 1__
+
+Full Adder 
+
+TMR : Triple Modular Redudency 
+
+On triple tout, on ajoute un voteur et on met ca dans une boite 
+Attention, à la synthèse il va y avoir une optimisation de tout se qui est
+redondant. Donc il faut ajouter des contraintes à l'outil de synthèse.
+
+Un moyen de vérifier peut être de comparer la surface du circuit avec et sans
+redondance.
+
+On peut aussi comparer le chemin critique. Celui du TMR devrait être un petit
+peu plus grand à cause du voteur.
+
+Dans un flow FPGA il peut y avoir aussi des contraintes de mappings. Si deux
+fonctions redondante sont mappés dans la même LUT, dans le même CLB, la
+redondance perd tout sont sens.
+
+Il peut aussi y avoir un deuxième problème, si au routage on à les fonctions
+redondantes sur des LUT qui utilisent les même "switch box" entre les LUT, la
+redondance perdent leur sens.
+
+Il faut donc que chaque fonction de redondance soit dans les LUT différentes et
+indépendantes.
+
+
+
 
 
 

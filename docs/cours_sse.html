@@ -696,6 +696,37 @@ Tour pour un chiffrement = 10/12/14 rounds<br />
 <p><a href="http://chamilo2.grenet.fr/inp/courses/ENSIMAG5MMSSE/document/Transparents_SSE_16-17.pdf?cidReq=ENSIMAG5MMSSE&amp;id_session=0&amp;gidReq=0&amp;origin=">lien des
 slides</a></p>
 
+<h1 id="cours-07122016">Cours 07/12/2016</h1>
+
+<p>Cours/TD</p>
+
+<p><strong>Exemple 1</strong></p>
+
+<p>Full Adder</p>
+
+<p>TMR : Triple Modular Redudency</p>
+
+<p>On triple tout, on ajoute un voteur et on met ca dans une boite 
+Attention, à la synthèse il va y avoir une optimisation de tout se qui est
+redondant. Donc il faut ajouter des contraintes à l’outil de synthèse.</p>
+
+<p>Un moyen de vérifier peut être de comparer la surface du circuit avec et sans
+redondance.</p>
+
+<p>On peut aussi comparer le chemin critique. Celui du TMR devrait être un petit
+peu plus grand à cause du voteur.</p>
+
+<p>Dans un flow FPGA il peut y avoir aussi des contraintes de mappings. Si deux
+fonctions redondante sont mappés dans la même LUT, dans le même CLB, la
+redondance perd tout sont sens.</p>
+
+<p>Il peut aussi y avoir un deuxième problème, si au routage on à les fonctions
+redondantes sur des LUT qui utilisent les même “switch box” entre les LUT, la
+redondance perdent leur sens.</p>
+
+<p>Il faut donc que chaque fonction de redondance soit dans les LUT différentes et
+indépendantes.</p>
+
 <p>[]:</p>
 
 
@@ -714,7 +745,7 @@ slides</a></p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 Lucas Mahieu. All rights reserved. <br />
- Site last generated: Dec 5, 2016 <br />
+ Site last generated: Dec 8, 2016 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>
