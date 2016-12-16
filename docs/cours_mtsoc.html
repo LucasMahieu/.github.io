@@ -481,6 +481,103 @@ Un proc qui est running ne peut que devenir Sleeping.</p>
 <h2 id="revision-encore-de-c">Revision (encore) de C++</h2>
 <p>Voir les slides <a href="PAS ENCORE LA">sur le github</a> du prof.</p>
 
+<h1 id="cours-161216">Cours 16/12/16</h1>
+
+<h2 id="emballage-natif">Emballage natif</h2>
+
+<p>Attention au boucle infinie dans laquelle le processus ne rend pas la main.<br />
+Dans ce cas, la simu ne s’arrêtera pas …<br />
+Il faut faire appelle à cpu_relax pour rendre la main.</p>
+
+<p>Inconvénients de l’emballage natif:</p>
+
+<ul>
+  <li>Pas de support de l’asm</li>
+  <li>Pas de visibilité des autres transactions (accès pile, tas, intructions
+(fetch)).</li>
+  <li>Analyse de performances difficile</li>
+</ul>
+
+<h2 id="simulateur-de-jeu-dinstructions">Simulateur de jeu d’instructions</h2>
+
+<p>exemple : ISS Instruction Set Simulator</p>
+
+<p>Émule de jeu d’instruction</p>
+
+<p>Plusieurs niveaux de précision : 
+- Instruction accurate
+- Cycle accurate
+- Cycle callable</p>
+
+<p>Mais l’émulation a le principale inconvénients que c’est lent</p>
+
+<h2 id="autre-solution-">Autre solution :</h2>
+
+<ul>
+  <li>Just-in-Time (JIT) : Compiler le code, et découper le binaire en bloc de base
+et jongler entre l’ISS et les blocs de bases recompiler</li>
+  <li>Ou autre translations dynamique : QMU etc</li>
+</ul>
+
+<h2 id="si-il-y-a-un-os-">Si il y a un OS ?</h2>
+
+<p>Avec ISS : ca marche mais trop lent</p>
+
+<p>Solution native : <br />
+On pourrait porter Linux sur une architecture “System C TLM”</p>
+
+<h2 id="valuation-et-exploration-darchitecture">Évaluation et exploration d’architecture</h2>
+
+<p>Comment est géré le temps en système C ?<br />
+wait(temps) -&gt; change l’ordre des actions, vrai notion de temps</p>
+
+<p>Rôle du temps en TLM ?</p>
+
+<p>Plusieurs niveau de vue du temps :</p>
+
+<ul>
+  <li>TLM Loosely Time (LT): temps moue, le temps à pas de signification, gros grain.
+(utilisé : programmation)</li>
+  <li>Approximately Timed (AT) : Temps prècis induits par la microarchi,
+communication à la taille du bus. (utilisé pour l’évaluation d’archi et de
+perf)</li>
+</ul>
+
+<p>Problématiques :</p>
+
+<ul>
+  <li>Exemple de lecture écriture en mémoire : <br />
+En LT -&gt; |      READ      |     WRITE     |
+En AT -&gt; |READ|WRITE|READ|WRITE|READ|WRITE|</li>
+</ul>
+
+<p>en LT, tout pourrait être fait dans le même temps !</p>
+
+<ul>
+  <li>Transducteur : C’est des convertisseurs qui permet de gérer le temps</li>
+</ul>
+
+<h1 id="bug-or-not-bug-">Bug or not Bug ?</h1>
+
+<p>Il peut y avoir des bugs HW et SW:</p>
+
+<ul>
+  <li>HW : La simulation simule EXACTEMENT le HW qui avait un BUG, donc on peut corriger
+le HW -&gt; cool</li>
+  <li>HW : Erreur de programmation du simulateur</li>
+  <li>SW : Bug de soft -&gt; on débug</li>
+  <li>SW : Bug du soft à cause du HW -&gt; aie aie aie</li>
+</ul>
+
+<p>Si le soft marche sur le TLM -&gt; Il doit marcher sur le HW</p>
+
+<p>Si SW marche PAS sur le HW -&gt; Il ne doit PAS marcher sur le TLM</p>
+
+<p>Si le SW marche sur le TLM mais pas sur le HW … AIE AIE AIE</p>
+
+<p>Donc un modèle TLM doit être fidèle ! Faire TOUT ce que le HW fait<br />
+Il peut avoir plus de comportement que le HW mais ne doit pas devenir iréaliste</p>
+
 <p>[]:</p>
 
 
@@ -499,7 +596,7 @@ Un proc qui est running ne peut que devenir Sleeping.</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2016 Lucas Mahieu. All rights reserved. <br />
- Site last generated: Dec 8, 2016 <br />
+ Site last generated: Dec 16, 2016 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>
