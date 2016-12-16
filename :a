@@ -585,43 +585,7 @@ Plusieurs projet concret : Troyes, Grenoble, Brest
 - Rentabiité en 3 et 5 ans
 - 40% d'amélioration du traitement des pannes à grenoble
 
-## Gestion de l'environnement 
-
-### Le produit
-
-"Sonde syren" 
-
-Un capteur ultrason, robuste, étanche, Réseau IoT, envoie des infos de
-remplissage prises toutes les heures, envoyées toutes les 6 heures.
-
-Doit tenir 10 ans sans aucune intervention humaine
-
-Permet d'optimiser les tournées de rempissage 
-
-Application web sécurisée permetant de monitorer les données émis par les
-capteurs et des données plus abstraite : nombre de fois que le conteneur a été
-vidé, plein, transporté etc 
-
-### Résultat 
-
-- -20% de kilométre parcourus 
-- -40% de temps de collecte gagné 
-- 1/3 des durée de vie 
-
-### Exemple concret 
-
-- 2400 conteneurs équipés de ces capteurs
-- Gain de 30 à 60% dans la durée de vie du matériel
-
-## Objectifs 
-
-Obtimisation des tournées pour ne pas que le calcul dure des heures. 
-
-Question : 
-- Durée de vie de la batterie
-- Concurence 
-- Les données récoltées 
-
+## Gestion de l'environement 
 
 
 {% include links.html %}
