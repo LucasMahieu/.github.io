@@ -554,7 +554,7 @@ Aspect stratégique pour la défense :
 	- Modernisation, automatisation et intégration des nanotechnologies ou des réseaux rendent les systèmes très complexe  
 	- Comment maitriser cette modernisation et la protéger ces systèmes  
 
-# 16/12/16 : BGH Technologie, IoT
+# 16/12/16 : BH Technologie, IoT, Jérôme DEGRYSE
 
 Le partenaire des villes intelligentes
 
@@ -618,6 +618,7 @@ vidé, plein, transporté etc
 Obtimisation des tournées pour ne pas que le calcul dure des heures. 
 
 Question : 
+
 - Durée de vie de la batterie
 - Concurence 
 - Les données récoltées 
