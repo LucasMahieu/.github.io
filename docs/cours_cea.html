@@ -891,6 +891,92 @@ dernière fois que ce PC a été exécuté.</p>
 <p>Cette méthode est trop basique car avec une boucle for on a forcement 2 miss
 prediction … à la 1ere itération et à la dernière</p>
 
+<h1 id="cours-du-040117">Cours du 04/01/17</h1>
+
+<h2 id="vector-processors">Vector processors</h2>
+
+<p>Apparus dans les années 80 jusqu’en 90.
+Puis réapparition avec les GPU.</p>
+
+<h3 id="flynns-taxonomy">Flynn’s Taxonomy</h3>
+
+<p>Von Neumann Architecture = CPU + Memoire (fetch + exec)</p>
+
+<p>Année 70, M. Flynn distingue plusieurs types d’architectures:</p>
+
+<ul>
+  <li>SISD = Single Instruction, Single Data</li>
+  <li>SIMD = Single Instruction, Multiple Data</li>
+  <li>MISD = Multiple instruction, Single Data (Ça n’est pas utile, donc n’existe
+pas)</li>
+  <li>MIMD = Multiple instruction, Multiple Data (cas de nos ordinateurs
+multi-coeur, mais nécessite de la synchro … )</li>
+</ul>
+
+<p>SIMD : C’est ce qui correspond au GPU ou au machine vectoriel</p>
+
+<p>Utilisation :</p>
+
+<p>Pour faire une addition entre 25 couples d’éléments, j’ai juste à créer deux
+vecteurs de 25 éléments et de faire 1 seule addition vectoriel de ces 2 vecteurs.</p>
+
+<p>Souvent pour faire les opération vectorielles, il faut de grand pipeline, donc
+il y a une grande latence, mais aussi un grand débit.</p>
+
+<p>Permet de faire des :</p>
+
+<ul>
+  <li>opérations simple: C[i] = A[i] + B[i]</li>
+  <li>opération avec indirection : C[i] = A[i] + B[D[i]]</li>
+  <li>opération conditionnelle : C[i] = A[i] + B[i], si A[i]&gt;0 par exemple</li>
+</ul>
+
+<h3 id="multimdia-extension-mmx">Multimédia Extension (MMX)</h3>
+
+<p>Forcement 64 bits, donc 8x8 ou 4x16 ou 2x32</p>
+
+<p>L’utilisation de ces extensions ou des processeurs vectoriels est très
+spécifiques :</p>
+
+<ul>
+  <li>Video</li>
+  <li>Audio</li>
+  <li>Image Processing</li>
+  <li>Data encryption</li>
+</ul>
+
+<h2 id="architecture-very-long-instruction-word-vliw">Architecture Very Long Instruction Word (VLIW)</h2>
+
+<p>Apparu dans les années 80</p>
+
+<p>Pas mal utilisé pour tout ce qui ne peux pas consommer bcp, les switch router,
+…</p>
+
+<p>Instruction de taille 128 bits typiquement</p>
+
+<p>CISC: (x86)
+RISC: (ARM, powerPC, …)
+VLIW: (TI, ST, HP, …)</p>
+
+<p>Un VLIW c’est un RISC avec des instructions plus grandes et un pipeline plus
+grand. VLIW = super RISC.</p>
+
+<p>En VLIW : un instruction de 128 bits contiens dans les 128 bits plusieurs
+instructions simples, qui seront exécutées en MÊME TEMPS.</p>
+
+<p>Le HW d’un VLIW est assez simple car le HW ne prend pas du tout en charge les
+hazard (problème de dépendance entre instructions, etc)</p>
+
+<p>La sémentique de l’asm en VLIW étant différente, il faut connaitre la latence de
+chaque instruction.</p>
+
+<h2 id="dynamic-scheduling--thomasulo">Dynamic Scheduling : Thomasulo</h2>
+
+<p>Trouver le parallélisme possible entre les instructions à l’exécution. Avec
+renommage de de registre et ordonnancement des instructions.</p>
+
+<p>Le but de faire du Out-of-Order est de</p>
+
 <p>[]:</p>
 
 
@@ -909,7 +995,7 @@ prediction … à la 1ere itération et à la dernière</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 Lucas Mahieu. All rights reserved. <br />
- Site last generated: Jan 4, 2017 <br />
+ Site last generated: Jan 6, 2017 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

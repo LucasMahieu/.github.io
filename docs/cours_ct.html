@@ -1311,6 +1311,169 @@ vidé, plein, transporté etc</p>
   <li>Les données récoltées</li>
 </ul>
 
+<h1 id="kalray">06/01/2017: Kalray</h1>
+
+<p>MPPA Getting Start</p>
+
+<p>Entreprise depuis 2008, 60 personnes, majorité dans la R&amp;D, surtout ingénieurs</p>
+
+<p>MPPA = 28 nm, conso faible -&gt; pour embarqué</p>
+
+<p>2 marchés :</p>
+
+<ul>
+  <li>Data center très haut débit, traitement du flux réseaux</li>
+  <li>Les très bonnes propriétés mémoires du chip, permet de le certifié pour des
+utilisation sécurisées</li>
+</ul>
+
+<p>2 générations de proc:</p>
+
+<ul>
+  <li>Andey : 1 ère version, pas assez bonne gestion des GPIOs</li>
+  <li>Bostan :
+    <ul>
+      <li>80 Gb éthernet</li>
+      <li>PCI</li>
+      <li>600 MHz de fréquence</li>
+      <li>FPGA</li>
+      <li>DSP</li>
+      <li>15 Watt</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Plusieurs cartes pour différentes application :</p>
+
+<ul>
+  <li>Embarqué</li>
+  <li>Turbo pour calcul intensif</li>
+  <li>Une carte de développement</li>
+  <li>?</li>
+</ul>
+
+<p>Pour utilisé ce matériel, il faut du logiciel:</p>
+
+<ul>
+  <li>Driver</li>
+  <li>Library optimisé en asm</li>
+  <li>Débug</li>
+  <li>Développement</li>
+</ul>
+
+<h2 id="architecture-du-mppa">Architecture du MPPA</h2>
+
+<ul>
+  <li>DDR3 2 x 64-bit</li>
+  <li>PCIe</li>
+  <li>1/10/40 Go d’Ethernet</li>
+  <li>GPIO</li>
+  <li>
+    <p>NoC</p>
+  </li>
+  <li>16 cluster au centre
+    <ul>
+      <li>Chacun de ces 16 coeurs, on 16 coeurs</li>
+      <li>+1 Système coeurs qui gère le NoC du cluster, et c’est le seul qui a accès
+à l’extérieur du coeurs</li>
+      <li>Chaque cluster partage 2 MB de mémoire avec un débit de 77 GB/s
+        <ul>
+          <li>Chaque coeurs sont des VLIW 32-bit</li>
+          <li>5 instructions pas cycle à 600 MHz</li>
+          <li>8 kB de cache instructoin</li>
+          <li>Instruction totalement propre à Kalray</li>
+        </ul>
+      </li>
+      <li>Chaque cluster on 2 NoC : D(ata)-NoC avec DMA + C-NoC with control</li>
+    </ul>
+  </li>
+  <li>Autour des 16 clusters au centre, 2 cluster de 8 coeurs d’I/O
+    <ul>
+      <li>et chaque coeurs sont coupés en deux : donc 2 * 2 * 4 coeurs</li>
+      <li>Il y a donc 16 coeurs d’I/O</li>
+      <li>Sur un cluster : linux</li>
+      <li>Sur l’autre : Bare Metal</li>
+    </ul>
+  </li>
+  <li>Cloisonement dur des clusters centraux :
+    <ul>
+      <li>4 + 4 + 4 + 4 qui sont vraiment disjoint entre eux</li>
+      <li>Appréciable pour les utlisations critiques</li>
+    </ul>
+  </li>
+  <li>Le lien PCI permet de rendre le MPPA maitre ou esclave.</li>
+</ul>
+
+<h2 id="software">Software</h2>
+
+<ul>
+  <li>Environnement C/C++</li>
+  <li>Simulateur, profiling</li>
+  <li>Driver</li>
+  <li>Librairy d’optimisation</li>
+  <li>OS : BareMetal, Linux ou intermédiaire</li>
+</ul>
+
+<p>Outil de développement spécifique :</p>
+
+<ul>
+  <li>Mode explicite : il faudrait faire des appelles à des fonctions pour apporter
+les données dans le cluster.
+    <ul>
+      <li>Exemple : <code class="highlighter-rouge">frame = load_data(addr, size);</code></li>
+      <li>C Low level : Programmation de type DSP</li>
+      <li>C Posix Level : Programmation de type CPU</li>
+    </ul>
+  </li>
+  <li>Mode implicite : On peut faire (grâce à la MMU) des accès “direct” à la
+mémoire.
+    <ul>
+      <li>Exemple : <code class="highlighter-rouge">frame = *image;</code></li>
+      <li>OpenCL : Programmation de type GPU style</li>
+      <li>OpenDataPlane (ODP), Open API for networking</li>
+    </ul>
+  </li>
+  <li>Mode explicite :
+    <ul>
+      <li>Démarage des cluster et des I/O explicitement</li>
+    </ul>
+  </li>
+  <li>Mode inmplicite
+    <ul>
+      <li>Pas besoin de faire des appelles explicites, la MMU s’occupe de tous les
+accès mémoire</li>
+    </ul>
+  </li>
+  <li>Outil pour compilation, de débug et de trace système
+    <ul>
+      <li>Les outils de traces permet de laisser des points de traces durant
+l’execution pour une trait faible contre partie.</li>
+    </ul>
+  </li>
+</ul>
+
+<h2 id="architecture-mmoire-du-mmpa">Architecture mémoire du MMPA</h2>
+
+<p>Chaque coeur à un petit cache de niveau L1. Et tous ces caches ne sont pas
+cohérents.
+Toutes les coeurs d’un cluster partage aussi une même mémoire partagée<br />
+Attention, la gestion du cache est assez tricky, car les caches sont incohérents</p>
+
+<p>Le DSM permet d’emuler dans le cache des coeurs d’I/O un cache L2 (pour cacher
+les pages de la DDR) et avoir toute la DDR adressage.</p>
+
+<h2 id="le-march-voiture-autonome">Le Marché, voiture autonome</h2>
+
+<p>Capable de guarantire en temps réel un débit avec unfaible latence</p>
+
+<p>Moins de 10 fois moins de consomations qu’un CPU 64-bit classique</p>
+
+<h2 id="le-march-du-stockage-de-data">Le Marché, du stockage de data</h2>
+
+<p>La quantité de données qui arrivent pour être stocker, il faut traiter les
+données à la volé pour reduire la quantité de donnée stockée tout en lui donnant
+le maximum de valeur.</p>
+
 <p>[]:</p>
 
 
@@ -1329,7 +1492,7 @@ vidé, plein, transporté etc</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 Lucas Mahieu. All rights reserved. <br />
- Site last generated: Jan 4, 2017 <br />
+ Site last generated: Jan 6, 2017 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

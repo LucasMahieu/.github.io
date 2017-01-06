@@ -623,6 +623,128 @@ Question :
 - Concurence 
 - Les données récoltées 
 
+# 06/01/2017: Kalray
+
+MPPA Getting Start 
+
+Entreprise depuis 2008, 60 personnes, majorité dans la R&D, surtout ingénieurs
+
+MPPA = 28 nm, conso faible -> pour embarqué
+
+2 marchés : 
+
+- Data center très haut débit, traitement du flux réseaux
+- Les très bonnes propriétés mémoires du chip, permet de le certifié pour des
+  utilisation sécurisées
+
+2 générations de proc:
+
+- Andey : 1 ère version, pas assez bonne gestion des GPIOs
+- Bostan : 
+	- 80 Gb éthernet
+	- PCI
+	- 600 MHz de fréquence 
+	- FPGA
+	- DSP
+	- 15 Watt
+
+Plusieurs cartes pour différentes application :
+
+- Embarqué
+- Turbo pour calcul intensif
+- Une carte de développement 
+- ?
+
+Pour utilisé ce matériel, il faut du logiciel:
+
+- Driver
+- Library optimisé en asm
+- Débug
+- Développement
+
+## Architecture du MPPA
+
+- DDR3 2 x 64-bit
+- PCIe 
+- 1/10/40 Go d'Ethernet
+- GPIO
+- NoC
+
+- 16 cluster au centre
+	- Chacun de ces 16 coeurs, on 16 coeurs
+	- +1 Système coeurs qui gère le NoC du cluster, et c'est le seul qui a accès
+	  à l'extérieur du coeurs
+	- Chaque cluster partage 2 MB de mémoire avec un débit de 77 GB/s
+		- Chaque coeurs sont des VLIW 32-bit
+		- 5 instructions pas cycle à 600 MHz
+		- 8 kB de cache instructoin
+		- Instruction totalement propre à Kalray
+	- Chaque cluster on 2 NoC : D(ata)-NoC avec DMA + C-NoC with control
+
+- Autour des 16 clusters au centre, 2 cluster de 8 coeurs d'I/O
+	- et chaque coeurs sont coupés en deux : donc 2 * 2 * 4 coeurs
+	- Il y a donc 16 coeurs d'I/O
+	- Sur un cluster : linux
+	- Sur l'autre : Bare Metal
+
+- Cloisonement dur des clusters centraux :
+	- 4 + 4 + 4 + 4 qui sont vraiment disjoint entre eux
+	- Appréciable pour les utlisations critiques
+
+- Le lien PCI permet de rendre le MPPA maitre ou esclave.
+
+## Software
+
+- Environnement C/C++
+- Simulateur, profiling
+- Driver
+- Librairy d'optimisation
+- OS : BareMetal, Linux ou intermédiaire 
+
+Outil de développement spécifique : 
+
+- Mode explicite : il faudrait faire des appelles à des fonctions pour apporter
+  les données dans le cluster.
+	- Exemple : ```frame = load_data(addr, size);```
+	- C Low level : Programmation de type DSP
+	- C Posix Level : Programmation de type CPU
+- Mode implicite : On peut faire (grâce à la MMU) des accès "direct" à la
+  mémoire. 
+	- Exemple : ```frame = *image;```
+	- OpenCL : Programmation de type GPU style
+	- OpenDataPlane (ODP), Open API for networking
+
+- Mode explicite : 
+	- Démarage des cluster et des I/O explicitement
+- Mode inmplicite 
+	- Pas besoin de faire des appelles explicites, la MMU s'occupe de tous les
+	  accès mémoire
+
+- Outil pour compilation, de débug et de trace système
+	- Les outils de traces permet de laisser des points de traces durant
+	  l'execution pour une trait faible contre partie.
+
+## Architecture mémoire du MMPA
+
+Chaque coeur à un petit cache de niveau L1. Et tous ces caches ne sont pas
+cohérents.
+Toutes les coeurs d'un cluster partage aussi une même mémoire partagée  
+Attention, la gestion du cache est assez tricky, car les caches sont incohérents
+
+Le DSM permet d'emuler dans le cache des coeurs d'I/O un cache L2 (pour cacher
+les pages de la DDR) et avoir toute la DDR adressage.
+
+## Le Marché, voiture autonome
+
+Capable de guarantire en temps réel un débit avec unfaible latence
+
+Moins de 10 fois moins de consomations qu'un CPU 64-bit classique
+
+## Le Marché, du stockage de data
+
+La quantité de données qui arrivent pour être stocker, il faut traiter les
+données à la volé pour reduire la quantité de donnée stockée tout en lui donnant
+le maximum de valeur.
 
 
 {% include links.html %}

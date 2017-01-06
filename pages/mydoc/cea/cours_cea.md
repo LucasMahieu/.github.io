@@ -333,10 +333,85 @@ Cette méthode peut poser des problèmes de collision...
 Cette méthode est trop basique car avec une boucle for on a forcement 2 miss
 prediction ... à la 1ere itération et à la dernière 
 
+# Cours du 04/01/17
 
+## Vector processors
 
+Apparus dans les années 80 jusqu'en 90.
+Puis réapparition avec les GPU.
 
+### Flynn's Taxonomy 
 
+Von Neumann Architecture = CPU + Memoire (fetch + exec)
+
+Année 70, M. Flynn distingue plusieurs types d'architectures:
+
+- SISD = Single Instruction, Single Data
+- SIMD = Single Instruction, Multiple Data
+- MISD = Multiple instruction, Single Data (Ça n'est pas utile, donc n'existe
+  pas)
+- MIMD = Multiple instruction, Multiple Data (cas de nos ordinateurs
+  multi-coeur, mais nécessite de la synchro ... )
+
+SIMD : C'est ce qui correspond au GPU ou au machine vectoriel 
+
+Utilisation : 
+
+Pour faire une addition entre 25 couples d'éléments, j'ai juste à créer deux
+vecteurs de 25 éléments et de faire 1 seule addition vectoriel de ces 2 vecteurs.
+
+Souvent pour faire les opération vectorielles, il faut de grand pipeline, donc
+il y a une grande latence, mais aussi un grand débit.
+
+Permet de faire des :
+
+- opérations simple: C[i] = A[i] + B[i]
+- opération avec indirection : C[i] = A[i] + B[D[i]]
+- opération conditionnelle : C[i] = A[i] + B[i], si A[i]>0 par exemple
+
+### Multimédia Extension (MMX)
+
+Forcement 64 bits, donc 8x8 ou 4x16 ou 2x32
+
+L'utilisation de ces extensions ou des processeurs vectoriels est très
+spécifiques : 
+
+- Video
+- Audio
+- Image Processing 
+- Data encryption
+
+## Architecture Very Long Instruction Word (VLIW)
+
+Apparu dans les années 80
+
+Pas mal utilisé pour tout ce qui ne peux pas consommer bcp, les switch router,
+...
+
+Instruction de taille 128 bits typiquement
+
+CISC: (x86)
+RISC: (ARM, powerPC, ...)
+VLIW: (TI, ST, HP, ...)
+
+Un VLIW c'est un RISC avec des instructions plus grandes et un pipeline plus
+grand. VLIW = super RISC.
+
+En VLIW : un instruction de 128 bits contiens dans les 128 bits plusieurs
+instructions simples, qui seront exécutées en MÊME TEMPS.
+
+Le HW d'un VLIW est assez simple car le HW ne prend pas du tout en charge les
+hazard (problème de dépendance entre instructions, etc)
+
+La sémentique de l'asm en VLIW étant différente, il faut connaitre la latence de
+chaque instruction.
+
+## Dynamic Scheduling : Thomasulo
+
+Trouver le parallélisme possible entre les instructions à l'exécution. Avec
+renommage de de registre et ordonnancement des instructions.
+
+Le but de faire du Out-of-Order est de 
 
 
 
