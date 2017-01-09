@@ -473,7 +473,6 @@ thor.
   envoyé indépendamment dans le réseau.
 - Store and forward packet switching : Tous les packets sont mémorisés dans tous
   les switchs.
-- 
 
 
 
