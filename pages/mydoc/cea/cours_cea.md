@@ -413,8 +413,67 @@ renommage de de registre et ordonnancement des instructions.
 
 Le but de faire du Out-of-Order est de 
 
+# Cours du 09/01/2017
 
+## Avant 2004
 
+Un système classique (avant 2004) est constitué d'un bus sur lequel vient se
+connecter tous les autres périphériques 
+
+## Après 2004
+
+Intel a arrêter de faire augmenter la fréquence des chips pour démultiplier le
+nombre de processeur
+
+Si dans un système on démultiplie le nombre de CPU, disons `n` CPU.
+
+Chaque CPU à besoin d'une "bande passante" `b` pour échanger des données avec la
+mémoire.
+
+Il faut donc que le bus ai une bande passante possible d'au moins `n * b`.
+
+Admettons que notre cache par CPU ai un taux de miss de 10%, et qu'il fait un
+accès mémoire tous les 5 instructions
+
+Alors il y aura 1 instruction sur 50 qui fait un miss.
+
+Sachant qu'il y a 8 mots par ligne.
+
+De plus, Le CPU tourne à 2 GHz mais le bus tourne qu'à 800MHz
+
+Se que l'on constate c'est que la latence à une forme exponentiel et explose au
+alentour de 10% = 1 requêtes tous les 10 cycles
+
+## Les NoC
+
+Pour remédier à cela, création des NoC
+
+Utiliser des architectures réseaux qui ont de bonnes propriété: par exemple le
+thor.
+
+### Vocabulaire 
+
+- _Message_ is a basic communication entity
+- _Flit_ is a basic flow control unit
+- _Phit_ is the basic unit of the physical layer
+- _Direct Network_ each switch connecter to a node
+- _Indirect Network_ with switch not connected to any node
+- _Hop_ is the basic communication action from node to switch or from switch to
+  switch
+- _Diameter_ is the length of the maximum shortest path between any two nodes
+  measured in hops
+- _Routing_ distance between two nods is the number of hops on a route
+- _Average_ distance is the average of the routing distance over all pair of nodes
+
+### Basic switching techniques
+
+- Circuit switching : Il existe un chemin entre source et destination, et le
+  message utilise ce chemin.
+- Packet switching : Chaque packet connait la destination et chaque packet est
+  envoyé indépendamment dans le réseau.
+- Store and forward packet switching : Tous les packets sont mémorisés dans tous
+  les switchs.
+- 
 
 
 

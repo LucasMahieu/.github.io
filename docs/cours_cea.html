@@ -977,6 +977,72 @@ renommage de de registre et ordonnancement des instructions.</p>
 
 <p>Le but de faire du Out-of-Order est de</p>
 
+<h1 id="cours-du-09012017">Cours du 09/01/2017</h1>
+
+<h2 id="avant-2004">Avant 2004</h2>
+
+<p>Un système classique (avant 2004) est constitué d’un bus sur lequel vient se
+connecter tous les autres périphériques</p>
+
+<h2 id="aprs-2004">Après 2004</h2>
+
+<p>Intel a arrêter de faire augmenter la fréquence des chips pour démultiplier le
+nombre de processeur</p>
+
+<p>Si dans un système on démultiplie le nombre de CPU, disons <code class="highlighter-rouge">n</code> CPU.</p>
+
+<p>Chaque CPU à besoin d’une “bande passante” <code class="highlighter-rouge">b</code> pour échanger des données avec la
+mémoire.</p>
+
+<p>Il faut donc que le bus ai une bande passante possible d’au moins <code class="highlighter-rouge">n * b</code>.</p>
+
+<p>Admettons que notre cache par CPU ai un taux de miss de 10%, et qu’il fait un
+accès mémoire tous les 5 instructions</p>
+
+<p>Alors il y aura 1 instruction sur 50 qui fait un miss.</p>
+
+<p>Sachant qu’il y a 8 mots par ligne.</p>
+
+<p>De plus, Le CPU tourne à 2 GHz mais le bus tourne qu’à 800MHz</p>
+
+<p>Se que l’on constate c’est que la latence à une forme exponentiel et explose au
+alentour de 10% = 1 requêtes tous les 10 cycles</p>
+
+<h2 id="les-noc">Les NoC</h2>
+
+<p>Pour remédier à cela, création des NoC</p>
+
+<p>Utiliser des architectures réseaux qui ont de bonnes propriété: par exemple le
+thor.</p>
+
+<h3 id="vocabulaire">Vocabulaire</h3>
+
+<ul>
+  <li><em>Message</em> is a basic communication entity</li>
+  <li><em>Flit</em> is a basic flow control unit</li>
+  <li><em>Phit</em> is the basic unit of the physical layer</li>
+  <li><em>Direct Network</em> each switch connecter to a node</li>
+  <li><em>Indirect Network</em> with switch not connected to any node</li>
+  <li><em>Hop</em> is the basic communication action from node to switch or from switch to
+switch</li>
+  <li><em>Diameter</em> is the length of the maximum shortest path between any two nodes
+measured in hops</li>
+  <li><em>Routing</em> distance between two nods is the number of hops on a route</li>
+  <li><em>Average</em> distance is the average of the routing distance over all pair of nodes</li>
+</ul>
+
+<h3 id="basic-switching-techniques">Basic switching techniques</h3>
+
+<ul>
+  <li>Circuit switching : Il existe un chemin entre source et destination, et le
+message utilise ce chemin.</li>
+  <li>Packet switching : Chaque packet connait la destination et chaque packet est
+envoyé indépendamment dans le réseau.</li>
+  <li>Store and forward packet switching : Tous les packets sont mémorisés dans tous
+les switchs.</li>
+  <li></li>
+</ul>
+
 <p>[]:</p>
 
 
@@ -995,7 +1061,7 @@ renommage de de registre et ordonnancement des instructions.</p>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 Lucas Mahieu. All rights reserved. <br />
- Site last generated: Jan 6, 2017 <br />
+ Site last generated: Jan 9, 2017 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>
