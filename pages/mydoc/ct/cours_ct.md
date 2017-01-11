@@ -625,6 +625,8 @@ Question :
 
 # 06/01/2017: Kalray
 
+[Lien vers les slides](http://chamilo2.grenet.fr/inp/courses/ENSIMAG5MMCTSL0/document/TRANSPARENTS/2016-2017/MPPA_Getting_started_AC27.pdf)
+
 MPPA Getting Start 
 
 Entreprise depuis 2008, 60 personnes, majorité dans la R&D, surtout ingénieurs
