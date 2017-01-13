@@ -671,8 +671,8 @@ Pour utilisé ce matériel, il faut du logiciel:
 - NoC
 
 - 16 cluster au centre
-	- Chacun de ces 16 coeurs, on 16 coeurs
-	- +1 Système coeurs qui gère le NoC du cluster, et c'est le seul qui a accès
+	- Chacun de ces 16 cluster a 16 coeurs
+	- +1 Système Coeurs qui gère le NoC du cluster, et c'est le seul qui a accès
 	  à l'extérieur du coeurs
 	- Chaque cluster partage 2 MB de mémoire avec un débit de 77 GB/s
 		- Chaque coeurs sont des VLIW 32-bit
