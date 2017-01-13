@@ -666,8 +666,8 @@ Pour utilisé ce matériel, il faut du logiciel:
 
 ## Architecture du MPPA
 
-- DDR3 2 x 64-bit
-- PCIe 
+- DDR3 2 x 64-bit + ECC
+- PCIe 2x8 lane
 - 1/10/40 Go d'Ethernet
 - GPIO
 - NoC
