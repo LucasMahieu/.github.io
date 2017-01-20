@@ -147,5 +147,103 @@ Si le SW marche sur le TLM mais pas sur le HW ... AIE AIE AIE
 Donc un modèle TLM doit être fidèle ! Faire TOUT ce que le HW fait  
 Il peut avoir plus de comportement que le HW mais ne doit pas devenir iréaliste
 
+Du soft erroné peut être simulé de 2 façons : 
+
+- ISS: Il y a un context switch toutes les instructions ou toutes les X
+  instructions, dans ce cas, on peut "camoufler" des erreurs en simulation,
+alors que la vrai puces aurait plantée.
+- en NATIF: Il faut faire des CPU_RELAX() pour que le temps passe et pour que
+  les autres processus puissent s'executer. Donc il peut également il avoir des
+camouflage d'erreur.
+
+# Optimisation des performances
+
+## Transaction bloc
+
+Pour écrire des données à un composant sur le bus, on fait des socket.write(..)
+Or, si on fait un truc basique, pour chaque mot à envoyé, il faut faire un
+requete au bus, qui doit décoder l'adresse, etc etc ... 
+
+On pourrait faire un socket.block_write(...) qui demande de faire un transfert
+depuis une adresse d'une quantité X. Ceci permet de faire 1 seul décodage
+d'adresse et donc de gagner pas mal de temps.
+
+Cela rend donc l'écriture d'une zone mémoire atomique.
+
+
+## Timing approximé 
+
+Context-switch est très cher
+
+Donc on évite les wait.
+
+Pour faire avancer le temps, on fait des wait(petit_temps), à chaque tour de
+boucle.
+
+__Solution : Quantum Keeping__ On utilise un compteur sur 64 bits qui s'incrémente à la place du
+temps. Et de temps en temps on fait un wait de ce compteur qui à simuler le
+temps, et on remet le compteur à zéro. Cela fait faire un context-switch 
+bien moins souvent.
+
+## Parallélisation de SystemC
+
+Les systèmes sur puces sont parallèles or SystemC n'a qu'un seul processus.
+Mais SystemC a qu'une notion de processus.
+
+__Solution naive:__ Chaque SC-THREAD créé des p_thread -> bcp de p-thread donc
+ne passe pas à l'échelle
+
+__Solution un peu mieux:__ N processus = N processus SystemC
+
+__Solution testé__ On pourrait analyser le code et créer des processus qui
+exécute du code qui n'a pas de variables partagé. En théorie, bien. En pratique,
+impossible car bcp trop de dépendance entre les processus.
+
+# Estimation de consommation d'énergie et de température 
+
+Modélisation de la plateforme en une machine à état à 3 états :
+
+- Run : 3 Watt
+- Idle : 1 Watt
+- Wait : 0 Watt
+
+Donc on fait l'intégral sur le temps passé dans chaque état pour connaitre la
+conso sur un temps donné
+
+
+Pour la température, on fait la somme de tout ce qui ajoute de la chaleur et de
+tout ce qui en enlève.
+
+
+# Exam
+
+- Questions de cours C++, SystemC/TLM, intervenant extérieur.
+- Question temps simulé / temps wall clock
+- Composant pour améliorer le TP3 : améliorer le memset
+- SC_MODULE, SC_THREAD, SC_METHOD, wait, notify, ...
+- hal.h
+- Principe de TLM2
+- Confusion SW et HW
+
+# Récape TP
+
+## TP1
+
+Générateur -> Bus -> Memory
+
+## TP2
+
+Module LCD en plus, et la ROM
+
+
+## TP3 
+
+- Intégration du logiciel embarqué
+	- ISS 
+	- Native
+- hal.h -> soft embarqué, doit être compilé avec le compilateur embarqué
+
+
+
 
 {% include links.html %}

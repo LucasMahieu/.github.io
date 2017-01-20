@@ -578,6 +578,109 @@ le HW -&gt; cool</li>
 <p>Donc un modèle TLM doit être fidèle ! Faire TOUT ce que le HW fait<br />
 Il peut avoir plus de comportement que le HW mais ne doit pas devenir iréaliste</p>
 
+<p>Du soft erroné peut être simulé de 2 façons :</p>
+
+<ul>
+  <li>ISS: Il y a un context switch toutes les instructions ou toutes les X
+instructions, dans ce cas, on peut “camoufler” des erreurs en simulation,
+alors que la vrai puces aurait plantée.</li>
+  <li>en NATIF: Il faut faire des CPU_RELAX() pour que le temps passe et pour que
+les autres processus puissent s’executer. Donc il peut également il avoir des
+camouflage d’erreur.</li>
+</ul>
+
+<h1 id="optimisation-des-performances">Optimisation des performances</h1>
+
+<h2 id="transaction-bloc">Transaction bloc</h2>
+
+<p>Pour écrire des données à un composant sur le bus, on fait des socket.write(..)
+Or, si on fait un truc basique, pour chaque mot à envoyé, il faut faire un
+requete au bus, qui doit décoder l’adresse, etc etc …</p>
+
+<p>On pourrait faire un socket.block_write(…) qui demande de faire un transfert
+depuis une adresse d’une quantité X. Ceci permet de faire 1 seul décodage
+d’adresse et donc de gagner pas mal de temps.</p>
+
+<p>Cela rend donc l’écriture d’une zone mémoire atomique.</p>
+
+<h2 id="timing-approxim">Timing approximé</h2>
+
+<p>Context-switch est très cher</p>
+
+<p>Donc on évite les wait.</p>
+
+<p>Pour faire avancer le temps, on fait des wait(petit_temps), à chaque tour de
+boucle.</p>
+
+<p><strong>Solution : Quantum Keeping</strong> On utilise un compteur sur 64 bits qui s’incrémente à la place du
+temps. Et de temps en temps on fait un wait de ce compteur qui à simuler le
+temps, et on remet le compteur à zéro. Cela fait faire un context-switch 
+bien moins souvent.</p>
+
+<h2 id="paralllisation-de-systemc">Parallélisation de SystemC</h2>
+
+<p>Les systèmes sur puces sont parallèles or SystemC n’a qu’un seul processus.
+Mais SystemC a qu’une notion de processus.</p>
+
+<p><strong>Solution naive:</strong> Chaque SC-THREAD créé des p_thread -&gt; bcp de p-thread donc
+ne passe pas à l’échelle</p>
+
+<p><strong>Solution un peu mieux:</strong> N processus = N processus SystemC</p>
+
+<p><strong>Solution testé</strong> On pourrait analyser le code et créer des processus qui
+exécute du code qui n’a pas de variables partagé. En théorie, bien. En pratique,
+impossible car bcp trop de dépendance entre les processus.</p>
+
+<h1 id="estimation-de-consommation-dnergie-et-de-temprature">Estimation de consommation d’énergie et de température</h1>
+
+<p>Modélisation de la plateforme en une machine à état à 3 états :</p>
+
+<ul>
+  <li>Run : 3 Watt</li>
+  <li>Idle : 1 Watt</li>
+  <li>Wait : 0 Watt</li>
+</ul>
+
+<p>Donc on fait l’intégral sur le temps passé dans chaque état pour connaitre la
+conso sur un temps donné</p>
+
+<p>Pour la température, on fait la somme de tout ce qui ajoute de la chaleur et de
+tout ce qui en enlève.</p>
+
+<h1 id="exam">Exam</h1>
+
+<ul>
+  <li>Questions de cours C++, SystemC/TLM, intervenant extérieur.</li>
+  <li>Question temps simulé / temps wall clock</li>
+  <li>Composant pour améliorer le TP3 : améliorer le memset</li>
+  <li>SC_MODULE, SC_THREAD, SC_METHOD, wait, notify, …</li>
+  <li>hal.h</li>
+  <li>Principe de TLM2</li>
+  <li>Confusion SW et HW</li>
+</ul>
+
+<h1 id="rcape-tp">Récape TP</h1>
+
+<h2 id="tp1">TP1</h2>
+
+<p>Générateur -&gt; Bus -&gt; Memory</p>
+
+<h2 id="tp2">TP2</h2>
+
+<p>Module LCD en plus, et la ROM</p>
+
+<h2 id="tp3">TP3</h2>
+
+<ul>
+  <li>Intégration du logiciel embarqué
+    <ul>
+      <li>ISS</li>
+      <li>Native</li>
+    </ul>
+  </li>
+  <li>hal.h -&gt; soft embarqué, doit être compilé avec le compilateur embarqué</li>
+</ul>
+
 <p>[]:</p>
 
 
@@ -596,7 +699,7 @@ Il peut avoir plus de comportement que le HW mais ne doit pas devenir iréaliste
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 Lucas Mahieu. All rights reserved. <br />
- Site last generated: Jan 13, 2017 <br />
+ Site last generated: Jan 20, 2017 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>
