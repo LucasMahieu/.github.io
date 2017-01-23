@@ -114,7 +114,7 @@ Plusieurs niveau de vue du temps :
 
 - TLM Loosely Time (LT): temps moue, le temps à pas de signification, gros grain.
   (utilisé : programmation)
-- Approximately Timed (AT) : Temps prècis induits par la microarchi,
+- Approximately Timed (AT) : Temps précis induits par la microarchi,
   communication à la taille du bus. (utilisé pour l'évaluation d'archi et de
 perf)
 
@@ -242,6 +242,106 @@ Module LCD en plus, et la ROM
 	- ISS 
 	- Native
 - hal.h -> soft embarqué, doit être compilé avec le compilateur embarqué
+
+# Intervenant ST:   
+
+Jerome CORNET
+
+
+## Dernière nouvelle de l'industrie du semi-conducteur
+
+### Conduite autonome 
+
+Ce qui se passe naturellement, pour pouvoir traiter toutes les données 
+c'est de passer d'un CPU à GPU, puis Neural PE, traitement d'image.
+
+Mais il y a aussi bcp de contraintes vis à vis de la quantité de traitement de
+données.
+
+
+Sureté  = Ne pas engendrer de dégâts en cas de défaillance.
+
+Sécurité = Être protégé de menace extérieur.
+
+Ce qui induit des chips gros, avec bcp d'IP très complexes, des moyens de
+communications nombreux et complexe, mémoire (importante).
+
+### IoT
+
+Beaucoup de cas d'utilisation possible : utilisateur privé, industrie, medical,
+...
+
+Ceci induit une très forte connectivité.
+
+Ainsi que des problématiques de consommation 
+
+Induit l'augmentation du nombre de petits chip.
+
+Des chips petits, sans mémoire, seulement quelques IP, ...
+
+
+ISO 26262 c'est la norme de safty pour l'automobile 
+
+## Prototypage virtuel
+
+Émulation = utilisation de logiciel qui existe déjà pour l'utiliser de la MEME
+façon qu'avec le HW d'origine. 
+
+Virtualisation = exécuter du soft mais dans le but de concevoir du SW non
+existant.
+
+En virtualisation, on reproduit chaque petite tâche donc on peut trouver de
+vrais bug liés au temporel et à l'ordre.
+
+Sert à faire du développement de logiciel embarqué en avance de phase.
+
+Vu que c'est en avance de phase, ça permet de trouver des contradictions, des
+ambigüités du cahier des charges.
+
+En post silicium, permet de comprendre ce qui se passe dans le chip.
+
+Peut servir au client pour lui permettre de l'aider à développer le reste de son
+système.
+
+
+Exploitation d'architecture = permet de ne pas s'intéresser aux données mais au
+débit et au transport de données.
+
+### Métier de virtualisation à ST
+
+Faire des modèles
+
+Faire des couches au dessus de TLM (comme ensitlm) pour faire des choses
+réutilisable pour en faire des legos
+
+## Grandes tendances 
+
+Fonctionnalités nouvelles:
+
+- Simulation d'horloge : ex. Basse consommation
+- Simulation de voltage
+- Simulation des PIO Muxing (plusieurs fonctions sur un I/O)
+
+Injection d'erreurs :
+
+- Rien de plus simple, il suffis de changer quelques lignes dans le modèle.
+- Simuler une intrusion dans le système. (changement dans la DDR)
+- Tester des cas limites (cas des 16 collisions dans ethernet)
+
+Intégration multi-système:
+
+- Faire plusieurs modèles sur plusieurs simulateurs et les faire communiquer
+  ensemble.
+- Ça serait un vrai plus pour exploiter les many-cores.
+- Permet de faire des simu pour des clients avec des morceaux de chez ST, et des
+  morceaux chez les clients.
+
+Dans l'automobile :
+
+- Simuler les réseaux de nœuds d'une voiture qui comprend bcp de uC
+
+
+## Conclusion
 
 
 

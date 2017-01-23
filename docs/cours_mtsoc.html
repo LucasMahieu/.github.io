@@ -538,7 +538,7 @@ wait(temps) -&gt; change l’ordre des actions, vrai notion de temps</p>
 <ul>
   <li>TLM Loosely Time (LT): temps moue, le temps à pas de signification, gros grain.
 (utilisé : programmation)</li>
-  <li>Approximately Timed (AT) : Temps prècis induits par la microarchi,
+  <li>Approximately Timed (AT) : Temps précis induits par la microarchi,
 communication à la taille du bus. (utilisé pour l’évaluation d’archi et de
 perf)</li>
 </ul>
@@ -680,6 +680,109 @@ tout ce qui en enlève.</p>
   </li>
   <li>hal.h -&gt; soft embarqué, doit être compilé avec le compilateur embarqué</li>
 </ul>
+
+<h1 id="intervenant-st">Intervenant ST:</h1>
+
+<p>Jerome CORNET</p>
+
+<h2 id="dernire-nouvelle-de-lindustrie-du-semi-conducteur">Dernière nouvelle de l’industrie du semi-conducteur</h2>
+
+<h3 id="conduite-autonome">Conduite autonome</h3>
+
+<p>Ce qui se passe naturellement, pour pouvoir traiter toutes les données 
+c’est de passer d’un CPU à GPU, puis Neural PE, traitement d’image.</p>
+
+<p>Mais il y a aussi bcp de contraintes vis à vis de la quantité de traitement de
+données.</p>
+
+<p>Sureté  = Ne pas engendrer de dégâts en cas de défaillance.</p>
+
+<p>Sécurité = Être protégé de menace extérieur.</p>
+
+<p>Ce qui induit des chips gros, avec bcp d’IP très complexes, des moyens de
+communications nombreux et complexe, mémoire (importante).</p>
+
+<h3 id="iot">IoT</h3>
+
+<p>Beaucoup de cas d’utilisation possible : utilisateur privé, industrie, medical,
+…</p>
+
+<p>Ceci induit une très forte connectivité.</p>
+
+<p>Ainsi que des problématiques de consommation</p>
+
+<p>Induit l’augmentation du nombre de petits chip.</p>
+
+<p>Des chips petits, sans mémoire, seulement quelques IP, …</p>
+
+<p>ISO 26262 c’est la norme de safty pour l’automobile</p>
+
+<h2 id="prototypage-virtuel">Prototypage virtuel</h2>
+
+<p>Émulation = utilisation de logiciel qui existe déjà pour l’utiliser de la MEME
+façon qu’avec le HW d’origine.</p>
+
+<p>Virtualisation = exécuter du soft mais dans le but de concevoir du SW non
+existant.</p>
+
+<p>En virtualisation, on reproduit chaque petite tâche donc on peut trouver de
+vrais bug liés au temporel et à l’ordre.</p>
+
+<p>Sert à faire du développement de logiciel embarqué en avance de phase.</p>
+
+<p>Vu que c’est en avance de phase, ça permet de trouver des contradictions, des
+ambigüités du cahier des charges.</p>
+
+<p>En post silicium, permet de comprendre ce qui se passe dans le chip.</p>
+
+<p>Peut servir au client pour lui permettre de l’aider à développer le reste de son
+système.</p>
+
+<p>Exploitation d’architecture = permet de ne pas s’intéresser aux données mais au
+débit et au transport de données.</p>
+
+<h3 id="mtier-de-virtualisation--st">Métier de virtualisation à ST</h3>
+
+<p>Faire des modèles</p>
+
+<p>Faire des couches au dessus de TLM (comme ensitlm) pour faire des choses
+réutilisable pour en faire des legos</p>
+
+<h2 id="grandes-tendances">Grandes tendances</h2>
+
+<p>Fonctionnalités nouvelles:</p>
+
+<ul>
+  <li>Simulation d’horloge : ex. Basse consommation</li>
+  <li>Simulation de voltage</li>
+  <li>Simulation des PIO Muxing (plusieurs fonctions sur un I/O)</li>
+</ul>
+
+<p>Injection d’erreurs :</p>
+
+<ul>
+  <li>Rien de plus simple, il suffis de changer quelques lignes dans le modèle.</li>
+  <li>Simuler une intrusion dans le système. (changement dans la DDR)</li>
+  <li>Tester des cas limites (cas des 16 collisions dans ethernet)</li>
+</ul>
+
+<p>Intégration multi-système:</p>
+
+<ul>
+  <li>Faire plusieurs modèles sur plusieurs simulateurs et les faire communiquer
+ensemble.</li>
+  <li>Ça serait un vrai plus pour exploiter les many-cores.</li>
+  <li>Permet de faire des simu pour des clients avec des morceaux de chez ST, et des
+morceaux chez les clients.</li>
+</ul>
+
+<p>Dans l’automobile :</p>
+
+<ul>
+  <li>Simuler les réseaux de nœuds d’une voiture qui comprend bcp de uC</li>
+</ul>
+
+<h2 id="conclusion">Conclusion</h2>
 
 <p>[]:</p>
 
