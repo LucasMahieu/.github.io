@@ -776,7 +776,23 @@ prendre lors de la création du code pour que ca soit acceptable.
 La DO donne des objectifs à tenir mais ne demande rien quand aux moyens d'y
 parvenir
 
-Un artefacts ogiciels = tous les produits du développement logiciel
+### Processus de développement 
+
+Les objectifs sont : 
+- Développer les exigences système, en créant un ou plusieurs niveaux
+d’exigences Software (dépendant du niveau de DAL) 
+- Développer l’architecture Software
+- Produire le Code Source
+- Intégrer les composants Logiciel pour produire un Exécutable
+
+Un artefacts logiciels = tous les produits du développement logiciel
+
+Durant le processus de dev, plusieurs artefacts doivent être produit: 
+
+- Exigences de haut et bas niveau (HLR/LLR) 
+- Description de l’architecture logicielle  
+- Code Source
+- Code Object Exécutable
 
 ### Processus de tracabilité
 
