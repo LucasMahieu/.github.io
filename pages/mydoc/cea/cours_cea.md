@@ -5,6 +5,8 @@ permalink: /cours_cea.html
 folder: mydoc/cea/
 ---
 
+[Partiel possible](https://ensiwiki.ensimag.fr/images/6/64/SLE-SOC-exam-2012.pdf)
+
 # Cours du 03/10/2016
 
 * SoC : 
