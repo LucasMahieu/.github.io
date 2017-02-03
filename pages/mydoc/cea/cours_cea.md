@@ -403,7 +403,9 @@ hazard (problème de dépendance entre instructions, etc)
 La sémentique de l'asm en VLIW étant différente, il faut connaitre la latence de
 chaque instruction.
 
-## Dynamic Scheduling : Thomasulo
+## Dynamic Scheduling : Thomazulo
+
+[Thomazulo algo slides](https://ensiwiki.ensimag.fr/images/2/25/02-Tomasulo.pdf)
 
 Trouver le parallélisme possible entre les instructions à l'exécution. Avec
 renommage de de registre et ordonnancement des instructions.
