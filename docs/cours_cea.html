@@ -437,31 +437,49 @@ $('#toc').on('click', 'a', function() {
       <li>Bus</li>
     </ul>
   </li>
-  <li>
-    <p>Bus : Débit + Protocole</p>
-  </li>
-  <li>
-    <p>RAM : &lt; 10Mo de Cache + 4 à 128 Go de cache</p>
-  </li>
-  <li>
-    <p>CPU : Unité de calcule</p>
-  </li>
+  <li>Bus : Débit + Protocole</li>
+  <li>RAM : &lt; 10Mo de Cache + 4 à 128 Go de cache</li>
+  <li>CPU : Unité de calcule</li>
   <li>DSP :  -&gt; contrôle temps réel
     <ul>
-      <li>Puissance de calcul</li>
-      <li>Programmation complexe</li>
+      <li>
+        <ul>
+          <li>Puissance de calcul</li>
+        </ul>
+      </li>
+      <li>
+        <ul>
+          <li>Programmation complexe</li>
+        </ul>
+      </li>
     </ul>
   </li>
   <li>ASIC/IP :
     <ul>
-      <li>Puissance de calcul, traitement réguliers, consommation</li>
-      <li>Rigidité, Temps de dév, Peu adapté à un contrôle complexe</li>
+      <li>
+        <ul>
+          <li>Puissance de calcul, traitement réguliers, consommation</li>
+        </ul>
+      </li>
+      <li>
+        <ul>
+          <li>Rigidité, Temps de dév, Peu adapté à un contrôle complexe</li>
+        </ul>
+      </li>
     </ul>
   </li>
   <li>Analogique :
     <ul>
-      <li>Faible conso, Grande intégration</li>
-      <li>Bruit, Forte dépendance à la techno</li>
+      <li>
+        <ul>
+          <li>Faible conso, Grande intégration</li>
+        </ul>
+      </li>
+      <li>
+        <ul>
+          <li>Bruit, Forte dépendance à la techno</li>
+        </ul>
+      </li>
     </ul>
   </li>
   <li>
@@ -522,16 +540,25 @@ Dans ce cas, l’instruction n’est plus fetch en 1 cycle (plus forcement)</div
 </ul>
 
 <p>Comment gérer plusieurs maitre et plusieurs esclave ?<br />
-<strong>Bus Trois Etat</strong><br />
-* Point positif:
-	* Grande modularité
-	* Connectivité maitre-esclave simple
-	* Observabilité simple
-* Point négatif:
-	* Fréquence de fonctionnement faible à cause de la capacité des 3 états
-	* Test complexe 
-	* Grande longueur des connexions
-	* Layout délicat: Antenne</p>
+<strong>Bus Trois Etat</strong></p>
+
+<ul>
+  <li>Point positif:
+    <ul>
+      <li>Grande modularité</li>
+      <li>Connectivité maitre-esclave simple</li>
+      <li>Observabilité simple</li>
+    </ul>
+  </li>
+  <li>Point négatif:
+    <ul>
+      <li>Fréquence de fonctionnement faible à cause de la capacité des 3 états</li>
+      <li>Test complexe</li>
+      <li>Grande longueur des connexions</li>
+      <li>Layout délicat: Antenne</li>
+    </ul>
+  </li>
+</ul>
 
 <h2 id="controleur-de-bus">Controleur de bus</h2>
 
@@ -565,20 +592,32 @@ Dans ce cas, l’instruction n’est plus fetch en 1 cycle (plus forcement)</div
 
 <p>Burst: plutôt que de faire une requête et d’attendre la donnée après plusieurs cycles d’attente, on fait un demande de n données d’un coup.</p>
 
-<p>Caractéristique du bus:
-* Nombre de caneaux
-* Gestion du bus
-* Transferts 
-	* Groupé : Burst
-	* Auto-incrémenté
-	* Canaux chaînés
-* Mode de transfert 
-	* FIFO
-	* Taille de données
-* Interruption 
-	* Fin de transfert
-	* Erreur
-* Priorité des canaux</p>
+<p>Caractéristique du bus:</p>
+
+<ul>
+  <li>Nombre de caneaux</li>
+  <li>Gestion du bus</li>
+  <li>Transferts
+    <ul>
+      <li>Groupé : Burst</li>
+      <li>Auto-incrémenté</li>
+      <li>Canaux chaînés</li>
+    </ul>
+  </li>
+  <li>Mode de transfert
+    <ul>
+      <li>FIFO</li>
+      <li>Taille de données</li>
+    </ul>
+  </li>
+  <li>Interruption
+    <ul>
+      <li>Fin de transfert</li>
+      <li>Erreur</li>
+    </ul>
+  </li>
+  <li>Priorité des canaux</li>
+</ul>
 
 <h2 id="exemple-de-bus">Exemple de bus</h2>
 
@@ -1060,7 +1099,7 @@ les switchs.</li>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 Lucas Mahieu. All rights reserved. <br />
- Site last generated: Jan 23, 2017 <br />
+ Site last generated: Feb 3, 2017 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

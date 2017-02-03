@@ -14,25 +14,18 @@ folder: mydoc/cea/
 	- Bloc de calcul pour soulager/accélérer les calculs
 	- Bloc Analogique 
 	- Bus
-
 * Bus : Débit + Protocole
-
 * RAM : < 10Mo de Cache + 4 à 128 Go de cache
-
 * CPU : Unité de calcule  
-
 * DSP :  -> contrôle temps réel
-	+ Puissance de calcul 
-	- Programmation complexe 
-
+	* + Puissance de calcul 
+	* - Programmation complexe 
 * ASIC/IP : 
-	+ Puissance de calcul, traitement réguliers, consommation 
-	- Rigidité, Temps de dév, Peu adapté à un contrôle complexe
-
+	* + Puissance de calcul, traitement réguliers, consommation 
+	* - Rigidité, Temps de dév, Peu adapté à un contrôle complexe
 * Analogique :
-	+ Faible conso, Grande intégration
-	- Bruit, Forte dépendance à la techno
-
+	* + Faible conso, Grande intégration
+	* - Bruit, Forte dépendance à la techno
 * MEMS : MCNC
 
 * SoC : Assemblement de plusieurs techno 
@@ -72,6 +65,7 @@ Dans ce cas, l'instruction n'est plus fetch en 1 cycle (plus forcement)"%}
 
 Comment gérer plusieurs maitre et plusieurs esclave ?  
 __Bus Trois Etat__  
+
 * Point positif:
 	* Grande modularité
 	* Connectivité maitre-esclave simple
@@ -107,6 +101,7 @@ La solution consiste à _hiérarchiser les bus_
 Burst: plutôt que de faire une requête et d'attendre la donnée après plusieurs cycles d'attente, on fait un demande de n données d'un coup.
 
 Caractéristique du bus:
+
 * Nombre de caneaux
 * Gestion du bus
 * Transferts 
