@@ -441,6 +441,12 @@ alentour de 10% = 1 requêtes tous les 10 cycles
 
 ## Les NoC
 
+[lien des
+slides](https://ensiwiki.ensimag.fr/images/6/64/SLE-SOC-exam-2012.pd://ensiwiki.ensimag.fr/images/e/e5/NoCS-Tutorial.pdf)
+[lien des slides](https://ensiwiki.ensimag.fr/images/9/9b/Ginosar.pdf)
+
+[Partiel
+corrigé](https://ensiwiki.ensimag.fr/images/2/23/SLE-SOC-exam-part-fred.pdf)
 Pour remédier à cela, création des NoC
 
 Utiliser des architectures réseaux qui ont de bonnes propriété: par exemple le
@@ -468,10 +474,6 @@ thor.
   envoyé indépendamment dans le réseau.
 - Store and forward packet switching : Tous les packets sont mémorisés dans tous
   les switchs.
-
-
-
-
 
 {% include links.html %}
 
