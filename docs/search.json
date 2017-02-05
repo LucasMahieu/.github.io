@@ -76,16 +76,6 @@
 
 
 {
-"title": "Introduction",
-"tags": "",
-"keywords": "",
-"url": "mydoc_introduction.html",
-"summary": ""
-},
-
-
-
-{
 "title": "Scroll layout",
 "tags": "special_layouts",
 "keywords": "json, scrolling, scrollto, jquery plugin",
@@ -136,26 +126,6 @@
 "tags": "",
 "keywords": "",
 "url": "tp_sd.html",
-"summary": ""
-},
-
-
-
-{
-"title": "Introduction",
-"tags": "",
-"keywords": "",
-"url": "tp_sse.html",
-"summary": ""
-},
-
-
-
-{
-"title": "Introduction",
-"tags": "",
-"keywords": "",
-"url": "tp_vsle.html",
 "summary": ""
 },
 
