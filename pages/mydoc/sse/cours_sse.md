@@ -1,5 +1,5 @@
 ---
-title: Note de Cours
+title: Securité des systemes embarqués
 sidebar: mydoc_sidebar
 permalink: cours_sse.html
 folder: mydoc/sse

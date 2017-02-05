@@ -1,11 +1,11 @@
 ---
-title: Notes de Cours
+title: Modelisation transactionelles des systemes sur puces
 sidebar: mydoc_sidebar
 permalink: cours_mtsoc.html
 folder: mydoc/mtsoc
 ---
 
-#### Lien du cours sur [Github](https://github.com/moy/cours-tlm)
+Lien du cours sur [Github](https://github.com/moy/cours-tlm)
 
 # Cours 10/10/2016
 

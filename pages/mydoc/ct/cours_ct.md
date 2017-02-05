@@ -1,5 +1,5 @@
 ---
-title: Notes pris lors de la conférence
+title: Conférences Technologiques
 sidebar: mydoc_sidebar
 permalink: cours_ct.html
 folder: mydoc/ct

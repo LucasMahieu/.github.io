@@ -1,5 +1,5 @@
 ---
-title: Notes de cours
+title: Validation des systemes embarques
 sidebar: mydoc_sidebar
 permalink: cours_vsle.html
 folder: mydoc/vsle

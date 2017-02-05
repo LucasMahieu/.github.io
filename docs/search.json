@@ -4,7 +4,7 @@
 
 
 {
-"title": "Notes de Cours",
+"title": "Conception et exploration d&#39;architecture multicoeurs",
 "tags": "",
 "keywords": "",
 "url": "cours_cea.html",
@@ -14,7 +14,7 @@
 
 
 {
-"title": "Notes pris lors de la conférence",
+"title": "Conférences Technologiques",
 "tags": "",
 "keywords": "",
 "url": "cours_ct.html",
@@ -24,27 +24,7 @@
 
 
 {
-"title": "Introduction",
-"tags": "",
-"keywords": "",
-"url": "cours_di.html",
-"summary": ""
-},
-
-
-
-{
-"title": "Introduction",
-"tags": "",
-"keywords": "",
-"url": "cours_ecisle.html",
-"summary": ""
-},
-
-
-
-{
-"title": "Notes de Cours",
+"title": "Modelisation transactionelles des systemes sur puces",
 "tags": "",
 "keywords": "",
 "url": "cours_mtsoc.html",
@@ -54,7 +34,7 @@
 
 
 {
-"title": "Introduction",
+"title": "CM - Systèmes distribués",
 "tags": "",
 "keywords": "",
 "url": "cours_sd.html",
@@ -64,7 +44,7 @@
 
 
 {
-"title": "Note de Cours",
+"title": "Securité des systemes embarqués",
 "tags": "",
 "keywords": "",
 "url": "cours_sse.html",
@@ -74,27 +54,7 @@
 
 
 {
-"title": "Introduction",
-"tags": "",
-"keywords": "",
-"url": "cours_str.html",
-"summary": ""
-},
-
-
-
-{
-"title": "Introduction",
-"tags": "",
-"keywords": "",
-"url": "cours_tf.html",
-"summary": ""
-},
-
-
-
-{
-"title": "Notes de cours",
+"title": "Validation des systemes embarques",
 "tags": "",
 "keywords": "",
 "url": "cours_vsle.html",
@@ -172,27 +132,7 @@
 
 
 {
-"title": "Introduction",
-"tags": "",
-"keywords": "",
-"url": "tp_cea.html",
-"summary": ""
-},
-
-
-
-{
-"title": "Introduction",
-"tags": "",
-"keywords": "",
-"url": "tp_mtsoc.html",
-"summary": ""
-},
-
-
-
-{
-"title": "Introduction",
+"title": "TP - Systèmes distribués",
 "tags": "",
 "keywords": "",
 "url": "tp_sd.html",
@@ -206,16 +146,6 @@
 "tags": "",
 "keywords": "",
 "url": "tp_sse.html",
-"summary": ""
-},
-
-
-
-{
-"title": "",
-"tags": "",
-"keywords": "",
-"url": "tp_str.html",
 "summary": ""
 },
 

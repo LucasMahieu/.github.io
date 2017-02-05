@@ -1,5 +1,5 @@
 ---
-title: Notes de Cours
+title: Conception et exploration d'architecture multicoeurs
 sidebar: mydoc_sidebar
 permalink: /cours_cea.html
 folder: mydoc/cea/
@@ -142,6 +142,13 @@ Sinon elles serait trop lentes
 La capacité induite des lignes d'information fait que l'on ne peux pas utiliser le même modèle de mémoire si elles sont trop grandes.   
 {% include image.html file="mem.png" alt="plan mémoire" caption="schéma d'un plan mémoire" %}
 
+### SRAM 
+1 point mémoire c'est 6 transistors 
+
+C'est donc rapide et un techno standard.
+
+Mais de faible densité, et non synthétisable.
+
 ### SDRAM : Synchronus Dynamic RAM
 C'est un transistor et une capacité:  
 Points positifs:   
@@ -151,12 +158,12 @@ Points positifs:
 
 Points négatifs:  
 
-* Pert la valeur à chaque lecture car le condensateur se décharge.
+* Perd la valeur à chaque lecture car le condensateur se décharge.
 * A cause des fuites de courant, le condensateur se décharge, le niveau passe sous le niveau 1.
 
 Il faut donc faire constamment des lectures et re-écriture pour mémoriser les données.
 
-Les SDRAM doivent être composer de plusieurs petites mémoireso
+Les SDRAM doivent être composer de plusieurs petites mémoires
 
 __Résumé__  
 
@@ -170,13 +177,50 @@ __Résumé__
 - Non synthétisable
 
 ### ROM
+Petit et rapide mais en lecture seul
 
 ### Flash
+Non volatile, concerve les données hors tension et accès sécurisé mais lent et
+techno non standard.
 
 ### Registre
-16 transistors par point mémoire, très chère 
+16 transistors par point mémoire, très chère et gros 
+mais rapide
 
-### Les caches
+### Les SPRAM
+Une Scratch-Pad RAM (SPRAM) est une mémoire directe- ment connectée à un coeur
+de processeur. Elle est visible dans l’espace mémoire.
+
+Il est possible d’y accéder en un cycle d’horloge, sans arbitrage.
+Une SPRAM doit être gérée par le logiciel. Les données peuvent être lues/écrites
+par:
+
+- Les instructions LD/ST standards
+- Un DMA interne au processeur
+
+### Block-RAM : BRAM
+Une Block-RAM (BRAM) est une mémoire accessible par le bus système. C’est une IP
+esclave accédée par les IPs maîtres.
+
+En général, les BRAM servent aux échanges de données entre les processeurs et
+IPs maîtres.
+
+### Caches 
+Les cache (antémémoire) sont des mémoires rapides qui dis- posent d’un mécanisme
+automatique de copie/écriture des données/instructions de la mémoire principale.
+
+Exploite les principes de localité spatiale et temporelle.
+
+Les principaux paramètres d’efficacité
+sont:
+- La taille mémoire
+- La politique de gestion
+
+Le principal critère d’efficacité est le taux de défaut de cache, qui dépend de
+ces paramètres et de l’application.
+
+
+Temps moyen d’accès=Temps hit+Taux de défaut * Pénalité de défaut
 
 # Cours du 07/11/16
 

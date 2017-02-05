@@ -1,5 +1,5 @@
 ---
-title: Introduction
+title: CM - Systèmes distribués 
 sidebar: mydoc_sidebar
 permalink: cours_sd.html
 folder: mydoc/sd

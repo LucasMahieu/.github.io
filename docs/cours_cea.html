@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="keywords" content=" ">
-<title>Notes de Cours | Cours collaboratif de l'ENSIMAG SLE 3A</title>
+<title>Conception et exploration d'architecture multicoeurs | Cours collaboratif de l'ENSIMAG SLE 3A</title>
 <link rel="stylesheet" href="css/syntax.css">
 
 
@@ -104,7 +104,7 @@
                 <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
                 
                 
-			<li><a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:lucas.mahieu@icloud.com?subject=Cours de SLE, Jekyll Github pages f eedback&body=I have some feedback about the Notes de Cours page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a><li>
+			<li><a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:lucas.mahieu@icloud.com?subject=Cours de SLE, Jekyll Github pages f eedback&body=I have some feedback about the Conception et exploration d'architecture multicoeurs page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a><li>
 
 		
                 <!--comment out this block if you want to hide search-->
@@ -120,7 +120,7 @@
                                 searchInput: document.getElementById('search-input'),
                                 resultsContainer: document.getElementById('results-container'),
                                 dataSource: 'search.json',
-                                searchResultTemplate: '<li><a href="{url}" title="Notes de Cours">{title}</a></li>',
+                                searchResultTemplate: '<li><a href="{url}" title="Conception et exploration d\architecture multicoeurs">{title}</a></li>',
                     noResultsText: 'No results found.',
                             limit: 10,
                             fuzzy: true,
@@ -384,7 +384,7 @@
     <!-- Content Column -->
     <div class="col-md-9">
         <div class="post-header">
-   <h1 class="post-title-main">Notes de Cours</h1>
+   <h1 class="post-title-main">Conception et exploration d'architecture multicoeurs</h1>
 </div>
 
 
@@ -647,6 +647,13 @@ Sinon elles serait trop lentes</p>
 <p>La capacité induite des lignes d’information fait que l’on ne peux pas utiliser le même modèle de mémoire si elles sont trop grandes.</p>
 <figure><img class="docimage" src="images/mem.png" alt="plan mémoire" /><figcaption>schéma d'un plan mémoire</figcaption></figure>
 
+<h3 id="sram">SRAM</h3>
+<p>1 point mémoire c’est 6 transistors</p>
+
+<p>C’est donc rapide et un techno standard.</p>
+
+<p>Mais de faible densité, et non synthétisable.</p>
+
 <h3 id="sdram--synchronus-dynamic-ram">SDRAM : Synchronus Dynamic RAM</h3>
 <p>C’est un transistor et une capacité:<br />
 Points positifs:</p>
@@ -659,13 +666,13 @@ Points positifs:</p>
 <p>Points négatifs:</p>
 
 <ul>
-  <li>Pert la valeur à chaque lecture car le condensateur se décharge.</li>
+  <li>Perd la valeur à chaque lecture car le condensateur se décharge.</li>
   <li>A cause des fuites de courant, le condensateur se décharge, le niveau passe sous le niveau 1.</li>
 </ul>
 
 <p>Il faut donc faire constamment des lectures et re-écriture pour mémoriser les données.</p>
 
-<p>Les SDRAM doivent être composer de plusieurs petites mémoireso</p>
+<p>Les SDRAM doivent être composer de plusieurs petites mémoires</p>
 
 <p><strong>Résumé</strong></p>
 
@@ -682,13 +689,51 @@ Points positifs:</p>
 </ul>
 
 <h3 id="rom">ROM</h3>
+<p>Petit et rapide mais en lecture seul</p>
 
 <h3 id="flash">Flash</h3>
+<p>Non volatile, concerve les données hors tension et accès sécurisé mais lent et
+techno non standard.</p>
 
 <h3 id="registre">Registre</h3>
-<p>16 transistors par point mémoire, très chère</p>
+<p>16 transistors par point mémoire, très chère et gros 
+mais rapide</p>
 
-<h3 id="les-caches">Les caches</h3>
+<h3 id="les-spram">Les SPRAM</h3>
+<p>Une Scratch-Pad RAM (SPRAM) est une mémoire directe- ment connectée à un coeur
+de processeur. Elle est visible dans l’espace mémoire.</p>
+
+<p>Il est possible d’y accéder en un cycle d’horloge, sans arbitrage.
+Une SPRAM doit être gérée par le logiciel. Les données peuvent être lues/écrites
+par:</p>
+
+<ul>
+  <li>Les instructions LD/ST standards</li>
+  <li>Un DMA interne au processeur</li>
+</ul>
+
+<h3 id="block-ram--bram">Block-RAM : BRAM</h3>
+<p>Une Block-RAM (BRAM) est une mémoire accessible par le bus système. C’est une IP
+esclave accédée par les IPs maîtres.</p>
+
+<p>En général, les BRAM servent aux échanges de données entre les processeurs et
+IPs maîtres.</p>
+
+<h3 id="caches">Caches</h3>
+<p>Les cache (antémémoire) sont des mémoires rapides qui dis- posent d’un mécanisme
+automatique de copie/écriture des données/instructions de la mémoire principale.</p>
+
+<p>Exploite les principes de localité spatiale et temporelle.</p>
+
+<p>Les principaux paramètres d’efficacité
+sont:
+- La taille mémoire
+- La politique de gestion</p>
+
+<p>Le principal critère d’efficacité est le taux de défaut de cache, qui dépend de
+ces paramètres et de l’application.</p>
+
+<p>Temps moyen d’accès=Temps hit+Taux de défaut * Pénalité de défaut</p>
 
 <h1 id="cours-du-071116">Cours du 07/11/16</h1>
 
@@ -1109,7 +1154,7 @@ les switchs.</li>
             <div class="row">
                 <div class="col-lg-12 footer">
                &copy;2017 Lucas Mahieu. All rights reserved. <br />
- Site last generated: Feb 3, 2017 <br />
+ Site last generated: Feb 5, 2017 <br />
 <p><img src="images/company_logo.png" alt="Company logo"/></p>
                 </div>
             </div>

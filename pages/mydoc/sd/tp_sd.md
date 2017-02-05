@@ -1,5 +1,5 @@
 ---
-title: Introduction
+title: TP - Systèmes distribués
 sidebar: mydoc_sidebar
 permalink: tp_sd.html
 folder: mydoc/sd
