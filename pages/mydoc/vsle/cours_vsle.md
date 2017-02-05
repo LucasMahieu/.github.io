@@ -11,6 +11,7 @@ folder: mydoc/vsle
 
 Un bug ça coûte cher, mais peut etre moins cher que de la vérif.   
 Exemple : 
+
 	- Avion = Énormes vérif et controle et norme
 	- Voiture = Pas de normes ... mais ca commence un peu
 	- IoT = Pas de vérif car temps de vie "trop court"
@@ -19,11 +20,13 @@ Difficulté de l'embarqué et de devoir tester avant et en dehors de son context
 Comment savoir si le système fonctionne comme on a prévu qu'il fonctionne.  
 Mais il est aussi difficile de savoir ce que l'on aimerai que le système fasse.  
 La vérification c'est une comparaison entre: 
+
 	- La déscription entre ce que je veux 
 	- Et l'implémentation du système  
 Si non égale, se poser des questions, si oui c'est pas forcement génial !   
 
 Prenons un exemple : 
+
 	* Système de stabilisation d'un avion  -> les mouvement de l'avion doit être pris en compte pour que l'objectif soit atteint de façon sûr. 
 	* ABS d'une voiture -> la voiture dois réagir correctement en sécurité 
 	* Téléphone mobile faisant de la video : Correct = ? -> faut juste que ce que l'on voit soit "beau"
@@ -34,14 +37,13 @@ __Statique ou dynamique ?__
 Statique = Regarder le programme sans le faire tourner
 Dynamique = tout le reste : test à l'exécution, debug etc ...
 
-Est ce que l'on peut savoir si il y a une division par zéro ? 
+- Est ce que l'on peut savoir si il y a une division par zéro ? 
 	* Peut pas être trouvé statiquement !   
-Mon programme a t il besoin d'une mémoire finie ?  
+- Mon programme a t il besoin d'une mémoire finie ?  
 	* Peut pas trop être détecté en statique, sauf si pas d'allocation mémoire, ni de récursion
-Mon programme aura terminé en moins de 3 secondes ?  
+- Mon programme aura terminé en moins de 3 secondes ?  
 	* Indécidable statiquement 
-
-Le type de réponse d'un test de validation serait du type :   
+- Le type de réponse d'un test de validation serait du type :   
 	* Il existe un morceau de code qui plante
 	* Il pourrait y avoir un morceau de code qui fait planter
 	* Pour TOUTES les entrées possible, mon système est correcte.
@@ -51,9 +53,7 @@ Pour savoir si un erreur est accessible par un programme il faut :
 
 * Graph du programme  
 * Graph d'une condition à respecter  
-
 * Faire le produit synchrone des deux  
-
 * Regarder plus finement les liens menant à un état d'erreur pour savoir les transitions sont possibles, et donc si l'état d'erreur est accéssible 
 
 # Cours du 19/10/2016
@@ -61,17 +61,20 @@ Pour savoir si un erreur est accessible par un programme il faut :
 
 ## Introduction
 3 notions de corrections d'erreurs:   
+
 - Propriété générique: débordements arithmétiques, famine, bocage, etc ...   
 - Propriété spécifique: Overflow, etc ...
 - Propriété runtime: manque de mémoire, etc ... 
 
 On peut essayer de raisonner par fonctionnalité : Modèle Fonctionnel   
+
 - S'affranchir du système concret, pour juste raisonner sur les fonctions du sytème    
 - L'exécution d'un système réactif est essentiellement une séquence de réaction entrées/sorites:   
   - Si indéterministe : relation e/s
   - Si déterministe : relation e -> s
 
 Plan du cours:   
+
 - Rappel sur Lustre   
 - Exprimer/Vérifier des propriétés dynamiques: les quelles ? limitations ?   
 - Abstraction finie   
@@ -83,6 +86,7 @@ __Pourquoi Lustre ?__
 Simple, proche des maths, vision par flow de données
 
 Types et opérateurs:   
+
 - Bool, int, real   
 - and, or, not, +, -, * , /, if-then-else  
 - pre  
@@ -98,6 +102,7 @@ Propriété fonctionnelle = ensemble de comportements correct
 Vérifier un propriété fonctionnelle = Vérifier que l'ensemble des comportements possibles est inclus dans l'ensemble des comportent corrects  
 
 Propriété d'invariance(sureté):  
+
 - Propriété d'état:  
 	- Une configuration (ou état) d’un systéme est une valuation particulière des entrées, sorties et mémoires internes du système.  
 	- Une propriété d’état est une relation (i.e. un ensemble) de configurations.  
@@ -246,9 +251,9 @@ avec 4 lignes de caches : [ | | | ]
 Avant le while le cache est [ | |b,d |c,z]
 
 ```
-                   . [||b,d|c,z] ; J([||b,d|c,z],[c|d|a|b]) = [||d|b] 
-                ^     \
-               /      \ e
+                  . [||b,d|c,z] ; J([||b,d|c,z],[c|d|a|b]) = [||d|b] 
+                ^   \
+               /     \ e
                |      . [e|||b,d,z] ; [e|||d] 
                |      |
                |      | b

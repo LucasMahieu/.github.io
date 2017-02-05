@@ -334,52 +334,69 @@ $('#toc').on('click', 'a', function() {
 <p><a href="http://chamilo2.grenet.fr/inp/courses/ENSIMAG5MMVSE/document/TRANSPARENTS/12.10.16.pdf?cidReq=ENSIMAG5MMVSE&amp;id_session=0&amp;gidReq=0&amp;origin=">Lien du cours</a></p>
 
 <p>Un bug ça coûte cher, mais peut etre moins cher que de la vérif. <br />
-Exemple : 
-	- Avion = Énormes vérif et controle et norme
-	- Voiture = Pas de normes … mais ca commence un peu
-	- IoT = Pas de vérif car temps de vie “trop court”</p>
+Exemple :</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>- Avion = Énormes vérif et controle et norme
+- Voiture = Pas de normes ... mais ca commence un peu
+- IoT = Pas de vérif car temps de vie "trop court"
+</code></pre>
+</div>
 
 <p>Difficulté de l’embarqué et de devoir tester avant et en dehors de son contexte normal d’execution.<br />
 Comment savoir si le système fonctionne comme on a prévu qu’il fonctionne.<br />
 Mais il est aussi difficile de savoir ce que l’on aimerai que le système fasse.<br />
-La vérification c’est une comparaison entre: 
-	- La déscription entre ce que je veux 
-	- Et l’implémentation du système<br />
-Si non égale, se poser des questions, si oui c’est pas forcement génial !</p>
+La vérification c’est une comparaison entre:</p>
 
-<p>Prenons un exemple : 
-	* Système de stabilisation d’un avion  -&gt; les mouvement de l’avion doit être pris en compte pour que l’objectif soit atteint de façon sûr. 
-	* ABS d’une voiture -&gt; la voiture dois réagir correctement en sécurité 
-	* Téléphone mobile faisant de la video : Correct = ? -&gt; faut juste que ce que l’on voit soit “beau”
-	* Carte électronique -&gt; il faut connaitre les attaques pour pouvoir se défendre.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>- La déscription entre ce que je veux 
+- Et l'implémentation du système   Si non égale, se poser des questions, si oui c'est pas forcement génial !   
+</code></pre>
+</div>
+
+<p>Prenons un exemple :</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>* Système de stabilisation d'un avion  -&gt; les mouvement de l'avion doit être pris en compte pour que l'objectif soit atteint de façon sûr. 
+* ABS d'une voiture -&gt; la voiture dois réagir correctement en sécurité 
+* Téléphone mobile faisant de la video : Correct = ? -&gt; faut juste que ce que l'on voit soit "beau"
+* Carte électronique -&gt; il faut connaitre les attaques pour pouvoir se défendre.
+</code></pre>
+</div>
 
 <p><strong>Statique ou dynamique ?</strong></p>
 
 <p>Statique = Regarder le programme sans le faire tourner
 Dynamique = tout le reste : test à l’exécution, debug etc …</p>
 
-<p>Est ce que l’on peut savoir si il y a une division par zéro ? 
-	* Peut pas être trouvé statiquement ! <br />
-Mon programme a t il besoin d’une mémoire finie ?<br />
-	* Peut pas trop être détecté en statique, sauf si pas d’allocation mémoire, ni de récursion
-Mon programme aura terminé en moins de 3 secondes ?<br />
-	* Indécidable statiquement</p>
-
-<p>Le type de réponse d’un test de validation serait du type : <br />
-	* Il existe un morceau de code qui plante
-	* Il pourrait y avoir un morceau de code qui fait planter
-	* Pour TOUTES les entrées possible, mon système est correcte.</p>
+<ul>
+  <li>Est ce que l’on peut savoir si il y a une division par zéro ?
+    <ul>
+      <li>Peut pas être trouvé statiquement !</li>
+    </ul>
+  </li>
+  <li>Mon programme a t il besoin d’une mémoire finie ?
+    <ul>
+      <li>Peut pas trop être détecté en statique, sauf si pas d’allocation mémoire, ni de récursion</li>
+    </ul>
+  </li>
+  <li>Mon programme aura terminé en moins de 3 secondes ?
+    <ul>
+      <li>Indécidable statiquement</li>
+    </ul>
+  </li>
+  <li>Le type de réponse d’un test de validation serait du type :
+    <ul>
+      <li>Il existe un morceau de code qui plante</li>
+      <li>Il pourrait y avoir un morceau de code qui fait planter</li>
+      <li>Pour TOUTES les entrées possible, mon système est correcte.</li>
+    </ul>
+  </li>
+</ul>
 
 <p>Pour savoir si un erreur est accessible par un programme il faut :</p>
 
 <ul>
   <li>Graph du programme</li>
-  <li>
-    <p>Graph d’une condition à respecter</p>
-  </li>
-  <li>
-    <p>Faire le produit synchrone des deux</p>
-  </li>
+  <li>Graph d’une condition à respecter</li>
+  <li>Faire le produit synchrone des deux</li>
   <li>Regarder plus finement les liens menant à un état d’erreur pour savoir les transitions sont possibles, et donc si l’état d’erreur est accéssible</li>
 </ul>
 
@@ -387,33 +404,48 @@ Mon programme aura terminé en moins de 3 secondes ?<br />
 <p><a href="http://www-verimag.imag.fr/~raymond/edu/sleverif/slides-verif-sle-po.pdf">lien du cours</a></p>
 
 <h2 id="introduction">Introduction</h2>
-<p>3 notions de corrections d’erreurs: <br />
-- Propriété générique: débordements arithmétiques, famine, bocage, etc … <br />
-- Propriété spécifique: Overflow, etc …
-- Propriété runtime: manque de mémoire, etc …</p>
+<p>3 notions de corrections d’erreurs:</p>
 
-<p>On peut essayer de raisonner par fonctionnalité : Modèle Fonctionnel <br />
-- S’affranchir du système concret, pour juste raisonner sur les fonctions du sytème  <br />
-- L’exécution d’un système réactif est essentiellement une séquence de réaction entrées/sorites: <br />
-  - Si indéterministe : relation e/s
-  - Si déterministe : relation e -&gt; s</p>
+<ul>
+  <li>Propriété générique: débordements arithmétiques, famine, bocage, etc …</li>
+  <li>Propriété spécifique: Overflow, etc …</li>
+  <li>Propriété runtime: manque de mémoire, etc …</li>
+</ul>
 
-<p>Plan du cours: <br />
-- Rappel sur Lustre <br />
-- Exprimer/Vérifier des propriétés dynamiques: les quelles ? limitations ? <br />
-- Abstraction finie <br />
-- Technique d’exploration des systèmes finis<br />
-- Des exemples, exercices, etc …</p>
+<p>On peut essayer de raisonner par fonctionnalité : Modèle Fonctionnel</p>
+
+<ul>
+  <li>S’affranchir du système concret, pour juste raisonner sur les fonctions du sytème</li>
+  <li>L’exécution d’un système réactif est essentiellement une séquence de réaction entrées/sorites:
+    <ul>
+      <li>Si indéterministe : relation e/s</li>
+      <li>Si déterministe : relation e -&gt; s</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Plan du cours:</p>
+
+<ul>
+  <li>Rappel sur Lustre</li>
+  <li>Exprimer/Vérifier des propriétés dynamiques: les quelles ? limitations ?</li>
+  <li>Abstraction finie</li>
+  <li>Technique d’exploration des systèmes finis</li>
+  <li>Des exemples, exercices, etc …</li>
+</ul>
 
 <h2 id="language-lustre">Language Lustre</h2>
 <p><strong>Pourquoi Lustre ?</strong> <br />
 Simple, proche des maths, vision par flow de données</p>
 
-<p>Types et opérateurs: <br />
-- Bool, int, real <br />
-- and, or, not, +, -, * , /, if-then-else<br />
-- pre<br />
-- ‘-&gt;’</p>
+<p>Types et opérateurs:</p>
+
+<ul>
+  <li>Bool, int, real</li>
+  <li>and, or, not, +, -, * , /, if-then-else</li>
+  <li>pre</li>
+  <li>’-&gt;’</li>
+</ul>
 
 <p>Hystéresis: <br />
 Pour ne pas osciller on utilise un système d’hystéresis = seuils de tolérance décalés<br />
@@ -424,14 +456,23 @@ Pour passer de l’état 1 à l’état 2 la condition ne sera pas la même que 
 <p>Propriété fonctionnelle = ensemble de comportements correct <br />
 Vérifier un propriété fonctionnelle = Vérifier que l’ensemble des comportements possibles est inclus dans l’ensemble des comportent corrects</p>
 
-<p>Propriété d’invariance(sureté):<br />
-- Propriété d’état:<br />
-	- Une configuration (ou état) d’un systéme est une valuation particulière des entrées, sorties et mémoires internes du système.<br />
-	- Une propriété d’état est une relation (i.e. un ensemble) de configurations.<br />
-- Propriété de sureté:<br />
-	- Une propriété de sûreté exprime le fait qu’une propriété d’état est invariante au cours du temps.<br />
-	- Ou, de manière équivalente, qu’une configuration (redoutée) n’arrive jamais<br />
-	- n.b. le mot anglais est ≪ safety ≫</p>
+<p>Propriété d’invariance(sureté):</p>
+
+<ul>
+  <li>Propriété d’état:
+    <ul>
+      <li>Une configuration (ou état) d’un systéme est une valuation particulière des entrées, sorties et mémoires internes du système.</li>
+      <li>Une propriété d’état est une relation (i.e. un ensemble) de configurations.</li>
+    </ul>
+  </li>
+  <li>Propriété de sureté:
+    <ul>
+      <li>Une propriété de sûreté exprime le fait qu’une propriété d’état est invariante au cours du temps.</li>
+      <li>Ou, de manière équivalente, qu’une configuration (redoutée) n’arrive jamais</li>
+      <li>n.b. le mot anglais est ≪ safety ≫</li>
+    </ul>
+  </li>
+</ul>
 
 <h2 id="modle-quationnel">Modèle équationnel</h2>
 
@@ -581,9 +622,9 @@ avec 4 lignes de caches : [ | | | ]</p>
   </tbody>
 </table>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>                   . [||b,d|c,z] ; J([||b,d|c,z],[c|d|a|b]) = [||d|b] 
-                ^     \
-               /      \ e
+<div class="highlighter-rouge"><pre class="highlight"><code>                  . [||b,d|c,z] ; J([||b,d|c,z],[c|d|a|b]) = [||d|b] 
+                ^   \
+               /     \ e
                |      . [e|||b,d,z] ; [e|||d] 
                |      |
                |      | b
