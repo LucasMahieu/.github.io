@@ -3,7 +3,7 @@
 entries:
 - title: sidebar
   product: Cours de SLE
-  version: 1.0
+  version: 2.0
   folders:
 
   - title:
@@ -35,9 +35,6 @@ entries:
     - title: Cours
       url: /cours_cea.html
       output: web, pdf
-    - title: TP
-      url: /tp_cea.html
-      output: web, pdf
       
   - title: Conférences technologiques
     output: web, pdf
@@ -47,31 +44,12 @@ entries:
       url: /cours_ct.html
       output: web, pdf
 
-  - title: Droit et informatique
-    output: web, pdf
-    folderitems:
-
-    - title: Notes
-      url: /cours_di.html
-      output: web, pdf
-
-  - title: Etude de cas d'implantation d'un SLE
-    output: web, pdf
-    folderitems:
-
-    - title: Projet
-      url: /cours_ecisle.html
-      output: web, pdf
-
   - title: Modélisation transactionnelle des systèmes sur puces 
     output: web, pdf
     folderitems:
 
     - title: Cours
       url: /cours_mtsoc.html 
-      output: web, pdf
-    - title: TP
-      url: /tp_mtsoc.html
       output: web, pdf
 
   - title: Systèmes distribués
@@ -92,36 +70,11 @@ entries:
     - title: Cours
       url: /cours_sse.html
       output: web, pdf
-    - title: TP
-      url: /tp_sse.html
-      output: web, pdf
 
-  - title: Systèmes temps-réel, modélisation réaliste et implantation multi-taches 
-    output: web, pdf
-    folderitems:
-
-    - title: Cours
-      url: /cours_str.html
-      output: web, pdf
-    - title: TP
-      url: /tp_str.html
-      output: web, pdf
-
-  - title: Tolérance aux fautes
-    output: web, pdf
-    folderitems:
-
-    - title: Cours
-      url: /cours_tf.html
-      output: web, pdf
- 
   - title: Validation des systèmes embarqués 
     output: web, pdf
     folderitems:
 
     - title: Cours
       url: /cours_vsle.html
-      output: web, pdf
-    - title: TP
-      url: /tp_vsle.html 
       output: web, pdf

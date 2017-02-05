@@ -1,6 +1,6 @@
 destination: ./docs
 url: "http://127.0.0.1:4010"
-baseurl: "/docs/"
+baseurl: "/docs"
 port: 4010
 output: pdf
 product: mydoc
