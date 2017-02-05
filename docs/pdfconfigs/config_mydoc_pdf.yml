@@ -1,4 +1,4 @@
-destination: _site/
+destination: docs/
 url: "http://127.0.0.1:4010"
 baseurl: "/mydoc-pdf"
 port: 4010
